@@ -13,9 +13,10 @@ import { RecentActivity } from '../models/RecentActivity';
 })
 export class ProfileService {
 
-  apiUrl = 'https://52.141.211.229/user/api';
-  rootUrl = 'https://52.141.211.229/post/api';
-  followUrl = 'https://52.141.211.229/user/api/following';
+  apiUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User';
+  rootUrl = 'http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post';
+  followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
+  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
 
   constructor(private http: HttpClient) { }
 
@@ -27,26 +28,26 @@ export class ProfileService {
 
   getUserById(id: number): Promise<User>
   {
-    return this.http.get<User>(this.apiUrl + "/user/id/" + id).toPromise();
+    return this.http.get<User>(this.apiUrl + "/id/" + id).toPromise();
   }
   
   getUserByName(username: string): Promise<User> {
-    return this.http.get<User>(this.apiUrl + "/user/username/" + username).toPromise();
+    return this.http.get<User>(this.apiUrl + "/username/" + username).toPromise();
   }
 
   getAllUsers(): Promise<User[]>
   {
-    return this.http.get<[]>(this.apiUrl + "/user/").toPromise();
+    return this.http.get<[]>(this.apiUrl).toPromise();
   }
 
   getAllPosts(): Promise<Root[]>
   {
-    return this.http.get<Root[]>(this.rootUrl + "/post/").toPromise();
+    return this.http.get<Root[]>(this.rootUrl).toPromise();
   }
 
   getAllComments(): Promise<Comment[]>
   {
-    return this.http.get<[]>(this.rootUrl + "/comment/").toPromise();
+    return this.http.get<[]>(this.rootUrl).toPromise();
   }
 
   getFollowedPostByUserId(id: number): Promise<FollowingPost[]>
@@ -56,14 +57,14 @@ export class ProfileService {
 
   //we can use updateUser to follow/unfollow both posts and other users, since both following models are contained within the user
   updateUser(updatedUser: User): Promise<User> {
-    return this.http.post<User>(this.apiUrl+'/user/', updatedUser).toPromise();
+    return this.http.post<User>(this.apiUrl, updatedUser).toPromise();
   }
 
   getRecentActivity(username: string): RecentActivity[]
   {
     var activityList= new Array();
 
-    this.http.get<[]>(this.rootUrl + "/comment/").toPromise().then((result: Comment[]) => {
+    this.http.get<[]>(this.rootUrl).toPromise().then((result: Comment[]) => {
       for(let i = 0; i<result.length; i++){
         if (result[i].userName==username){
           let activityToAdd: RecentActivity= {
@@ -80,7 +81,7 @@ export class ProfileService {
           }
         };
     });
-    this.http.get<[]>(this.rootUrl + "/post/").toPromise().then((result: Root[]) => {
+    this.http.get<[]>(this.rootUrl).toPromise().then((result: Root[]) => {
       for(let i = 0; i<result.length; i++){
         if (result[i].userName==username){
           let activityToAdd: RecentActivity= {
@@ -120,11 +121,11 @@ export class ProfileService {
 }
 
   followPost(followedPost: FollowingPost): Promise<FollowingPost> {
-    return this.http.post<FollowingPost>(this.apiUrl+"/FollowingPost/", followedPost).toPromise();
+    return this.http.post<FollowingPost>(this.followingPostUrl, followedPost).toPromise();
   }
 
   unfollowPost(id: number) {
-    return this.http.delete<FollowingPost>(this.apiUrl+"/FollowingPost/id/"+id).toPromise();
+    return this.http.delete<FollowingPost>(this.apiUrl+"/id/"+id).toPromise();
   }
 
   followUser(follow: Followings): Observable<Followings> {
