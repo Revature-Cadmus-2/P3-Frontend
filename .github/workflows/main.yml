@@ -9,10 +9,12 @@ on:
 
 env:
   WORKING_DIRECTORY: front-end
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -41,6 +43,7 @@ jobs:
           path: ~\sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
+          
       - name: Cache SonarCloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v1
@@ -48,70 +51,58 @@ jobs:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install SonarCloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: powershell
-        run: |
-          New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
-      - name: Restore
-        run: dotnet restore ${{ env.WORKING_DIRECTORY }}
-      - name: Test
-        run: dotnet test ${{ env.WORKING_DIRECTORY }} --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
-
-      - name: Build and analyze
+    
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
-        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Revature-Cadmus-2_P3-Backend-User" /o:"revature-cadmus-2" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/*.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"
-          dotnet build ${{ env.WORKING_DIRECTORY }} --configuration Release
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-  docker:
-      runs-on: ubuntu-latest
-      steps:
-        - 
-          name: Checks out repository
-          uses: actions/checkout@v2.4.0
-        -
-          name: Set up QEMU
-          uses: docker/setup-qemu-action@v1.2.0
-        -
-          name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@v1.6.0
-        -
-          name: Login to DockerHub
-          uses: docker/login-action@v1.10.0 
-          with:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_TOKEN }}
-        -
-          name: Build and push
-          id: docker_build
-          uses: docker/build-push-action@v2.7.0
-          with:
-            push: true
-            tags: yellenick/frontend-tothemoon:${{github.run_number}}
-        - 
-          name: Log into container registry
-          uses: Azure/docker-login@v1
-          with:
-            login-server: index.docker.io
-            username: ${{ secrets.AZ_USERNAME }}
-            password: ${{ secrets.AZ_PASSWORD }}
-        - 
-          name: Set K8 config
-          uses: azure/k8s-set-context@v1.1
-          with:
-            method: kubeconfig
-            kubeconfig: ${{ secrets.KUBE_CONFIG }}
-          id: setcontext
-        -
-          name: Deplying image to K8s
-          uses: Azure/k8s-deploy@v1.3
-          with:
-            manifests: |
-              .github/workflows/tothemoon.yml
-            images: |
-              yellenick/frontend-tothemoon:${{github.run_number}}
+          
+
+#   docker:
+#       runs-on: ubuntu-latest
+#       steps:
+#         - 
+#           name: Checks out repository
+#           uses: actions/checkout@v2.4.0
+#         -
+#           name: Set up QEMU
+#           uses: docker/setup-qemu-action@v1.2.0
+#         -
+#           name: Set up Docker Buildx
+#           uses: docker/setup-buildx-action@v1.6.0
+#         -
+#           name: Login to DockerHub
+#           uses: docker/login-action@v1.10.0 
+#           with:
+#             username: ${{ secrets.DOCKERHUB_USERNAME }}
+#             password: ${{ secrets.DOCKERHUB_TOKEN }}
+#         -
+#           name: Build and push
+#           id: docker_build
+#           uses: docker/build-push-action@v2.7.0
+#           with:
+#             push: true
+#             tags: yellenick/frontend-tothemoon:${{github.run_number}}
+#         - 
+#           name: Log into container registry
+#           uses: Azure/docker-login@v1
+#           with:
+#             login-server: index.docker.io
+#             username: ${{ secrets.AZ_USERNAME }}
+#             password: ${{ secrets.AZ_PASSWORD }}
+#         - 
+#           name: Set K8 config
+#           uses: azure/k8s-set-context@v1.1
+#           with:
+#             method: kubeconfig
+#             kubeconfig: ${{ secrets.KUBE_CONFIG }}
+#           id: setcontext
+#         -
+#           name: Deplying image to K8s
+#           uses: Azure/k8s-deploy@v1.3
+#           with:
+#             manifests: |
+#               .github/workflows/tothemoon.yml
+#             images: |
+#               yellenick/frontend-tothemoon:${{github.run_number}}
