@@ -52,7 +52,7 @@ export class ProfileService {
 
   getFollowedPostByUserId(id: number): Promise<FollowingPost[]>
   {
-    return this.http.get<[]>(this.apiUrl + "/followingpost/userid/"+ id).toPromise();
+    return this.http.get<[]>(this.followingPostUrl + "/userid/"+ id).toPromise();
   }
 
   //we can use updateUser to follow/unfollow both posts and other users, since both following models are contained within the user
