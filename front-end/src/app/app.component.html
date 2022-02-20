@@ -1,4 +1,16 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div *ngIf="(auth.isAuthenticated$ | async) === true">
-  <nav-bar></nav-bar>
+<mat-toolbar class="bg-img">
+  <span><a routerLink="/root"><img src="../../assets/rocket.png" alt="" width="65px"></a></span>
+  <span class="example-spacer" style="flex: 1 1 auto;"></span>
+  <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">Dark Mode</mat-slide-toggle>
+  <a routerLink="/root">
+    <button mat-icon-button class="icon" aria-label="icon-button with home">
+        <mat-icon>home</mat-icon>
+    </button>
+  </a>
+  <app-login-buttons></app-login-buttons>
+  <app-register-button></app-register-button>
+</mat-toolbar>
 </div>
 <router-outlet></router-outlet>
