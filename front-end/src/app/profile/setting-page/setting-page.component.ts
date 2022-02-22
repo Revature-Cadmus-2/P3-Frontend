@@ -6,6 +6,7 @@ import { AuthService} from '@auth0/auth0-angular';
 import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
 import { userInfo } from 'os';
+import { UserCreationService } from 'src/app/service/user-creation.service';
 
 
 @Component({
@@ -16,22 +17,21 @@ import { userInfo } from 'os';
 })
 export class SettingPageComponent implements OnInit {
 
-  currentUser: User = {
-    id: 0,
-    username:"",
-    email: "",
-    name: "",
-    followings: []
-  };
 
-  constructor(private profileService: ProfileService, public auth: AuthService, private router: Router, private http: HttpClient,public amazons3: AmazonS3Service) { }
+
+  constructor(private userService: UserCreationService, private profileService: ProfileService, public auth: AuthService, private router: Router, private http: HttpClient,public amazons3: AmazonS3Service) { }
   selectedFile = null;
   
   ngOnInit(): void {
-    this.auth.user$.subscribe(
-      (user) => (this.currentUser.username = user.preferred_username)
-      )
-      console.log(this.currentUser);
+    this.auth.user$.subscribe((userInfo)=> { 
+      if (userInfo?.nickname==null) {
+        console.log("nothing to show")
+      } else {
+        console.log(userInfo?.nickname);
+        console.log(userInfo);
+
+      }
+    })
   }
   onFileSelected(event){
     
@@ -43,7 +43,19 @@ export class SettingPageComponent implements OnInit {
     
     let imgurl =this.amazons3.uploadFileToS3Bucket(this.selectedFile);
     console.log(imgurl);
-    console.log(this.currentUser);
+    this.auth.user$.subscribe((userInfo)=> { 
+      if (userInfo?.nickname==null) {
+        console.log("nothing to show")
+      } else {
+        console.log(userInfo?.nickname);
+        console.log(userInfo);
+        if(typeof(imgurl)=='string'|| imgurl instanceof String) {
+        // this.userService.AddUserProfilePicture(userInfo?.nickname, imgurl)
+        } else {
+          console.log("not a string");
+        }
+      }
+    })
   }
   
 

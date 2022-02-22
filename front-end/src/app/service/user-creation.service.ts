@@ -27,5 +27,5 @@ export class UserCreationService {
   {
     return this.http.post<User>(this.apiUrl + "/user/", user).toPromise();
   }
-
+  
 }
