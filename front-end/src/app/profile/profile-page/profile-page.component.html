@@ -2,10 +2,6 @@
     <app-follow-button [followId]="id"></app-follow-button>
 </div>
 
-<div>
-    <app-settings></app-settings>
-</div>
-
 <body class="bg">
     <br>
     <div class="greeting container" *ngIf="currentUser.username != profileUser.username; else elseWelcome">

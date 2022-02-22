@@ -25,8 +25,8 @@ describe('BufferComponent', () => {
           [{path: 'root', component: RootComponent}]),
         AuthModule.forRoot(
         {
-          domain: 'dev-b0fxq42a.us.auth0.com',
-          clientId: 'RjcefAYAV8RI8rMHIN1xs6Ni2Y0FxhFy'
+          domain: 'dev-0w--5cqa.us.auth0.com',
+          clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
         })],
       providers: [{ provide: UserCreationService}]
     })

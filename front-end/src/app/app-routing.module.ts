@@ -10,10 +10,6 @@ import { BufferComponent } from './buffer/buffer.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
-import { SettingPageComponent } from './profile/setting-page/setting-page.component';
-import { SettingsComponent } from './profile/settings/settings.component';
-
-
 
 const routes: Routes = [
   { path: 'root', component: RootComponent, canActivate: [AuthGuard] },
@@ -24,9 +20,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'buffer', component: BufferComponent, canActivate: [AuthGuard] },
   { path: 'nest/:id', component: NestedComponent, canActivate: [AuthGuard] },
-  { path: 'read-root/:id', component: ReadRootComponent, canActivate: [AuthGuard] },
-  { path: 'settings-page', component: SettingPageComponent, canActivate: [AuthGuard]},
-  {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]}
+  { path: 'read-root/:id', component: ReadRootComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
