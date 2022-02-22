@@ -25,6 +25,7 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+import { GroupsComponent } from './groups/groups.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
+    GroupsComponent,
   ],
   imports: [
     BrowserModule,
