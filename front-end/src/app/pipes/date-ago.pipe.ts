@@ -12,6 +12,7 @@ export class DateAgoPipe implements PipeTransform {
       if (seconds < 29) // less than 30 seconds ago will show as 'Just now'
         return 'Just now';
       const intervals = {
+        
         'year': 31536000,
         'month': 2592000,
         'week': 604800,
