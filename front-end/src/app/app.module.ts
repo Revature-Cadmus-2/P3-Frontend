@@ -25,6 +25,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+import { SettingsComponent } from './profile/settings/settings.component';
+import { SettingPageComponent } from './profile/setting-page/setting-page.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
+    SettingsComponent,
+    SettingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +60,8 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     RouterModule.forRoot([]),
     FormsModule,
     AuthModule.forRoot({
-      domain: 'dev-0w--5cqa.us.auth0.com',
-      clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
+      domain: 'dev-b0fxq42a.us.auth0.com',
+      clientId: 'Hp374kDB7mqFHtv2tYvbE0g2IS6zQwum'
     }),
   ],
   providers: [],

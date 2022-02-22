@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
 import { UserCreationService } from '../service/user-creation.service';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     //empty on purpose
+    this.auth.user$.subscribe((userInfo)=> { 
+      if (userInfo?.nickname==null) {
+        console.log("nothing to show")
+      } else {
+        console.log(userInfo?.nickname);
+        console.log(userInfo);
+      }
+    })
   }
+
 
   Loginfunc(){
     this.auth.loginWithRedirect({ appState: { target: '/buffer' } });
