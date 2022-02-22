@@ -1,4 +1,13 @@
-<div class="card col box">
+<mat-card>
+    <mat-card-title>Followed Users</mat-card-title>
+    <mat-card-content>
+        <ul *ngFor="let follower of followedList" >
+            <li routerLink="/profile/{{follower.followingUserId}}">{{follower.followingUserName}}</li>
+        </ul>
+    </mat-card-content>
+</mat-card>
+
+<!-- <div class="card col box">
     <table aria-describedby="testing">
         <th scope="col">
             <h1 id = "testing">Followed Users</h1>
@@ -13,4 +22,4 @@
             <td>No Followers!</td>
         </tr>
     </table>
-</div>
+</div> -->

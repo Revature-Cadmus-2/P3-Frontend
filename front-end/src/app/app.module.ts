@@ -34,6 +34,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { DialogComponent } from './dialog/dialog.component';
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatCardModule } from "@angular/material/card";
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
