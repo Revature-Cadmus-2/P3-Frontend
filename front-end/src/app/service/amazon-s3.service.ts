@@ -12,7 +12,7 @@ export class AmazonS3Service {
 
   constructor( private http: HttpClient) { }
   accessKeyID = "AKIATC6YQL2BJ2ENSAVL"
-  //secretAccessKey = "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"
+  
   secretAccessKey = ""
   key = this.http.get("assets/Key.txt" , { responseType: 'text' }).subscribe(data => {
     this.secretAccessKey = data;
