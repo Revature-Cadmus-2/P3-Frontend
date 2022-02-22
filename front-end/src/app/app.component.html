@@ -1,14 +1,15 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div *ngIf="(auth.isAuthenticated$ | async) === true">
-<mat-toolbar class="bg-img">
-  <span><a routerLink="/root"><img src="../../assets/rocket.png" alt="" width="65px"></a></span>
+<mat-toolbar>
+  <span><a class="logo" routerLink="/root"><img src="../../assets/rocket.png" alt="" width="65px"></a></span>
+  <img class="name" src="../assets/logoteal.png.png" alt="">
   <span class="example-spacer" style="flex: 1 1 auto;"></span>
-  <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">Dark Mode</mat-slide-toggle>
-  <a routerLink="/root">
-    <button mat-icon-button class="icon" aria-label="icon-button with home">
-        <mat-icon>home</mat-icon>
-    </button>
-  </a>
+  <mat-icon>wb_twilight</mat-icon>
+  <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode"></mat-slide-toggle>
+  <mat-icon>bedtime</mat-icon>
+  <button mat-icon-button class="icon" aria-label="icon-button with home" routerLink="/root">
+      <mat-icon>home</mat-icon>
+  </button>
   <app-login-buttons></app-login-buttons>
   <app-register-button></app-register-button>
 </mat-toolbar>

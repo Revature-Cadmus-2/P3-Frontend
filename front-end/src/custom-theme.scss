@@ -2,19 +2,19 @@
 @include mat-core();
 
 $mat-primary-scheme: (
-  100: #c5cae9,
-  500: #61699a,
-  700: #303f9f,
+  200: #BB86FC,
+  500: #6200EE,
+  700: #3700B3,
   contrast: (
     100: rgba(0, 0, 0, 0.87),
-    500: #ffffff,
-    700: #ffffff,
+    500: #FBFDFE,
+    700: #FBFDFE,
   ),
 );
 $mat-accent-scheme: (
-  100: #ff80ab,
-  500: #ff4081,
-  700: #f50057,
+  200: #03DAC5,
+  500: hsl(174, 97%, 36%),
+  700: #019182,
   contrast: (
     100: rgba(0, 0, 0, 0.87),
     500: rgba(0, 0, 0, 0.87),
@@ -28,7 +28,7 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
 
 .light-mode {
   @include angular-material-theme($app-light-theme);
-  background-color: white;
+  background-color: #FBFDFE;
 }
 
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);

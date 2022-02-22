@@ -33,7 +33,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
 import { DialogComponent } from './dialog/dialog.component';
 import { MatIconModule } from "@angular/material/icon";
-import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 
 @NgModule({
