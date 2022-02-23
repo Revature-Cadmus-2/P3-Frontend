@@ -1,31 +1,25 @@
 .container-fluid {
     padding: 0;
-    background-color: #f7f2ff;
+    /*background-color: #f7f2ff;*/
     background-size: cover;
 }
 
-#left {
-    background-color: #f7f2ff;
-}
 
 #center {
     padding-top: 20px;
     margin: 0 auto;
 }
 
-#right {
-    background-color: #f7f2ff;
-}
 
 span {
     font-size: 16px;
-    color: black;
+    /* color: black; */
     font-weight: bold;
 }
 
 p {
-    font-size: 14px;
-    color: rgba(20, 20, 20, 0.8);
+    font-size: 16px;
+    /* color: rgba(20, 20, 20, 0.8); */
 }
 
 #follow-post-btn {
@@ -37,7 +31,7 @@ p {
     border: 1px solid rgb(100, 100, 100);
     border-radius: 5px;
     margin-bottom: 1vh;
-    background-color: white;
+    /*background-color: white;*/
 }
 
 h1 {
@@ -62,4 +56,5 @@ h1 {
 
 h5 {
     padding-left: 1vw;
+    font-size: 14px;
 }

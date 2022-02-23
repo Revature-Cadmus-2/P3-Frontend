@@ -5,6 +5,7 @@ import { Root } from 'src/app/models/root';
 import { FollowingPost } from 'src/app/models/FollowingPost';
 import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
+import { MatCardModule } from "@angular/material/card";
 
 @Component({
   selector: 'app-followed-posts',

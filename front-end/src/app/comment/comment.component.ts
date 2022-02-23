@@ -8,6 +8,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Vote } from '../models/vote';
 import { User } from '../models/user';
 import { ProfileService } from '../service/profile.service';
+import { MatFormField, MatFormFieldModule } from "@angular/material/form-field"
 
 @Component({
   selector: 'app-comment',

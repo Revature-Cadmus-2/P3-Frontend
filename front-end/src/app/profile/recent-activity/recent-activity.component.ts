@@ -5,6 +5,8 @@ import { RecentActivity } from 'src/app/models/RecentActivity';
 import { Root } from 'src/app/models/root';
 import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
+import { MatCardModule } from "@angular/material/card";
+
 
 @Component({
   selector: 'app-recent-activity',

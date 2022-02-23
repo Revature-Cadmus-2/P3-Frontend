@@ -1,22 +1,43 @@
-
-.box {
+::ng-deep .mat-card{
+    border: 2px solid #BB86FC;
+    border-bottom: 2px solid #BB86FC;
+}
+.card-title{
+    background-color: #3700B3;
+    color: white;
+    padding: 0%;
+    border: 5px solid #3700B3;
+    border-bottom: 10px solid #3700B3;
+}
+ul{
+    list-style-type: none;
+}
+.follow-name{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.follow-name:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+}
+/* .box {
     margin-left: 5px;
     margin-right: 5px;
-    background-color: #291A4A;
+    background-color: #3700B3;
 }
 
 .card {
     text-align: center;
     padding: 0%;
-    border: 5px solid #291A4A;
-    border-bottom: 10px solid #291A4A;
+    border: 5px solid #3700B3;
+    border-bottom: 10px solid #3700B3;
     box-shadow: 5px 5px 5px grey;
 }
 
 .card h1 {
     font-size: 25px;
-    background-color: #291A4A;
-    border-bottom: 5px solid #291A4A;
+    background-color: #3700B3;
+    border-bottom: 5px solid #3700B3;
     font-weight: bold;
     color: white;
     margin-bottom: 0px;
@@ -35,9 +56,9 @@
 }
 
 .card td:hover{
-    background-color: #986AA8;
+    background-color: #bb86FC;
     text-align: center;
     color: white;
     font-weight: bold;
-}
+} */
 
