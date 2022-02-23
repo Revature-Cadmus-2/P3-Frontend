@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-groups',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  createNewGroups(): void {
+    console.log("Requesting to create new group.")
+    this.router.navigateByUrl('create-group');
+  }
 }

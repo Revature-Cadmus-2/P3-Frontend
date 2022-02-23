@@ -107,5 +107,10 @@ export class RootComponent implements OnInit {
       this.roots = result;
     })
   }
+  
+  sortGroupPosts(): void {
+    console.log("You clicked me")
+    }
+  }
 
-}
+// }

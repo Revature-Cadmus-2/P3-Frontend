@@ -10,7 +10,7 @@
             </div>
             <div class="col">
                 <a class="btn btn-primary" id="create-btn" role="button" routerLink="/groups/"><em
-                    class="fa fa-plus"></em> View Groups</a>
+                    class="fa fa-plus"></em> My Groups</a>
         
                 <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em
                 class="fa fa-plus"></em> Create
@@ -59,7 +59,7 @@
                             (click)="sortOldest()"><em
                                 class="fa fa-hourglass-end"></em>
                             Oldest</button>
-                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"><em
+                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn" (click)="sortGroupPosts()"><em
                                 class="fa fa-hourglass-end"></em>
                             Groups</button>
                     </div>

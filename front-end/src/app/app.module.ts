@@ -26,6 +26,7 @@ import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
 import { GroupsComponent } from './groups/groups.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { GroupsComponent } from './groups/groups.component';
     NestedComponent,
     ReadRootComponent,
     GroupsComponent,
+    CreateGroupComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class RootServiceService {
   private rootUrl_1: string = "http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Comment";
   private rootUrl_2: string = "http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Vote";
   private userUrl: string = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User";
+  private groupUrl: string = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Group";
 
   story: string[]
 
