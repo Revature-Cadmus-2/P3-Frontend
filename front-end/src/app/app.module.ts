@@ -56,8 +56,8 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     RouterModule.forRoot([]),
     FormsModule,
     AuthModule.forRoot({
-      domain: 'dev-0w--5cqa.us.auth0.com',
-      clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
+      domain: 'dev-b0fxq42a.us.auth0.com',
+      clientId: 'Hp374kDB7mqFHtv2tYvbE0g2IS6zQwum'
     }),
   ],
   providers: [],

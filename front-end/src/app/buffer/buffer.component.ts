@@ -14,8 +14,6 @@ import { Router } from '@angular/router';
 export class BufferComponent implements OnInit {
   flag: boolean = false;
 
-
-
   constructor(private auth: AuthService, private http: HttpClient, public _userService: UserCreationService, private router: Router) { }
 
   userList: User[];
@@ -32,7 +30,8 @@ export class BufferComponent implements OnInit {
         this._userService.getUserByName(profile.preferred_username).then((result: User) => {
           if (result == null)
           {
-            this._userService.AddObject(this.user)
+            let x = this._userService.AddObject(this.user)
+            console.log(x)
           }
         })
         this.router.navigateByUrl('/root');
