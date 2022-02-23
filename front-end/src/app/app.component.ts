@@ -21,4 +21,21 @@ export class AppComponent {
       this.themeService.update('dark-mode');
     }
   }
+
+  saveData(){
+    this.auth.user$.subscribe((userInfo)=> { 
+      if (userInfo?.username==null) {
+        console.log("nothing to show")
+      } else {
+        console.log(userInfo?.username);
+        console.log(userInfo);
+        sessionStorage.setItem('username', userInfo?.username);
+        
+      }
+    })
+  }
+ 
+  getData(){
+    return sessionStorage.getItem('username');
+  }
 }
