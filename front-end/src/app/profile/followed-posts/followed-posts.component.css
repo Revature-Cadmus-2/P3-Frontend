@@ -1,5 +1,4 @@
 .card-title{
-<<<<<<< HEAD
     /* background-color: #3700B3; */
     /* color: white; */
     padding: 0%;
@@ -45,9 +44,6 @@ h3{
     background-color: #3700B3;
     border-bottom: 5px solid #3700B3;
     font-weight: bold;
-=======
-    background-color: #3700B3;
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
     color: white;
     padding: 0%;
 }
@@ -63,7 +59,6 @@ ul {
     padding: 10px;
     font-size: 20px;
 }
-<<<<<<< HEAD
 
 .card td:hover{
     background-color: #BB86FC;
@@ -73,17 +68,3 @@ ul {
 } */
 
 
-=======
-.follow-name:hover{
-    background-color: #bb86FC;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-h3{
-    font-family: Rubik, sans-serif;
-    font-size: 25px;
-    padding: 10px;
-    letter-spacing: 1px;
-}
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01

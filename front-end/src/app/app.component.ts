@@ -60,8 +60,4 @@ export class AppComponent {
     var username = sessionStorage.getItem('username');
     console.log(username);
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01

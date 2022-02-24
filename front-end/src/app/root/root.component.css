@@ -1,13 +1,5 @@
 /* .container-fluid {
     padding: 0;
-<<<<<<< HEAD
-    /*background-color: #f7f2ff;*/
-}
-
-.container {
-    /*background-color: white;*/
-}
-=======
     background-color: #f7f2ff;
 } */
 
@@ -18,20 +10,16 @@
 /* #left {
     background-color: #f7f2ff;
 } */
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
 
 #center {
     padding-top: 20px;
     margin: 0 auto;
 }
 
-<<<<<<< HEAD
-=======
 /* #right {
     background-color: #f7f2ff;
 } */
 
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
 #username-span {
     font-size: 1.5rem;
     font-weight: bold;

@@ -31,18 +31,11 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
-<<<<<<< HEAD
-import { MatIconModule } from "@angular/material/icon";
-import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
-import { DialogComponent } from './dialog/dialog.component';
-import { MatCardModule } from "@angular/material/card";
-=======
 import { DialogComponent } from './dialog/dialog.component';
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
 
 
 @NgModule({
@@ -67,10 +60,7 @@ import { UsersFollowerListComponent } from './profile/users-follower-list/users-
     NestedComponent,
     ReadRootComponent,
     DialogComponent,
-<<<<<<< HEAD
-=======
     UsersFollowerListComponent,
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
   ],
   imports: [
     BrowserModule,

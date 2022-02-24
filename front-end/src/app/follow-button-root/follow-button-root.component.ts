@@ -47,27 +47,6 @@ export class FollowButtonRootComponent implements OnInit {
         (profile) => (this.currentUser.username = profile.preferred_username))
 
       this.auth.user$.subscribe((user) => {
-<<<<<<< HEAD
-        // if (user?.preferred_username) {
-        //   this.currentUser.username = user.preferred_username;
-        //   this.profileService.getUserByName(this.currentUser.username).then((result: User) => {
-        //     this.currentUser= result;
-            
-        // // this.isFollow = this.profileService.checkFollowingPost(this.id, this.currentUser.id);
-        // this.profileService.getFollowedPostByUserId(this.currentUser.id).then((result: FollowingPost[]) => {
-        //   let listOfFollowings = result;
-        //   for(let i = 0; i < listOfFollowings.length; i++){
-        //     if (listOfFollowings[i].rootId == this.id){
-        //       this.isFollow = true;
-              
-        //       this.followingId=listOfFollowings[i].id;
-        //       break;
-        //     }
-        //   }
-        // })    
-        //   });
-        // }
-=======
       //   if (user?.preferred_username) {
       //     this.currentUser.username = user.preferred_username;
       //     this.profileService.getUserByName(this.currentUser.username).then((result: User) => {
@@ -87,7 +66,6 @@ export class FollowButtonRootComponent implements OnInit {
       //   })    
       //     });
       //   }
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
       })
     }  
   }

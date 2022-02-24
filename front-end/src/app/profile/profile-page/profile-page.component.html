@@ -2,31 +2,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
 
-<<<<<<< HEAD
-<br>
-    <div class="greeting container" *ngIf="currentUser.username != profileUser.username; else elseWelcome">
-        <p>Welcome to {{profileUser.username}}'s Page</p>
-    </div>
-    <div>
-        <ng-template #elseWelcome>
-            <p class="greeting">Hello, {{currentUser.username}}</p>
-        </ng-template>
-    </div>
-    <br>
-    <div class="container">
-        <div class="row center-text">
-            <div class="col">
-                <app-recent-activity [username]="profileUser.username"></app-recent-activity>
-            </div>
-            <div class="col">
-                <app-list-of-followers [id]="id"></app-list-of-followers>
-            </div>
-            <div class="col">
-                <app-followed-posts [id]="id"></app-followed-posts>
-            </div>
-        </div>
-    </div>
-=======
 <div *ngIf="sessionUserName != profileUser.username">
     <app-follow-button [followId]="id" ></app-follow-button>
 </div>
@@ -55,4 +30,3 @@
         </div>
     </div>
 </div>
->>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
