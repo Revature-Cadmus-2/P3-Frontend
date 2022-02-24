@@ -11,9 +11,7 @@ ul {
 }
 
 .activity-name{
-    font-family: Rubik, sans-serif;
-    padding: 10px;
-    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .activity-name:hover{
     background-color: #bb86FC;
