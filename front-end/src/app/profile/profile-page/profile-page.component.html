@@ -2,7 +2,7 @@
     <app-follow-button [followId]="id"></app-follow-button>
 </div>
 
-
+<br>
     <div class="greeting container" *ngIf="currentUser.username != profileUser.username; else elseWelcome">
         <p>Welcome to {{profileUser.username}}'s Page</p>
     </div>
