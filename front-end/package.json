@@ -21,16 +21,12 @@
     "@angular/router": "~12.2.0",
     "@auth0/auth0-angular": "^1.9.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
-<<<<<<< Updated upstream
-    "auth0": "^2.37.0",
-    "aws": "^0.0.3-2",
-    "aws-sdk": "^2.1079.0",
-=======
+
     "auth0": "^2.40.0",
     "auth0-angular": "^4.2.7",
     "aws": "^0.0.3-2",
     "aws-sdk": "^2.1081.0",
->>>>>>> Stashed changes
+
     "bootstrap": "^4.5.0",
     "dateformat": "^5.0.2",
     "json-server": "^0.17.0",
