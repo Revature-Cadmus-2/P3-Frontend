@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Root } from '../models/root';
 import { AuthService } from '@auth0/auth0-angular';
 import { RootServiceService } from '../service/root-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-post',
@@ -12,7 +13,7 @@ import { RootServiceService } from '../service/root-service.service';
 })
 export class CreatePostComponent implements OnInit {
 
-  constructor(private router: Router, public auth: AuthService, private rService: RootServiceService) { }
+  constructor(private router: Router, public auth: AuthService, private rService: RootServiceService, private toastr: ToastrService) { }
 
   root: Root = {
     id: 0,
@@ -35,7 +36,10 @@ export class CreatePostComponent implements OnInit {
 
       this.root.dateTime = new Date()
       this.rService.addRoot(this.root).then(res => {
-        alert("Post successfully created")
+       // alert("Post successfully created")
+       this.toastr.success( 'You Successfully Created a Post','Post Notification', {
+        timeOut: 2000,
+      } ); //Notification for displaying Successfully Posted. GM
         this.router.navigateByUrl('root');
       })
 

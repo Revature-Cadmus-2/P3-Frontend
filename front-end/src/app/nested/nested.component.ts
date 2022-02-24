@@ -6,6 +6,7 @@ import { RootServiceService } from '../service/root-service.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { Vote } from '../models/vote';
 import { Root } from '../models/root';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nested',
@@ -14,7 +15,7 @@ import { Root } from '../models/root';
 })
 export class NestedComponent implements OnInit {
 
-  constructor(public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, public auth: AuthService, private cdr: ChangeDetectorRef) { }
+  constructor(public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, public auth: AuthService, private cdr: ChangeDetectorRef, private toastr: ToastrService) { }
 
   id = 0;
   user: string = '';
@@ -88,7 +89,10 @@ export class NestedComponent implements OnInit {
       this.comment.rootId = this.root.rootId;
 
       this.rootService.addComment(this.comment).then(res => {
-        alert("Comment successfully created")
+       // alert("Comment successfully created")
+       this.toastr.success( 'You Successfully Commented','Comment Notification', {
+        timeOut: 2000,
+      } ); //Notification for displaying Successfully Commented. GM
         location.reload()
       })
     })

@@ -25,6 +25,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,13 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     NgbModule,
     RouterModule.forRoot([]),
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ //For the Notifications
+      timeOut: 1000, //time is in milliseconds
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true,
+    }),
     AuthModule.forRoot({
       domain: 'dev-0w--5cqa.us.auth0.com',
       clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'

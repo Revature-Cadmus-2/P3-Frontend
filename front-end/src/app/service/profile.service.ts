@@ -7,6 +7,7 @@ import { FollowingPost } from '../models/FollowingPost';
 import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
+import { FollowedBy } from '../models/FollowedBy';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class ProfileService {
   apiUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User';
   rootUrl = 'http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post';
   followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
-  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
+  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost';
+  followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy'
 
   constructor(private http: HttpClient) { }
 
@@ -134,6 +136,16 @@ export class ProfileService {
 
   unfollowUser(followId: number): Observable<Followings> {
     return this.http.delete<Followings>(this.followUrl + "/id/"+ followId);
+  }
+
+  // For the people that are following the user Garrett
+  followedbyUser(followedby: FollowedBy): Observable<FollowedBy> {
+    return this.http.post<FollowedBy>(this.followedByUrl, followedby);
+  }
+
+  // for unfollowing the user Garrett
+  unfollowedbyUser(followedbyId: number): Observable<FollowedBy> {
+    return this.http.delete<FollowedBy>(this.followedByUrl + "/id/"+ followedbyId);
   }
 
 }

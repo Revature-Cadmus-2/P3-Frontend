@@ -2,8 +2,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ProfileService } from 'src/app/service/profile.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { Followings } from 'src/app/models/Followings';
+import { FollowedBy } from 'src/app/models/FollowedBy';
 import { User } from 'src/app/models/user';
 import { LogicalProjectPath } from '@angular/compiler-cli/src/ngtsc/file_system';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-follow-button',
@@ -15,8 +18,18 @@ export class FollowButtonComponent implements OnInit {
   isFollow = false;
   followingId = 0;
   @Input() follower: Followings;
+  @Input() followedingby: FollowedBy;
   @Input() followId = 0;
+  @Input() followedbyId = 0;
   @Output() toggle = new EventEmitter<boolean>();
+
+  //For the people following the user.
+  followedby : FollowedBy = { 
+    id: 0,
+    followersId: 0,
+    userId: 0,
+    followersUserName: ''
+  };
 
   followedUser: Followings = {
     id: 0,
@@ -33,7 +46,7 @@ export class FollowButtonComponent implements OnInit {
     followings: []
   };
 
-  constructor(private profileService: ProfileService, public auth: AuthService) { }
+  constructor(private profileService: ProfileService, public auth: AuthService, private toastr: ToastrService ) { }
 
   ngOnInit(): void {
     if(this.auth.isAuthenticated$){
@@ -58,7 +71,9 @@ export class FollowButtonComponent implements OnInit {
         }
       })
     }
+  
   }
+
 
   ngOnChanges(){
     this.isFollow= false;
@@ -93,6 +108,22 @@ export class FollowButtonComponent implements OnInit {
         }
       );
     })
+    // FOLLOWED BY: adds who you are followed by. Garrett
+    this.profileService.getUserById(this.followId).then((result: User) => {
+    this.followedby.followersUserName=this.currentUser.username;
+    this.followedby.followersId= this.currentUser.id;
+    this.followedby.userId=this.followId;
+    this.profileService.followedbyUser(this.followedby).subscribe(
+      data => {
+        this.isFollow = true;
+        this.ngOnInit();
+      }
+    );
+    })
+ 
+    this.toastr.success( 'You Followed Someone','Follow Notification', {
+      timeOut: 2000, //timeout:2000 = 2 seconds
+    } ); //Notification for displaying when you follow someone. Garrett
     } else if (!this.isFollow) {
       this.profileService.unfollowUser(this.followedUser.id).subscribe(
         data => {
@@ -104,6 +135,10 @@ export class FollowButtonComponent implements OnInit {
           this.followedUser.followingUserName=''
         }
       );
+      this.toastr.success( 'You Unfollowed Someone','Follow Notification', {
+        timeOut: 2000,
+      } ); //Notification for displaying when you unfollow someone. Garrett
     }
   }
+  
 }
