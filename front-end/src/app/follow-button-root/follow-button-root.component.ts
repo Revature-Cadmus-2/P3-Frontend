@@ -52,21 +52,12 @@ export class FollowButtonRootComponent implements OnInit {
       //     this.profileService.getUserByName(this.currentUser.username).then((result: User) => {
       //       this.currentUser= result;
             
-<<<<<<< HEAD
       //   // this.isFollow = this.profileService.checkFollowingPost(this.id, this.currentUser.id);
       //   this.profileService.getFollowedPostByUserId(this.currentUser.id).then((result: FollowingPost[]) => {
       //     let listOfFollowings = result;
       //     for(let i = 0; i < listOfFollowings.length; i++){
       //       if (listOfFollowings[i].rootId == this.id){
       //         this.isFollow = true;
-=======
-        this.isFollow = this.profileService.checkFollowingPost(this.id, this.currentUser.id);
-        this.profileService.getFollowedPostByUserId(this.currentUser.id).then((result: FollowingPost[]) => {
-          let listOfFollowings = result;
-          for(let i = 0; i < listOfFollowings.length; i++){
-            if (listOfFollowings[i].rootId == this.id){
-              this.isFollow = true;
->>>>>>> 83ac2e32abe09b1e682ea643ea3f7ca889512718
               
       //         this.followingId=listOfFollowings[i].id;
       //         break;

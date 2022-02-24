@@ -33,11 +33,7 @@ export class BufferComponent implements OnInit {
           console.log('buffer component...', result);
           if (result == null)
           {
-<<<<<<< HEAD
             this._userService.AddObject(this.user).then((addedUser: User) => {
-=======
-              this._userService.AddObject(this.user).then((addedUser: User) => {
->>>>>>> 83ac2e32abe09b1e682ea643ea3f7ca889512718
               this.router.navigateByUrl('/root');
             })
           }
