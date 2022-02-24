@@ -39,31 +39,21 @@ export class ProfilePageComponent implements OnInit {
         const sessionUserName = sessionStorage.getItem('username');
         console.log(sessionUserName+'this is my sessions storage preferred username in *****');
     
-        if(this.auth.isAuthenticated$){
-
+  if(this.auth.isAuthenticated$){
     this.auth.user$.subscribe(
         (profile) => (this.currentUser.username = sessionUserName)
         )
-        console.log();
-
         this.currentRoute.params.subscribe(params => {
-          this.id = params['id'];
-    
-          this.profileService.getUserById(this.id).then((result: User) => {
+        this.id = params['id'];
+        this.profileService.getUserById(this.id).then((result: User) => {
             this.profileUser= result;
           });
         });
         this.auth.user$.subscribe((user) => {
-          if (user?.username) {
+          if (user?.sessionUserName) {
             this.currentUser.username = sessionUserName;
           }
       })
     }
-
   }
-  // getData(){
-  //   var username = sessionStorage.getItem('username');
-  //   console.log(username);
-  //   return sessionStorage.getItem('username');
-  // }
 }

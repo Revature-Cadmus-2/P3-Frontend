@@ -2,22 +2,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
 
-<div *ngIf="currentUser.username != sessionUserName">
+<div *ngIf="sessionUserName != profileUser.username">
     <app-follow-button [followId]="id" ></app-follow-button>
 </div>
-<div class="greeting container" *ngIf="currentUser.username != sessionUserName; else elseWelcome">
-    <h1>Welcome to {{sessionUserName}}'s Page</h1>
+<div class="greeting container" *ngIf="sessionUserName != profileUser.username; else elseWelcome">
+    <h1>Welcome to {{profileUser.username}}'s Page</h1>
 </div>
 <div>
     <ng-template #elseWelcome>
-        <h1 class="greeting">Hello, {{currentUser.username}}</h1>
+        <h1 class="greeting">Hello, {{sessionUserName}}</h1>
     </ng-template>
 </div>
 <br>
 <div class="container">
     <div class="row center-text">
         <div class="col">
-            <app-recent-activity [username]="sessionUserName"></app-recent-activity>
+            <app-recent-activity [username]="profileUser.username"></app-recent-activity>
         </div>
         <div class="col">
             <app-list-of-followers [id]="id"></app-list-of-followers>
