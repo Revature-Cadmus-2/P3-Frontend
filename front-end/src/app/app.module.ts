@@ -25,8 +25,13 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+<<<<<<< Updated upstream
 import { SettingsComponent } from './profile/settings/settings.component';
 import { SettingPageComponent } from './profile/setting-page/setting-page.component';
+=======
+import { SettingsButtonComponent } from './profile/settings-button/settings-button.component';
+import { SettingsPageComponent } from './profile/settings-page/settings-page.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -49,8 +54,13 @@ import { SettingPageComponent } from './profile/setting-page/setting-page.compon
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
+<<<<<<< Updated upstream
     SettingsComponent,
     SettingPageComponent,
+=======
+    SettingsButtonComponent,
+    SettingsPageComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,6 @@ export class ProfileService {
   followUrl = 'https://52.141.211.229/user/api/following';
 
   constructor(private http: HttpClient) { }
-
 
   // getAll(): Observable<any> {
   //   return this.http.get(this.apiUrl + '_sort=id&order=desc')
