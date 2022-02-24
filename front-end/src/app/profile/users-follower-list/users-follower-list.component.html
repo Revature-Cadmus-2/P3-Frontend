@@ -1,0 +1,17 @@
+<div class="card col box">
+    <table aria-describedby="testing">
+        <th scope="col">
+            <h1 id = "testing">Followers </h1>
+            <!-- <h1>{{followersList.length}}</h1> -->
+        </th>
+        <caption hidden>
+            The list of people following you.
+        </caption>
+        <tr *ngFor="let userFollowers of followersList" id="visual">
+            <td class="edit" routerLink="/profile/{{userFollowers.userId}}"> {{userFollowers.followersUserName}}</td>
+        </tr>
+        <tr *ngIf="(followersList== undefined|| followersList.length == 0)">
+            <td>No Followers!</td>
+        </tr>
+    </table>
+</div>

@@ -22,7 +22,9 @@ export class ProfilePageComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   };
   test = 0;
 
@@ -31,7 +33,9 @@ export class ProfilePageComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   };
   sessionUserName = sessionStorage.getItem('username');
   ngOnInit(): void {
