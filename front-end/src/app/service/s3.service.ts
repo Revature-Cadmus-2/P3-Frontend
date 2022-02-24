@@ -10,7 +10,7 @@ import * as S3 from 'aws-sdk/clients/s3';
 export class S3Service {
 
   constructor(private http: HttpClient) { }
-  accessKeyID = "AKIATC6YQL2BCLXIFA4A"
+  accessKeyID = "AKIATC6YQL2BHJSIC3OM"
   
   secretAccessKey = ""
   key = this.http.get("assets/Key.txt" , { responseType: 'text' }).subscribe(data => {
