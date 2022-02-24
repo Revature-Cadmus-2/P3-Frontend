@@ -1,19 +1,18 @@
-# Cadmus
+# Apollo
 
 ## Overview
-Cadmus is a social media application that creates a platform for users to collaborate in a creative environment that boasts a polymorphic method of story writing. Cadmus allows users to interact and share ideas, like Cadmus of Greek myth, bringing new language and writing to new readers. Enabling them to create, embellish, and add to the story through comments on the root post. Users can vote on comments and follow their favorite stories to keep the story going. This lets users create their own mythos that, like those of ancient Greece, can be retold and changed throughout the ages.
-
+Apollo is a social media application that allows users to collaborate together in a unique approach to story telling. Designed with user experience and social elements in mind, Apollo is revolutionizing the way friends interact with one another online. Users can create a new story line, embellish upon other users storylines, or simply just enjoy the collaborative process. Features include posting, adding to other user’s posts, commenting, liking, following users and posts, and more. 
 
 ## MVP
 
-- User Registeration
-- User Log in
-- Route Root post
-- Comment on root post 
-- Follow posts
-- Vote on post
-- Display following post in my feed
-- Deployed to Web
+- Password Reset
+- Upload Profile Picture
+- Bookmark Posts
+- Toggle Between Light/Dark Mode 
+- Receive Notifications on Social Interactions
+- Participate in a Daily Communinty Story
+- Create/Join Private Groups
+- Refactor Pre-existing Code
 
 
 ## User Stories
@@ -26,15 +25,20 @@ As a user,
 - I should have a post feed that displays other user's posts.
 - I should be able to vote on another user's post.
 - I should be able to follow another user to see their posts on my feed.
+- I should be able to reset my password.
+- I should be able to upload and change my profile picture.
+- I should be able to bookmark and save a story.
+- I should be able to receive notifications when someone follows me, my posts, or likes my comments.
+- I should be able to view and post on a daily community story.
+- I should be able to create or join a specific group based upon themes or friends.
+- I should be able to change the page display between light or dark colors.
 
 ## Stretch Goals
 - Verbal Story
 - Profanity Filter
-- Create Join Group/Team
 - Chat Room
 - YouTube Links
-- Dark Mode
-- Upload Profile Picture
+- Host/Join Events
 
 ## Tech Stack:
 
