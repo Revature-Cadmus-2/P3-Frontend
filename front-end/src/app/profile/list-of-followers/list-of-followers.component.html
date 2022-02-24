@@ -1,5 +1,7 @@
 <mat-card>
-    <mat-card-title class="card-title">Followed Users</mat-card-title>
+    <mat-card-title class="card-title">
+        <h3>Followed Users</h3>
+    </mat-card-title>
     <mat-card-content>
         <ul *ngFor="let follower of followedList">
             <li routerLink="/comment/{{follower.followingUserId}}" class="follow-name">{{follower.followingUserName}}</li>
