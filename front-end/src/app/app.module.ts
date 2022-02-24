@@ -25,6 +25,10 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +51,7 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
+    UsersFollowerListComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,8 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
       domain: 'dev-0w--5cqa.us.auth0.com',
       clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
     }),
+    BrowserAnimationsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

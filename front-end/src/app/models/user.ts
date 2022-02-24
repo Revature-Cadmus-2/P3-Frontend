@@ -1,4 +1,5 @@
 import { Followings } from "./Followings";
+import { FollowedBy } from "./FollowedBy";
 
 export interface User {
     id?: number;
@@ -6,4 +7,6 @@ export interface User {
     name?: string;
     username: string;
     followings?: Followings[];
+    followers?: FollowedBy[];
+    notifications?: Notification[];
 }

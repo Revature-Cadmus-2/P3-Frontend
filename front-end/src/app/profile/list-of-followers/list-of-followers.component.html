@@ -1,7 +1,7 @@
 <div class="card col box">
-    <table aria-describedby="testing">
+    <table aria-describedby="test">
         <th scope="col">
-            <h1 id = "testing">Followed Users</h1>
+            <h1 id = "test">Followed Users</h1>
         </th>
         <caption hidden>
             The list of people you're following.
@@ -10,7 +10,7 @@
             <td class="edit" routerLink="/profile/{{follower.followingUserId}}">{{follower.followingUserName}}</td>
         </tr>
         <tr *ngIf="(followedList== undefined|| followedList.length == 0)">
-            <td>No Followers!</td>
+            <td>No Followed Users!</td>
         </tr>
     </table>
 </div>

@@ -19,11 +19,15 @@
                 <app-recent-activity [username]="profileUser.username"></app-recent-activity>
             </div>
             <div class="col">
+                <app-users-follower-list [id]="id"></app-users-follower-list>
+            </div>
+            <div class="col">
                 <app-list-of-followers [id]="id"></app-list-of-followers>
             </div>
             <div class="col">
                 <app-followed-posts [id]="id"></app-followed-posts>
             </div>
+            
         </div>
     </div>
 </body>
