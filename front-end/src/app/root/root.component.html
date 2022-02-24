@@ -2,14 +2,12 @@
     <div class="row">
         <div class="row col-6" id="center">
             <!-- search bar and create post button -->
+            <!-- <div class="col">
+                <h1>Welcome, <span id="username-span"
+                        routerLink="/profile/{{currentUser.id}}">{{ currentUser.username }}</span></h1>
+            </div> -->
             <div class="col">
-                <h5 style="font-size: 1.5rem;">Welcome, <span id="username-span"
-                        routerLink="/profile/{{currentUser.id}}">{{ currentUser.username }}</span></h5>
-            </div>
-            <div class="col">
-                <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em
-                        class="fa fa-plus"></em> Create
-                    Post</a>
+                <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> Create Post</a>
             </div>
 
             <!-- featured post-->

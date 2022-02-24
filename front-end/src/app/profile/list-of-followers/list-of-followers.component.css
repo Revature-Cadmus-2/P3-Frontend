@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ::ng-deep .mat-card{
     border: 2px solid #BB86FC;
     border-bottom: 2px solid #BB86FC;
@@ -30,6 +31,10 @@ h3{
     letter-spacing: 1px;
 }
 /* .box {
+=======
+/* 
+.box {
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
     margin-left: 5px;
     margin-right: 5px;
     background-color: #3700B3;
@@ -69,5 +74,45 @@ h3{
     text-align: center;
     color: white;
     font-weight: bold;
+<<<<<<< HEAD
 } */
+=======
+}
+ */
+
+
+::ng-deep .mat-card{
+    border: 2px solid #BB86FC;
+    border-bottom: 2px solid #BB86FC;
+}
+.card-title{
+    background-color: #3700B3;
+    color: white;
+    padding: 0%;
+}
+ul {
+    text-align: center;
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+}
+.follow-name{
+    font-family: Rubik, sans-serif;
+    padding: 10px;
+    font-size: 20px;
+}
+.follow-name:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+h3{
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
 

@@ -41,4 +41,8 @@ export class ThemeService {
       this.colorTheme = 'light-mode';
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01

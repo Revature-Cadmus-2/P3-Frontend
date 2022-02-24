@@ -31,10 +31,18 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
+<<<<<<< HEAD
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
 import { DialogComponent } from './dialog/dialog.component';
 import { MatCardModule } from "@angular/material/card";
+=======
+import { DialogComponent } from './dialog/dialog.component';
+import { MatIconModule } from "@angular/material/icon";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatCardModule } from "@angular/material/card";
+import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
 
 
 @NgModule({
@@ -59,6 +67,10 @@ import { MatCardModule } from "@angular/material/card";
     NestedComponent,
     ReadRootComponent,
     DialogComponent,
+<<<<<<< HEAD
+=======
+    UsersFollowerListComponent,
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
   ],
   imports: [
     BrowserModule,
@@ -68,8 +80,8 @@ import { MatCardModule } from "@angular/material/card";
     RouterModule.forRoot([]),
     FormsModule,
     AuthModule.forRoot({
-      domain: 'dev-0w--5cqa.us.auth0.com',
-      clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
+      domain: 'dev-b0fxq42a.us.auth0.com',
+      clientId: 'Hp374kDB7mqFHtv2tYvbE0g2IS6zQwum'
     }),
     BrowserAnimationsModule,
     MatToolbarModule,

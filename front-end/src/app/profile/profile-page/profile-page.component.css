@@ -1,24 +1,31 @@
+<<<<<<< HEAD
 .bg {
     /* background-color: #f7f2ff; */
 }
+=======
+
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
 .followButton {
     display: flex;
     float: right;
 }
-.center-text {
-    text-align: center;
-}
-.box {
-    margin-left: 5px;
-    margin-right: 5px;
-    background-color: #3700B3;
-}
-
 .greeting {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Rubik", sans-serif;
+    margin-top: 40px;
+}
+.center-text {
+    text-align: center;
+}
+
+
+/* 
+.box {
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #3700B3;
 }
 
 .card {
@@ -53,4 +60,9 @@
     text-align: center;
     color: white;
     font-weight: bold;
+<<<<<<< HEAD
 }
+=======
+} */
+
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01

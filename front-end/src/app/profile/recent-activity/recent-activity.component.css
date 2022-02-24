@@ -1,5 +1,6 @@
 .card-title{
     /* background-color: #3700B3; */
+<<<<<<< HEAD
     /* color: white; */
     padding: 0%;
     /* border: 5px solid #3700B3; */
@@ -46,19 +47,24 @@ h3{
     font-weight: bold;
     color: white;
     margin-bottom: 0px;
+=======
+    padding: 0%;
+    border-bottom: solid 1px #e1d309;
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
 }
-
-.card body {
+ul {
     text-align: center;
-    padding-bottom: 0%;
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
 }
 
-.card td{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: white;
-    margin-bottom: 0px;
-    margin-top: 0px;
+.activity-name{
+    font-family: Rubik, sans-serif;
+    padding: 10px;
+    font-size: 20px;
 }
+<<<<<<< HEAD
 
 .card td:hover{
     background-color: #BB86FC;
@@ -67,3 +73,17 @@ h3{
     font-weight: bold;
 } */
 
+=======
+.activity-name:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+h3{
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01

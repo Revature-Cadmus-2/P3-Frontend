@@ -34,7 +34,9 @@ export class FollowButtonRootComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   }; 
   constructor(public profileService: ProfileService, public auth: AuthService, public rootService: RootServiceService, public router: Router ) { }
 
@@ -45,6 +47,7 @@ export class FollowButtonRootComponent implements OnInit {
         (profile) => (this.currentUser.username = profile.preferred_username))
 
       this.auth.user$.subscribe((user) => {
+<<<<<<< HEAD
         // if (user?.preferred_username) {
         //   this.currentUser.username = user.preferred_username;
         //   this.profileService.getUserByName(this.currentUser.username).then((result: User) => {
@@ -64,6 +67,27 @@ export class FollowButtonRootComponent implements OnInit {
         // })    
         //   });
         // }
+=======
+      //   if (user?.preferred_username) {
+      //     this.currentUser.username = user.preferred_username;
+      //     this.profileService.getUserByName(this.currentUser.username).then((result: User) => {
+      //       this.currentUser= result;
+            
+      //   // this.isFollow = this.profileService.checkFollowingPost(this.id, this.currentUser.id);
+      //   this.profileService.getFollowedPostByUserId(this.currentUser.id).then((result: FollowingPost[]) => {
+      //     let listOfFollowings = result;
+      //     for(let i = 0; i < listOfFollowings.length; i++){
+      //       if (listOfFollowings[i].rootId == this.id){
+      //         this.isFollow = true;
+              
+      //         this.followingId=listOfFollowings[i].id;
+      //         break;
+      //       }
+      //     }
+      //   })    
+      //     });
+      //   }
+>>>>>>> efb845a34793f011fa7a7229b45cc9145887fa01
       })
     }  
   }
@@ -72,6 +96,7 @@ export class FollowButtonRootComponent implements OnInit {
   ){  }
   
   onClick() {
+    console.log('post followed')
     if(this.isFollow== false){
       this.rootService.getRootById(this.id).then((result: Post) => {
         this.newFollowing.postname= result.title;
@@ -83,11 +108,13 @@ export class FollowButtonRootComponent implements OnInit {
       });
       };
       if(this.isFollow == true){
-      
+      console.log('unfollowed post');
         this.profileService.getFollowedPostByUserId(this.currentUser.id).then((result: FollowingPost[]) => {
           let listOfFollowings = result;
+          console.log(this.currentUser.id)
           for(let i = 0; i < listOfFollowings.length; i++){
             if (listOfFollowings[i].rootId == this.id){
+              console.log(listOfFollowings[i].rootId);
               this.profileService.unfollowPost(listOfFollowings[i].id);
               break;
             }
