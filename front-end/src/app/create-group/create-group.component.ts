@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Group } from '../models/Group';
 import { AuthService } from '@auth0/auth0-angular';
 import { GroupServiceService } from '../service/group-service.service';
@@ -12,7 +12,7 @@ import { GroupServiceService } from '../service/group-service.service';
 })
 export class CreateGroupComponent implements OnInit {
   
-  constructor(public auth: AuthService, private rService: GroupServiceService) { }
+  constructor(private router: Router, public auth: AuthService, private rService: GroupServiceService) { }
 
   group: Group = {
     id: 0,
@@ -37,6 +37,7 @@ export class CreateGroupComponent implements OnInit {
       
       this.rService.createGroup(this.group).then(res => {
         console.log("Your group has been created")
+        this.router.navigateByUrl('groups');
       })
     })
   }
