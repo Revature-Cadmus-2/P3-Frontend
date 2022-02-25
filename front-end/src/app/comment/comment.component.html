@@ -94,10 +94,10 @@
                             </ng-template>
                             <a class="btn btn-outline-primary" routerLink="/nest/{{ comment.id }}"
                                 role="button" style="margin-right: 5px;">{{(comment.comments).length}} Comments</a>
-                            <div *ngIf="user == comment.userName">
+                            <ng-container *ngIf="user == comment.userName">
                                 <button type="button" class="btn btn-outline-danger"
                                     (click)="deleteComment(comment.id)">Delete</button>
-                            </div>
+                            </ng-container>
                         </div>
                     </div>
                 </div>

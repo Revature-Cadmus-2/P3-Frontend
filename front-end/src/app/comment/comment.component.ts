@@ -184,7 +184,7 @@ export class CommentComponent implements OnInit {
           }
         }
       }
-        
+
         if(this.status === false){
           this.vote.value = 1
           this.vote.userName = this.user
@@ -194,7 +194,7 @@ export class CommentComponent implements OnInit {
 
             this.currentRoute.params.subscribe(params => {
               this.id = params['id'];
-        
+
               this.rootService.getRootById(this.id).then((result: Root) => {
                 this.root = result;
                 result.comments.sort((a, b) => (a.totalVote < b.totalVote) ? 1 : -1)
@@ -290,7 +290,7 @@ export class CommentComponent implements OnInit {
 
           this.currentRoute.params.subscribe(params => {
             this.id = params['id'];
-      
+
             this.rootService.getRootById(this.id).then((result: Root) => {
               this.root = result;
               result.comments.sort((a, b) => (a.totalVote < b.totalVote) ? 1 : -1)

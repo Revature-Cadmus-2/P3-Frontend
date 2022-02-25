@@ -9,10 +9,10 @@ import { Vote } from '../models/vote';
 })
 export class RootServiceService {
 
-  private rootUrl: string = "https://52.141.211.229/post/api/post";
-  private rootUrl_1: string = "https://52.141.211.229/post/api/Comment";
-  private rootUrl_2: string = "https://52.141.211.229/post/api/Vote";
-  private userUrl: string = "https://52.141.211.229/user/api/user";
+  private rootUrl: string = "http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post";
+  private rootUrl_1: string = "http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Comment";
+  private rootUrl_2: string = "http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Vote";
+  private userUrl: string = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User";
 
   story: string[]
 
