@@ -10,10 +10,15 @@ import { Notification } from 'src/app/models/Notifications';
 })
 export class NotificationListComponent implements OnInit {
 
+  @Input() username = "";
+  message: string;
+  notifications!: Notification[];
+
   constructor(private route: ActivatedRoute, public profileService: ProfileService, private router:Router) { }
 
   ngOnInit(): void {
-    
+    this.message = 'OnInit Executed:- '+this.message;
   }
 
+  ngOnChanges(changes: SimpleChanges): void{}
 }

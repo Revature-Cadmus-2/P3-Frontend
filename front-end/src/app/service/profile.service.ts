@@ -19,6 +19,7 @@ export class ProfileService {
   followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
   followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
   followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
+  notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Notifications';
 
   constructor(private http: HttpClient) { }
 
