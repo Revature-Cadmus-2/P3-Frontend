@@ -8,6 +8,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Vote } from '../models/vote';
 import { User } from '../models/user';
 import { ProfileService } from '../service/profile.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-comment',
@@ -16,7 +17,7 @@ import { ProfileService } from '../service/profile.service';
 })
 export class CommentComponent implements OnInit {
 
-  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService) { }
+  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService, private toastr: ToastrService) { }
 
   id = 0;
   user: string = '';
@@ -97,9 +98,12 @@ export class CommentComponent implements OnInit {
 
       this.comment.dateTime = new Date();
       this.comment.parentId = -1;
-
-      this.rootService.addComment(this.comment).then(res => {
-        alert("Comment successfully created")
+      
+       this.rootService.addComment(this.comment).then(res => {
+      //  alert("Comment successfully created")
+      this.toastr.success( 'You Successfully Commented','Comment Notification', {
+        timeOut: 2000,
+      } ); //Notification for displaying Successfully Commented. GM
         location.reload()
       })
     })

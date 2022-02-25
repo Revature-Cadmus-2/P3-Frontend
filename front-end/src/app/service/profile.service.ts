@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
 import { FollowedBy } from '../models/FollowedBy';
-import { Notification } from '../models/Notifications';
+import { Post } from "../models/post";
+import { Notification } from "../models/Notifications";
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,10 @@ export class ProfileService {
   apiUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User';
   rootUrl = 'http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post';
   followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
-  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
+  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost';
   followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
-  notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Notifications';
+  notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/notifications';
+
 
   constructor(private http: HttpClient) { }
 
@@ -164,3 +166,5 @@ export class ProfileService {
   }
 
 }
+
+

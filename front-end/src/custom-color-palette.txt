@@ -1,0 +1,28 @@
+/* CSV */
+FBFDFE,EEF2F7,03DAC6,3700B3,BB86FC,E1D309,2D3748,4A5567,293242
+
+/* With # */
+#FBFDFE, #EEF2F7, #03DAC6, #3700B3, #BB86FC, #E1D309, #2D3748, #4A5567, #293242
+white,   grey,    teal,  dark purple, lt purple, gold    slate, lighter,  medium slate
+
+/* Array */
+["FBFDFE","EEF2F7","03DAC6","3700B3","BB86FC","E1D309","2D3748","4A5567","293242"]
+
+/* Object */
+{"White":"FBFDFE","Alice Blue":"EEF2F7","Turquoise":"03DAC6","Trypan Blue":"3700B3","Lavender Floral":"BB86FC","Citrine":"E1D309","Charcoal":"2D3748","Black Coral":"4A5567","Gunmetal":"293242"}
+
+/* Extended Array */
+[{"name":"White","hex":"FBFDFE","rgb":[251,253,254],"cmyk":[1,0,0,0],"hsb":[200,1,100],"hsl":[200,60,99],"lab":[99,0,-1]},{"name":"Alice Blue","hex":"EEF2F7","rgb":[238,242,247],"cmyk":[4,2,0,3],"hsb":[213,4,97],"hsl":[213,36,95],"lab":[95,0,-3]},{"name":"Turquoise","hex":"03DAC6","rgb":[3,218,198],"cmyk":[99,0,9,15],"hsb":[174,99,85],"hsl":[174,97,43],"lab":[79,-48,-3]},{"name":"Trypan Blue","hex":"3700B3","rgb":[55,0,179],"cmyk":[69,100,0,30],"hsb":[258,100,70],"hsl":[258,100,35],"lab":[24,62,-78]},{"name":"Lavender Floral","hex":"BB86FC","rgb":[187,134,252],"cmyk":[26,47,0,1],"hsb":[267,47,99],"hsl":[267,95,76],"lab":[65,43,-52]},{"name":"Citrine","hex":"E1D309","rgb":[225,211,9],"cmyk":[0,6,96,12],"hsb":[56,96,88],"hsl":[56,92,46],"lab":[83,-13,82]},{"name":"Charcoal","hex":"2D3748","rgb":[45,55,72],"cmyk":[37,24,0,72],"hsb":[218,37,28],"hsl":[218,23,23],"lab":[23,1,-12]},{"name":"Black Coral","hex":"4A5567","rgb":[74,85,103],"cmyk":[28,17,0,60],"hsb":[217,28,40],"hsl":[217,16,35],"lab":[36,0,-12]},{"name":"Gunmetal","hex":"293242","rgb":[41,50,66],"cmyk":[38,24,0,74],"hsb":[218,38,26],"hsl":[218,23,21],"lab":[21,1,-11]}]
+
+/* XML */
+<palette>
+  <color name="White" hex="FBFDFE" r="251" g="253" b="254" />
+  <color name="Alice Blue" hex="EEF2F7" r="238" g="242" b="247" />
+  <color name="Turquoise" hex="03DAC6" r="3" g="218" b="198" />
+  <color name="Trypan Blue" hex="3700B3" r="55" g="0" b="179" />
+  <color name="Lavender Floral" hex="BB86FC" r="187" g="134" b="252" />
+  <color name="Citrine" hex="E1D309" r="225" g="211" b="9" />
+  <color name="Charcoal" hex="2D3748" r="45" g="55" b="72" />
+  <color name="Black Coral" hex="4A5567" r="74" g="85" b="103" />
+  <color name="Gunmetal" hex="293242" r="41" g="50" b="66" />
+</palette>

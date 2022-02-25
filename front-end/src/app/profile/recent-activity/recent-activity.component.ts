@@ -6,6 +6,8 @@ import { Root } from 'src/app/models/root';
 import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
 
+//old code
+
 @Component({
   selector: 'app-recent-activity',
   templateUrl: './recent-activity.component.html',

@@ -2,19 +2,19 @@
 @include mat-core();
 
 $mat-primary-scheme: (
-  100: #219ebc,
-  500: #bce2eb,
-  700: #1482a5,
+  200: #BB86FC,
+  500: #6200EE,
+  700: #3700B3,
   contrast: (
     100: rgba(0, 0, 0, 0.87),
-    500: #ffffff,
-    700: #ffffff,
+    500: #FBFDFE,
+    700: #FBFDFE,
   ),
 );
 $mat-accent-scheme: (
-  100: #ffbd1a,
-  500: #ffebba,
-  700: #ffa60f,
+  200: #03DAC5,
+  500: hsl(174, 97%, 36%),
+  700: #019182,
   contrast: (
     100: rgba(0, 0, 0, 0.87),
     500: rgba(0, 0, 0, 0.87),
@@ -28,6 +28,8 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
 
 .light-mode {
   @include angular-material-theme($app-light-theme);
+  background-color: #eef2f7;
+  
 }
 
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
@@ -45,5 +47,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Rubik, "Helvetica Neue", sans-serif;
 }

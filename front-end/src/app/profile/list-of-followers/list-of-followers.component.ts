@@ -4,6 +4,8 @@ import { Followings } from 'src/app/models/Followings';
 import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
 
+//people you are following, old code
+
 @Component({
   selector: 'app-list-of-followers',
   templateUrl: './list-of-followers.component.html',

@@ -3,9 +3,9 @@
         <div class="loginhtml">
             <div class="ml-3 w-100">
             <img class="img center" src="../../assets/fontlogo.png" alt="Cadmus">
-                <button type="button" class="btn btn-success btn-lg btn1 center" (click)="Loginfunc()" *ngIf="!(auth.isAuthenticated$ | async)" alt="Login">Log into Cadmus</button>
-                <button type="button" class="btn btn-success btn-lg btn2 center" (click)="Registerfunc()" *ngIf="!(auth.isAuthenticated$ | async)" alt="Register">Create new account</button>
-                <button type="button" class="btn btn-success" (click)="Logoutfunc()" *ngIf="(auth.isAuthenticated$ | async)" alt="Logout">Logout</button>
+                <button type="button" class="btn btn-success btn-lg btn1 center"  (click)="Loginfunc()" *ngIf="!(auth.isAuthenticated$ | async)" alt="Login">Log into Cadmus</button>
+                <button type="button" class="btn btn-success btn-lg btn2 center"  (click)="Registerfunc()" *ngIf="!(auth.isAuthenticated$ | async)" alt="Register">Create new account</button>
+                <button type="button" class="btn btn-success" (click)="Logoutfunc()"  *ngIf="(auth.isAuthenticated$ | async)" alt="Logout">Logout</button>
             </div>
         </div>
     </div>
