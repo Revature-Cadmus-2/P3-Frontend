@@ -36,6 +36,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
+import { NotificationListComponent } from './notification-list/notification-list.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { UsersFollowerListComponent } from './profile/users-follower-list/users-
     ReadRootComponent,
     DialogComponent,
     UsersFollowerListComponent,
+    NotificationListComponent,
   ],
   imports: [
     BrowserModule,
