@@ -37,16 +37,16 @@ export class SettingsPageComponent implements OnInit {
 
   onUpload(){
     
-    let imgurl =this.amazons3.uploadFileToS3Bucket(this.selectedFile);
+    var imgurl =this.amazons3.uploadFileToS3Bucket(this.selectedFile);
     console.log(imgurl);
     this.auth.user$.subscribe((userInfo)=> { 
-      if (userInfo?.nickname==null) {
+      if (userInfo?.preferred_username==null) {
         console.log("nothing to show")
       } else {
-        console.log(userInfo?.nickname);
+        console.log(userInfo?.preferred_username);
         console.log(userInfo);
         if(typeof(imgurl)=='string'|| imgurl instanceof String) {
-        this.amazons3.AddUserProfilePicture(userInfo?.nickname, imgurl)
+        this.amazons3.AddUserProfilePicture(userInfo?.preferred_username, imgurl)
         } else {
           console.log("not a string");
         }
