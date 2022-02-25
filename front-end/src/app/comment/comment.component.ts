@@ -9,6 +9,7 @@ import { Vote } from '../models/vote';
 import { User } from '../models/user';
 import { ProfileService } from '../service/profile.service';
 import { MatFormField, MatFormFieldModule } from "@angular/material/form-field"
+import { Notification } from '../models/Notifications';
 
 @Component({
   selector: 'app-comment',
