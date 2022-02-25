@@ -12,6 +12,7 @@ import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { GroupsComponent } from './groups/groups.component';
 import { CreateGroupComponent } from "./create-group/create-group.component";
+import { GroupProfileComponent } from './group-profile/group-profile.component';
 
 const routes: Routes = [
   { path: 'root', component: RootComponent, canActivate: [AuthGuard] },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'buffer', component: BufferComponent, canActivate: [AuthGuard] },
   { path: 'nest/:id', component: NestedComponent, canActivate: [AuthGuard] },
   { path: 'read-root/:id', component: ReadRootComponent, canActivate: [AuthGuard] },
-  { path: 'groups', component: GroupsComponent, canActivate: [AuthGuard] }
+  { path: 'groups', component: GroupsComponent, canActivate: [AuthGuard] },
+  { path: 'groups/:id', component: GroupProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

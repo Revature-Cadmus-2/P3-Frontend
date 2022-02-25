@@ -4,17 +4,36 @@
         </div>
         <div class="row col-6" id="center">
 
-            <p>groups totally works! (but not really, we need to still add a lot)</p>
             
             <p class = "Group">
-            <button class="btn btn-primary" id="create-btn" role="button" (click)="createNewGroups()" style="max-width: 120px; padding: 10px; align-items: right;">Create Group</button>
+                <button class="btn btn-primary" id="create-btn" role="button" (click)="createNewGroups()" style="max-width: 120px; padding: 10px; align-items: right;">Create Group</button>
             </p>
             
-            <!-- <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em
-                class="fa fa-plus"></em> Create
-                Post</a> -->        
+            <h3>Featured Groups</h3>
+            <div class="container" id="my-groups">
+                <div class="row">
+                    <!-- <div class="col"> -->
+                        
+                        <mat-card class="example-card" *ngFor="let group of allGroups">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>{{group.groupName}}</mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>
+                                    {{group.message}}
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button (click)="goToGroup(group.id)">Go!</button>
+                            </mat-card-actions>
+                        </mat-card>      
+                        
+                    <!-- </div> -->
+                </div>
             </div>
             <div class="col-3" id="right">
             </div>
+        </div>
     </div>
 </div>

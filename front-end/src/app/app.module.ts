@@ -27,6 +27,10 @@ import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
 import { GroupsComponent } from './groups/groups.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// angular material
+import {MatCardModule} from '@angular/material/card';
+import { GroupProfileComponent } from './group-profile/group-profile.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,7 @@ import { CreateGroupComponent } from './create-group/create-group.component';
     ReadRootComponent,
     GroupsComponent,
     CreateGroupComponent,
+    GroupProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,9 @@ import { CreateGroupComponent } from './create-group/create-group.component';
       domain: 'dev-0w--5cqa.us.auth0.com',
       clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
     }),
+    BrowserAnimationsModule,
+  // angular material
+  MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
