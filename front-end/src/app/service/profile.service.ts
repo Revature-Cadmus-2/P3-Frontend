@@ -189,4 +189,10 @@ export class ProfileService {
     });
     return(notificationList);
   }
+  addNotification(newNotification: Notification): Promise<Notification>{
+    return this.http.post<Notification>(this.notificationUrl, newNotification).toPromise();
+  }
+  removeNotification(id: number): Promise<Notification>{
+    return this.http.delete<Notification>(this.notificationUrl + "/id/" + id).toPromise();
+  }
 }
