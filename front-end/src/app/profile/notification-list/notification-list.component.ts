@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProfileService } from 'src/app/service/profile.service';
+import { Notification } from 'src/app/models/Notifications';
 
 @Component({
   selector: 'app-notification-list',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, public profileService: ProfileService, private router:Router) { }
 
   ngOnInit(): void {
+    
   }
 
 }
