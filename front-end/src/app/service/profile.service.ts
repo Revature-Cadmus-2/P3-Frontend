@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
 import { FollowedBy } from '../models/FollowedBy';
+import { Notification } from '../models/Notifications';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class ProfileService {
   followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
   followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
   followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
+  notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Notifications';
 
   constructor(private http: HttpClient) { }
 
@@ -151,4 +153,14 @@ export class ProfileService {
   userUnFollower(id: number): Promise<FollowedBy> {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
+
+  addNotification(notifications: Notification): Promise<Notification> {
+    return this.http.post<Notification>(this.notificationUrl, notifications).toPromise();
+  }
+
+  
+  getNotificationByUser(id: number): Promise<Notification[]> {
+    return this.http.get<[]>(this.notificationUrl+ "/userId/" +id).toPromise();
+  }
+
 }

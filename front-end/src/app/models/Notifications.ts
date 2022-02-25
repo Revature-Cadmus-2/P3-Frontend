@@ -1,7 +1,7 @@
 export interface Notification {
-    id: number;
+    id?: number;
     userId: number;
     FollowersId: number;
-    postId: number;
-    commentId: number;
+    postId?: number;
+    commentId?: number;
 }

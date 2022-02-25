@@ -175,7 +175,7 @@ export class FollowButtonComponent implements OnInit {
         let listofFollowers = result;
         console.log(result);
         for(let i = 0; i < listofFollowers.length; i++){
-          if(listofFollowers[i].userId == this.followedById){
+          if(listofFollowers[i].userId == this.followId){
             this.profileService.userUnFollower(listofFollowers[i].id);
             console.log(listofFollowers[i].id)
             break;

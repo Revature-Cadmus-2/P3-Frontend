@@ -7,6 +7,7 @@ import { FollowingPost } from '../models/FollowingPost';
 import { RootServiceService } from '../service/root-service.service';
 import { Post } from '../models/post';
 import { Router } from '@angular/router';
+import { Notification } from '../models/Notifications';
 
 @Component({
   selector: 'app-follow-button-root',
@@ -38,6 +39,14 @@ export class FollowButtonRootComponent implements OnInit {
     followers: [],
     notifications: []
   }; 
+
+
+  postNotification: Notification = {
+    userId: 0,
+    FollowersId: 0,
+    postId: 0
+  };
+
   constructor(public profileService: ProfileService, public auth: AuthService, public rootService: RootServiceService, public router: Router ) { }
 
   ngOnInit(): void {
@@ -84,6 +93,17 @@ export class FollowButtonRootComponent implements OnInit {
         
       this.isFollow=true;
       });
+      this.rootService.getRootById(this.id).then((result: Post) => {
+        console.log(result);
+        this.profileService.getUserByName(result.userName).then((resulting: User) => {
+          console.log(resulting);
+          this.postNotification.userId = resulting.id;
+          this.postNotification.FollowersId = this.currentUser.id;
+          this.postNotification.postId = this.id;
+          this.profileService.addNotification(this.postNotification);
+        })
+        
+      })
       };
       if(this.isFollow == true){
       console.log('unfollowed post');
@@ -101,6 +121,8 @@ export class FollowButtonRootComponent implements OnInit {
         
         this.isFollow=false;
       }  
+
+
     };
 
   }
