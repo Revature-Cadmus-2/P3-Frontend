@@ -35,6 +35,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
+import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { MatCardModule } from "@angular/material/card";
     NestedComponent,
     ReadRootComponent,
     DialogComponent,
+    UsersFollowerListComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { FollowingPost } from '../models/FollowingPost';
 import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
+import { FollowedBy } from '../models/FollowedBy';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class ProfileService {
   rootUrl = 'http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post';
   followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
   followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
+  followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
 
   constructor(private http: HttpClient) { }
 
@@ -106,6 +108,11 @@ export class ProfileService {
     return this.http.get<[]>(this.followUrl + "/followeruserId/"+ id).toPromise();
   }
 
+  getFollowersByUserId(id: number): Promise<FollowedBy[]>
+  {
+    return this.http.get<[]>(this.followedByUrl + "/userId/" + id).toPromise();
+  }
+
   checkFollowingPost(followedPostId: number, currentUser:number): boolean{
 
     var doesFollow = false;
@@ -124,8 +131,9 @@ export class ProfileService {
     return this.http.post<FollowingPost>(this.followingPostUrl, followedPost).toPromise();
   }
 
-  unfollowPost(id: number) {
-    return this.http.delete<FollowingPost>(this.apiUrl+"/id/"+id).toPromise();
+  unfollowPost(id: number): Promise<FollowingPost>
+  {
+    return this.http.delete<FollowingPost>(this.followingPostUrl + "/id/" + id).toPromise();
   }
 
   followUser(follow: Followings): Observable<Followings> {
@@ -136,4 +144,11 @@ export class ProfileService {
     return this.http.delete<Followings>(this.followUrl + "/id/"+ followId);
   }
 
+  userFollowers(follower: FollowedBy): Promise<FollowedBy> {
+    return this.http.post<FollowedBy>(this.followedByUrl, follower).toPromise();
+  }
+
+  userUnFollower(id: number): Promise<FollowedBy> {
+    return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
+  }
 }
