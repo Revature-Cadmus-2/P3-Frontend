@@ -17,7 +17,7 @@ export class ProfileService {
   apiUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User';
   rootUrl = 'http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post';
   followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
-  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
+  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost';
   followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
 
   constructor(private http: HttpClient) { }
@@ -152,3 +152,13 @@ export class ProfileService {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
 }
+  // // For the people that are following the user Garrett
+  // followedbyUser(followedby: FollowedBy): Observable<FollowedBy> {
+  //   return this.http.post<FollowedBy>(this.followedByUrl, followedby);
+  // }
+
+  // // for unfollowing the user Garrett
+  // unfollowedbyUser(followedbyId: number): Observable<FollowedBy> {
+  //   return this.http.delete<FollowedBy>(this.followedByUrl + "/id/"+ followedbyId);
+  // }
+

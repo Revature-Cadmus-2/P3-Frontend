@@ -37,6 +37,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,13 @@ import { UsersFollowerListComponent } from './profile/users-follower-list/users-
     NgbModule,
     RouterModule.forRoot([]),
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ //For the Notifications
+      timeOut: 1000, //time is in milliseconds
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true,
+    }),
     AuthModule.forRoot({
       domain: 'dev-b0fxq42a.us.auth0.com',
       clientId: 'Hp374kDB7mqFHtv2tYvbE0g2IS6zQwum'
