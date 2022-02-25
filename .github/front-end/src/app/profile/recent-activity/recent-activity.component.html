@@ -1,0 +1,15 @@
+<mat-card class="card">
+    <mat-card-title class="card-title">
+        <h3>
+            Recent Activity
+        </h3>
+    </mat-card-title>
+    <mat-card-content>
+        <ul *ngFor="let follower of activity">
+            <li class="list" *ngIf="follower.title !== undefined" (click)="toSource(follower.id, follower.type)" class="activity-name">{{follower.title}}</li>
+        </ul>
+        <ul *ngIf="(activity == undefined)">
+            <li>No Activity!</li>
+        </ul>
+    </mat-card-content>
+</mat-card>

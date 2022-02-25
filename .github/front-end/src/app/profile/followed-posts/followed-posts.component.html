@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title class="card-title">
+        <h3>
+            Followed Posts
+        </h3>
+    </mat-card-title>
+    <mat-card-content>
+        <ul *ngFor="let post of followedList">
+            <li routerLink="/comment/{{post.rootId}}" class="follow-name">{{post.postname}}</li>
+        </ul>
+        <ul *ngIf="(followedList == undefined || followedList.length == 0)">
+            <li>No Followed Posts!</li>
+        </ul>
+    </mat-card-content>
+</mat-card>
+
