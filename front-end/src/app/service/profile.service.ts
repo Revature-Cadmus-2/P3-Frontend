@@ -162,7 +162,7 @@ export class ProfileService {
 
   
   getNotificationByUser(id: number): Promise<Notification[]> {
-    return this.http.get<[]>(this.notificationUrl+ "/userId/" +id).toPromise();
+    return this.http.get<Notification[]>(this.notificationUrl+ "/userId/" +id).toPromise();
   }
 
 }
