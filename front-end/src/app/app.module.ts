@@ -38,6 +38,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
+import { BookMarkComponent } from './profile/book-mark/book-mark.component';
+import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-button.component';
+import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';
 
 
 @NgModule({
@@ -65,6 +68,9 @@ import { UsersFollowerListComponent } from './profile/users-follower-list/users-
     SettingsPageComponent,
     DialogComponent,
     UsersFollowerListComponent,
+    BookMarkComponent,
+    BookMarkButtonComponent,
+    ProfilePicComponent,
   ],
   imports: [
     BrowserModule,
