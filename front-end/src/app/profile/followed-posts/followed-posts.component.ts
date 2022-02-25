@@ -5,6 +5,9 @@ import { Root } from 'src/app/models/root';
 import { FollowingPost } from 'src/app/models/FollowingPost';
 import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
+import { MatCard } from "@angular/material/card";
+
+//old code
 
 @Component({
   selector: 'app-followed-posts',
@@ -27,8 +30,6 @@ export class FollowedPostsComponent implements OnInit {
     this.followedList = [];
     this.profileService.getFollowedPostByUserId(this.id).then((result: [FollowingPost]) => {
       this.followedList= result;
-      
-      
     });
 
   }

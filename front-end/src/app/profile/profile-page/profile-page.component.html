@@ -1,15 +1,19 @@
-<div *ngIf="currentUser.username != profileUser.username">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+
+<div *ngIf="sessionUserName != profileUser.username">
     <app-follow-button [followId]="id"></app-follow-button>
 </div>
 
 <body class="bg">
     <br>
-    <div class="greeting container" *ngIf="currentUser.username != profileUser.username; else elseWelcome">
+    <div class="greeting container" *ngIf="sessionUserName != profileUser.username; else elseWelcome">
         <p>Welcome to {{profileUser.username}}'s Page</p>
     </div>
     <div>
         <ng-template #elseWelcome>
-            <p class="greeting">Hello, {{currentUser.username}}</p>
+            <p class="greeting">Hello, {{sessionUserName}}</p>
         </ng-template>
     </div>
     <br>
@@ -19,11 +23,19 @@
                 <app-recent-activity [username]="profileUser.username"></app-recent-activity>
             </div>
             <div class="col">
+                <app-users-follower-list [id]="id"></app-users-follower-list>
+            </div>
+            <div class="col">
                 <app-list-of-followers [id]="id"></app-list-of-followers>
             </div>
             <div class="col">
                 <app-followed-posts [id]="id"></app-followed-posts>
             </div>
+            
         </div>
     </div>
 </body>
+
+
+
+<!-- sessionUserName -->

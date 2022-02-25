@@ -2,8 +2,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ProfileService } from 'src/app/service/profile.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { Followings } from 'src/app/models/Followings';
+import { FollowedBy } from 'src/app/models/FollowedBy';
 import { User } from 'src/app/models/user';
 import { LogicalProjectPath } from '@angular/compiler-cli/src/ngtsc/file_system';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-follow-button',
@@ -13,10 +16,21 @@ import { LogicalProjectPath } from '@angular/compiler-cli/src/ngtsc/file_system'
 
 export class FollowButtonComponent implements OnInit {
   isFollow = false;
-  followingId = 0;
+  isFollower = false;
+  //followingId = 0;
   @Input() follower: Followings;
+  @Input() followedingby: FollowedBy;
   @Input() followId = 0;
+  @Input() followedById = 0;
   @Output() toggle = new EventEmitter<boolean>();
+
+  //For the people following the user.
+  followedby : FollowedBy = { 
+    id: 0,
+    followersId: 0,
+    userId: 0,
+    followersUserName: ''
+  };
 
   followedUser: Followings = {
     id: 0,
@@ -30,10 +44,29 @@ export class FollowButtonComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   };
 
-  constructor(private profileService: ProfileService, public auth: AuthService) { }
+  userFollowed: User = {
+    id: 0,
+    username:"",
+    email: "",
+    name: "",
+    followings: [],
+    followers: [],
+    notifications: []
+  }
+
+  followingUser: FollowedBy = {
+    id: 0,
+    userId: 0,
+    followersId: 0,
+    followersUserName: ""
+  }
+
+  constructor(private profileService: ProfileService, public auth: AuthService, private toastr: ToastrService ) { }
 
   ngOnInit(): void {
     if(this.auth.isAuthenticated$){
@@ -54,17 +87,38 @@ export class FollowButtonComponent implements OnInit {
                   break;
                   }
                 }
+
+                this.profileService.getFollowersByUserId(this.followId).then((resulting: FollowedBy[]) => {
+                  let listofFollowers = resulting;
+                  //let listofFollowers = this.userFollowed.followers;
+                  for(let i = 0; i < listofFollowers.length; i++){
+                    if(listofFollowers[i].followersId == this.currentUser.id){
+                      this.isFollower = true;
+                      this.followingUser=listofFollowers[i];
+                      console.log(this.followingUser)
+                      break;
+                    }
+                  }
+                })
+              // let listofFollowers = this.currentUser.followers;
+              // for (let i = 0; i < listofFollowers.length; i++){
+              //   if(listofFollowers[i].followersId == this.followId){
+              //     this.isFollower = true;
+              //     this.followingUser=listofFollowers[i];
+              //     break;
+              //   }
+              // }
           });
         }
       })
     }
+  
   }
+
 
   ngOnChanges(){
     this.isFollow= false;
     this.ngOnInit();
-
-
     }
 
   checkFollows(follows:Followings[]): Followings{
@@ -79,7 +133,19 @@ export class FollowButtonComponent implements OnInit {
       return followedUser;
   }
 
-  onClick(): void {
+  checkFollowers(currFollower:FollowedBy[]): FollowedBy{
+    for(let i = 0; i < currFollower.length; i++){
+      if(currFollower[i].followersId == this.followId){
+        this.isFollower = true;
+        var followingUser =currFollower[i];
+        break;
+      }
+      return followingUser;
+    }
+    return followingUser;
+  }
+
+  onClick(): void  {
     this.isFollow = !this.isFollow;
     if(this.isFollow){
       this.profileService.getUserById(this.followId).then((result: User) => {
@@ -93,6 +159,22 @@ export class FollowButtonComponent implements OnInit {
         }
       );
     })
+    // FOLLOWED BY: adds who you are followed by. Garrett
+    // this.profileService.getUserById(this.followId).then((result: User) => {
+    // this.followedby.followersUserName=this.currentUser.username;
+    // this.followedby.followersId= this.currentUser.id;
+    // this.followedby.userId=this.followId;
+    // this.profileService.userFollowers(this.followedby).subscribe(
+    //   data => {
+    //     this.isFollow = true;
+    //     this.ngOnInit();
+    //   }
+    // );
+    // })
+
+    this.toastr.success( 'You Followed Someone','Follow Notification', {
+      timeOut: 2000, //timeout:2000 = 2 seconds
+    } ); //Notification for displaying when you follow someone. Garrett
     } else if (!this.isFollow) {
       this.profileService.unfollowUser(this.followedUser.id).subscribe(
         data => {
@@ -102,8 +184,38 @@ export class FollowButtonComponent implements OnInit {
           this.followedUser.followerUserId=0,
           this.followedUser.followingUserId=0,
           this.followedUser.followingUserName=''
+          
         }
       );
+      this.toastr.success( 'You Unfollowed Someone','Follow Notification', {
+        timeOut: 2000,
+      } ); //Notification for displaying when you unfollow someone. Garrett
+    }
+    this.isFollower = !this.isFollower;
+    //currently ?? idk if im doing it right LOL
+    if(this.isFollower){
+      this.profileService.getUserById(this.followId).then((result: User) => {
+      this.followingUser.userId=this.followId;
+      this.followingUser.followersId=this.currentUser.id;
+      this.followingUser.followersUserName=this.currentUser.username;
+      this.profileService.userFollowers(this.followingUser);
+      this.isFollower = true;
+    })
+    } else if (!this.isFollower){
+      this.profileService.getFollowersByUserId(this.followId).then((result: FollowedBy[]) => {
+        console.log('user unfollowed in follower list')
+        let listofFollowers = result;
+        console.log(result);
+        for(let i = 0; i < listofFollowers.length; i++){
+          if(listofFollowers[i].userId == this.followedById){
+            this.profileService.userUnFollower(listofFollowers[i].id);
+            console.log(listofFollowers[i].id)
+            break;
+          }
+        }
+      })
+      this.isFollower == false;
     }
   }
+  
 }

@@ -1,16 +1,16 @@
-<div class="card col box">
-    <table aria-describedby="testing">
-        <th scope="col">
-            <h1 id = "testing">Followed Users</h1>
-        </th>
-        <caption hidden>
-            The list of people you're following.
-        </caption>
-        <tr *ngFor="let follower of followedList" id="visual">
-            <td class="edit" routerLink="/profile/{{follower.followingUserId}}">{{follower.followingUserName}}</td>
-        </tr>
-        <tr *ngIf="(followedList== undefined|| followedList.length == 0)">
-            <td>No Followers!</td>
-        </tr>
-    </table>
-</div>
+<mat-card>
+    <mat-card-title class="card-title">
+        <h3>
+            Followed Users
+        </h3>
+    </mat-card-title>
+    <mat-card-content>
+        <ul *ngFor="let follower of followedList">
+            <li routerLink="/comment/{{follower.followingUserId}}" class="follow-name">{{follower.followingUserName}}</li>
+        </ul>
+        <ul *ngIf="(followedList == undefined || followedList.length == 0)">
+            <li>No Followers!</li>
+        </ul>
+    </mat-card-content>
+</mat-card>
+
