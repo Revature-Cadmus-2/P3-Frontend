@@ -1,4 +1,17 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div *ngIf="(auth.isAuthenticated$ | async) === true">
-  <nav-bar></nav-bar>
+<mat-toolbar>
+  <span><a class="logo" routerLink="/root"><img src="../../assets/rocket.png" alt="" width="65px"></a></span>
+  <img class="apollo" src="../assets/logoteal.png.png" alt="">
+  <span class="example-spacer" style="flex: 1 1 auto;"></span>
+  <mat-icon>wb_twilight</mat-icon>
+  <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode"></mat-slide-toggle>
+  <mat-icon>bedtime</mat-icon>
+  <button mat-icon-button class="icon" aria-label="icon-button with home" routerLink="/root">
+      <mat-icon>home</mat-icon>
+  </button>
+  <app-login-buttons></app-login-buttons>
+  <app-register-button></app-register-button>
+</mat-toolbar>
 </div>
 <router-outlet></router-outlet>

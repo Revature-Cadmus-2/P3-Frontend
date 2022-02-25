@@ -3,7 +3,7 @@ import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-
+import { AppComponent } from 'src/app/app.component';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -22,7 +22,9 @@ export class ProfilePageComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   };
   test = 0;
 
@@ -31,24 +33,29 @@ export class ProfilePageComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   };
-
+  sessionUserName = sessionStorage.getItem('username');
   ngOnInit(): void {
-    if(this.auth.isAuthenticated$){
-      this.auth.user$.subscribe(
-        (profile) => (this.currentUser.username = profile.preferred_username)
+
+        const sessionUserName = sessionStorage.getItem('username');
+        console.log(sessionUserName+'this is my sessions storage preferred username in *****');
+    
+  if(this.auth.isAuthenticated$){
+    this.auth.user$.subscribe(
+        (profile) => (this.currentUser.username = sessionUserName)
         )
         this.currentRoute.params.subscribe(params => {
-          this.id = params['id'];
-    
-          this.profileService.getUserById(this.id).then((result: User) => {
+        this.id = params['id'];
+        this.profileService.getUserById(this.id).then((result: User) => {
             this.profileUser= result;
           });
         });
         this.auth.user$.subscribe((user) => {
-          if (user?.preferred_username) {
-            this.currentUser.username = user.preferred_username;
+          if (user?.sessionUserName) {
+            this.currentUser.username = sessionUserName;
           }
       })
     }
