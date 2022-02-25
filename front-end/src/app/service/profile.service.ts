@@ -155,7 +155,7 @@ export class ProfileService {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
 
-  gatNotifications(username: string): Notification[]{
+  getNotifications(username: string): Notification[]{
     var notificationList = new Array();
     this.http.get<[]>(this.notificationUrl).toPromise().then((result: Post[]) => {
       for(let i = 0; i < result.length; i++){
