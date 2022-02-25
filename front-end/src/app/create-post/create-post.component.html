@@ -17,14 +17,12 @@
         </div>
     </mat-form-field>
     <br>
-    <div class="d-md-flex justify-content-md-end">
         <div *ngIf="postForm.controls['message']?.valid && postForm.controls['title']?.valid; else invalid">
             <input class="btn btn-primary rounded-pill" type="submit" value="Post">
         </div>
         <ng-template #invalid>
             <input class="btn btn-primary rounded-pill disabled" type="submit" value="Post">
         </ng-template>
-    </div>
 </form>
 </div>
 <!-- <div class="container">
