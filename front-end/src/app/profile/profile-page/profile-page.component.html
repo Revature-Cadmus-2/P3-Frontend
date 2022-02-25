@@ -2,31 +2,40 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
 
-<div *ngIf="currentUser.username != sessionUserName">
-    <app-follow-button [followId]="id" ></app-follow-button>
+<div *ngIf="sessionUserName != profileUser.username">
+    <app-follow-button [followId]="id"></app-follow-button>
 </div>
-<div class="greeting container" *ngIf="currentUser.username != sessionUserName; else elseWelcome">
-    <h1>Welcome to {{sessionUserName}}'s Page</h1>
-</div>
-<div>
-    <ng-template #elseWelcome>
-        <h1 class="greeting">Hello, {{currentUser.username}}</h1>
-    </ng-template>
-</div>
-<br>
-<div class="container">
-    <div class="row center-text">
-        <div class="col">
-            <app-recent-activity [username]="sessionUserName"></app-recent-activity>
-        </div>
-        <div class="col">
-            <app-users-follower-list [id]="id"></app-users-follower-list>
-        </div>
-        <div class="col">
-            <app-list-of-followers [id]="id"></app-list-of-followers>
-        </div>
-        <div class="col">
-            <app-followed-posts [id]="id"></app-followed-posts>
+
+<body class="bg">
+    <br>
+    <div class="greeting container" *ngIf="sessionUserName != profileUser.username; else elseWelcome">
+        <p>Welcome to {{profileUser.username}}'s Page</p>
+    </div>
+    <div>
+        <ng-template #elseWelcome>
+            <p class="greeting">Hello, {{sessionUserName}}</p>
+        </ng-template>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row center-text">
+            <div class="col">
+                <app-recent-activity [username]="profileUser.username"></app-recent-activity>
+            </div>
+            <div class="col">
+                <app-users-follower-list [id]="id"></app-users-follower-list>
+            </div>
+            <div class="col">
+                <app-list-of-followers [id]="id"></app-list-of-followers>
+            </div>
+            <div class="col">
+                <app-followed-posts [id]="id"></app-followed-posts>
+            </div>
+            
         </div>
     </div>
-</div>
+</body>
+
+
+
+<!-- sessionUserName -->

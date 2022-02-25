@@ -160,18 +160,18 @@ export class FollowButtonComponent implements OnInit {
       );
     })
     // FOLLOWED BY: adds who you are followed by. Garrett
-    this.profileService.getUserById(this.followId).then((result: User) => {
-    this.followedby.followersUserName=this.currentUser.username;
-    this.followedby.followersId= this.currentUser.id;
-    this.followedby.userId=this.followId;
-    this.profileService.followedbyUser(this.followedby).subscribe(
-      data => {
-        this.isFollow = true;
-        this.ngOnInit();
-      }
-    );
-    })
- 
+    // this.profileService.getUserById(this.followId).then((result: User) => {
+    // this.followedby.followersUserName=this.currentUser.username;
+    // this.followedby.followersId= this.currentUser.id;
+    // this.followedby.userId=this.followId;
+    // this.profileService.userFollowers(this.followedby).subscribe(
+    //   data => {
+    //     this.isFollow = true;
+    //     this.ngOnInit();
+    //   }
+    // );
+    // })
+
     this.toastr.success( 'You Followed Someone','Follow Notification', {
       timeOut: 2000, //timeout:2000 = 2 seconds
     } ); //Notification for displaying when you follow someone. Garrett

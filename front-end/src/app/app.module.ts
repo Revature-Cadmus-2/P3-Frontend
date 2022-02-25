@@ -38,6 +38,7 @@ import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NotificationListComponent } from './profile/notification-list/notification-list.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReadRootComponent,
     DialogComponent,
     UsersFollowerListComponent,
+    NotificationListComponent,
   ],
   imports: [
     BrowserModule,

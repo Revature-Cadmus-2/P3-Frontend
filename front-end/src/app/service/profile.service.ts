@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
 import { FollowedBy } from '../models/FollowedBy';
+import { Post } from "../models/post";
+import { Notification } from "../models/Notifications";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,7 @@ export class ProfileService {
   followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
   followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost';
   followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
+  notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/notifications';
 
   constructor(private http: HttpClient) { }
 
@@ -151,7 +154,7 @@ export class ProfileService {
   userUnFollower(id: number): Promise<FollowedBy> {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
-}
+
   // // For the people that are following the user Garrett
   // followedbyUser(followedby: FollowedBy): Observable<FollowedBy> {
   //   return this.http.post<FollowedBy>(this.followedByUrl, followedby);
@@ -161,4 +164,46 @@ export class ProfileService {
   // unfollowedbyUser(followedbyId: number): Observable<FollowedBy> {
   //   return this.http.delete<FollowedBy>(this.followedByUrl + "/id/"+ followedbyId);
   // }
+
+  // getNotifcations(username: string): Notification[]
+  // {
+  //   var notificationList = new Array();
+
+  //   this.http.get<[]>(this.notificationUrl).toPromise().then((result: Post[]) => {
+  //     for(let i =0; i < result.length; i++){
+  //       if(result[i].userName == username){
+  //         let notificationToAdd: Notification = {
+  //           id: 0,
+  //           userId: 0,
+  //           FollowersId: 0,
+  //           postId: 0,
+  //           commentId: 0,
+  //         }
+  //         notificationToAdd.postId = result[i].id;
+  //         notificationList.push(notificationToAdd);
+  //       };
+  //     };
+  //   });
+  //   this.http.get<[]>(this.notificationUrl).toPromise().then((result: Comment[]) => {
+  //     for(let i = 0; i < result.length; i++){
+  //       if ( result[i].userName == username){
+  //         let notificationToAdd: Notification = {
+  //           id: 0,
+  //           userId: 0,
+  //           FollowersId: 0,
+  //           postId: 0,
+  //           commentId: 0,
+  //         }
+  //         notificationToAdd.commentId = result[i].id;
+  //         notificationList.push(notificationToAdd);
+  //       }
+  //     };
+  //   });
+
+
+
+  //   return(notificationList);
+  // }
+
+}
 
