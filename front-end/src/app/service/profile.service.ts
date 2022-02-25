@@ -195,4 +195,10 @@ export class ProfileService {
   removeNotification(id: number): Promise<Notification>{
     return this.http.delete<Notification>(this.notificationUrl + "/id/" + id).toPromise();
   }
+  getNotificationByUserID(id: number): Promise<Notification[]>{
+    return this.http.get<[]>(this.notificationUrl + "/userId/" + id).toPromise();
+  }
+  getNotificationByID(id: number): Promise<Notification>{
+    return this.http.get<Notification>(this.notificationUrl + "/id/" + id).toPromise();
+  }
 }
