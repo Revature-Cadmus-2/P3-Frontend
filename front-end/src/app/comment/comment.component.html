@@ -24,10 +24,21 @@
             </div>
             
             <!-- <div class="new-response">
-                <mat-form-field rows="5" cols="50" maxlength="140" [(ngModel)]="comment.message" name="message" #message="ngModel" required>
-                    <mat-label>Add to the story as <span style="color: brown;"><small (click)="goToUserProfile(user)">{{user}}</small></span></mat-label>
-                    <input placeholder="What are you thinking?">
+                <span><small>Add to the story as <span style="color: brown;"><small (click)="goToUserProfile(user)">{{user}}</small></span></small></span>
+                <form (ngSubmit)="onSubmit(postForm)" #postForm="ngForm">
+                <mat-form-field>
+                    <textarea class="form-control" style="width: 700px" id="exampleFormControlTextarea1" placeholder="What are you thinking?" rows="5" cols="50" maxlength="140" 
+                    [(ngModel)]="comment.message" name="message" #message="ngModel" required></textarea>
                 </mat-form-field>
+                <div class="d-md-flex justify-content-md-end">
+                        <div *ngIf="postForm.controls['message']?.valid; else invalid">
+                            <input class="btn btn-primary btn-sm rounded-pill" type="submit" value="Comment">
+                        </div>
+                        <ng-template #invalid>
+                            <input class="btn btn-primary btn-sm rounded-pill disabled" type="submit" value="Comment">
+                        </ng-template>
+                    </div>
+            </form>
             </div> -->
             <div class="container-comment">
                 <span><small>Add to the story as <span
