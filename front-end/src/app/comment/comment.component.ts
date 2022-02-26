@@ -99,7 +99,7 @@ export class CommentComponent implements OnInit {
       this.comment.dateTime = new Date();
       this.comment.parentId = -1;
       
-       this.rootService.addComment(this.comment).then(res => {
+      this.rootService.addComment(this.comment).then(res => {
       //  alert("Comment successfully created")
       this.toastr.success( 'You Successfully Commented','Comment Notification', {
         timeOut: 2000,

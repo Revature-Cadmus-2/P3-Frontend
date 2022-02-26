@@ -160,11 +160,11 @@ export class ProfileService {
     return this.http.post<Notification>(this.notificationUrl, notifications).toPromise();
   }
 
-  
   getNotificationByUser(id: number): Promise<Notification[]> {
     return this.http.get<[]>(this.notificationUrl+ "/userId/" +id).toPromise();
   }
 
+  
 }
 
 

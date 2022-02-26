@@ -42,9 +42,11 @@ export class FollowButtonRootComponent implements OnInit {
 
 
   postNotification: Notification = {
+    id: 0,
     userId: 0,
     FollowersId: 0,
-    postId: 0
+    postId: 0,
+    commentId: 0
   };
 
   constructor(public profileService: ProfileService, public auth: AuthService, public rootService: RootServiceService, public router: Router ) { }
@@ -73,7 +75,7 @@ export class FollowButtonRootComponent implements OnInit {
             }
           }
         })    
-          });
+      });
         }
       })
     }  
@@ -102,7 +104,6 @@ export class FollowButtonRootComponent implements OnInit {
           this.postNotification.postId = this.id;
           this.profileService.addNotification(this.postNotification);
         })
-        
       })
       };
       if(this.isFollow == true){
@@ -118,11 +119,7 @@ export class FollowButtonRootComponent implements OnInit {
             }
           }
         })    
-        
         this.isFollow=false;
       }  
-
-
     };
-
   }
