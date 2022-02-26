@@ -153,7 +153,6 @@ export class ProfileService {
   userUnFollower(id: number): Promise<FollowedBy> {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
-<<<<<<< HEAD
 
   addNotification(notifications: Notification): Promise<Notification> {
     return this.http.post<Notification>(this.notificationUrl, notifications).toPromise();
@@ -167,6 +166,3 @@ export class ProfileService {
 }
 
 
-=======
-}
->>>>>>> ffc9eaca1bbd7a0976b2ea51b002c4a53ec6014b
