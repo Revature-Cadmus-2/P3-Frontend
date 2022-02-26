@@ -79,6 +79,8 @@ export class FollowButtonComponent implements OnInit {
           this.currentUser.username = user.preferred_username;
           this.profileService.getUserByName(this.currentUser.username).then((result: User) => {
               this.currentUser= result;
+              //shows list of who you are following so that on click it knows if its true or false,
+              //and updates your list
               let listOfFollowings = this.currentUser.followings;
               for(let i = 0; i < listOfFollowings.length; i++){
                 if (listOfFollowings[i].followingUserId == this.followId){
@@ -87,7 +89,7 @@ export class FollowButtonComponent implements OnInit {
                   break;
                   }
                 }
-
+                //does the same thing as before but for the followers list for who you are following
                 this.profileService.getFollowersByUserId(this.followId).then((resulting: FollowedBy[]) => {
                   let listofFollowers = resulting;
                   //let listofFollowers = this.userFollowed.followers;
@@ -191,8 +193,9 @@ export class FollowButtonComponent implements OnInit {
         timeOut: 2000,
       } ); //Notification for displaying when you unfollow someone. Garrett
     }
+    
+    //When you follow someone this is how their Follower list gets updated
     this.isFollower = !this.isFollower;
-    //currently ?? idk if im doing it right LOL
     if(this.isFollower){
       this.profileService.getUserById(this.followId).then((result: User) => {
       this.followingUser.userId=this.followId;
@@ -210,6 +213,7 @@ export class FollowButtonComponent implements OnInit {
           if(listofFollowers[i].userId == this.followId){
             this.profileService.userUnFollower(listofFollowers[i].id);
             console.log(listofFollowers[i].id)
+            console.log('this is the followedby id')
             break;
           }
         }
