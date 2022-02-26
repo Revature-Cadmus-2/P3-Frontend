@@ -36,6 +36,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
+import { CommonModule } from '@angular/common';
+import {NgToastModule} from 'ng-angular-popup';
 
 
 @NgModule({
@@ -82,6 +84,8 @@ import { UsersFollowerListComponent } from './profile/users-follower-list/users-
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
+    CommonModule,
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

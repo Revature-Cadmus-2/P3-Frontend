@@ -8,6 +8,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Vote } from '../models/vote';
 import { User } from '../models/user';
 import { ProfileService } from '../service/profile.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-comment',
@@ -16,7 +17,7 @@ import { ProfileService } from '../service/profile.service';
 })
 export class CommentComponent implements OnInit {
 
-  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService) { }
+  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService, private toast : NgToastService) { }
 
   id = 0;
   user: string = '';
@@ -100,6 +101,7 @@ export class CommentComponent implements OnInit {
 
       this.rootService.addComment(this.comment).then(res => {
         alert("Comment successfully created")
+        this.toast.success({detail:'Success Message',summary:'Comment successfully created!',duration:10000});
         location.reload()
       })
     })

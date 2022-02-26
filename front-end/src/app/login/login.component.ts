@@ -3,6 +3,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
 import { UserCreationService } from '../service/user-creation.service';
 import { User } from "../models/user";
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { User } from "../models/user";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public auth: AuthService, @Inject(DOCUMENT) private doc: Document, public userService: UserCreationService) { }
+  constructor(public auth: AuthService, @Inject(DOCUMENT) private doc: Document, public userService: UserCreationService, private toast : NgToastService) { }
 
   user: User = {
     username: ''
@@ -34,13 +35,18 @@ export class LoginComponent implements OnInit {
 
   Loginfunc(){
     this.auth.loginWithRedirect({ appState: { target: '/buffer' } });
+    // login success notification
+    this.toast.info({detail:'Info Message',summary:'Logging you in... !',duration:10000});
   }
 
   Registerfunc(){
     this.auth.loginWithRedirect({ screen_hint: 'signup', appState: { target: '/buffer' } });
+    this.toast.info({detail:'Info Message',summary:'Registering... !',duration:10000});
+    
   }
 
   Logoutfunc(){
     this.auth.logout({ returnTo: this.doc.location.origin });
+    this.toast.info({detail:'Info Message',summary:'Logging you out... !',duration:10000});
   }
 }

@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { Root } from '../models/root';
 import { AuthService } from '@auth0/auth0-angular';
 import { RootServiceService } from '../service/root-service.service';
-
+import { NgToastService } from 'ng-angular-popup';
+import { NgToastModule } from 'ng-angular-popup';
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -12,7 +13,7 @@ import { RootServiceService } from '../service/root-service.service';
 })
 export class CreatePostComponent implements OnInit {
 
-  constructor(private router: Router, public auth: AuthService, private rService: RootServiceService) { }
+  constructor(private router: Router, public auth: AuthService, private rService: RootServiceService, private toast : NgToastService) { }
 
   root: Root = {
     id: 0,
@@ -36,6 +37,7 @@ export class CreatePostComponent implements OnInit {
       this.root.dateTime = new Date()
       this.rService.addRoot(this.root).then(res => {
         alert("Post successfully created")
+        this.toast.success({detail:'Success Message',summary:'Post successfully created',duration:10000});
         this.router.navigateByUrl('root');
       })
 

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { ThemeService } from './service/theme.service';
 import { User } from 'src/app/models/user';
+import { NgToastService } from 'ng-angular-popup';
+import { NgToastModule } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-root',
