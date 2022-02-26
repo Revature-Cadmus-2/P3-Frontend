@@ -23,9 +23,7 @@ export class ProfileService {
   followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
   notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/notifications';
 
-
   constructor(private http: HttpClient) { }
-
 
   // getAll(): Observable<any> {
   //   return this.http.get(this.apiUrl + '_sort=id&order=desc')
@@ -155,6 +153,7 @@ export class ProfileService {
   userUnFollower(id: number): Promise<FollowedBy> {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
+<<<<<<< HEAD
 
   addNotification(notifications: Notification): Promise<Notification> {
     return this.http.post<Notification>(this.notificationUrl, notifications).toPromise();
@@ -168,3 +167,6 @@ export class ProfileService {
 }
 
 
+=======
+}
+>>>>>>> ffc9eaca1bbd7a0976b2ea51b002c4a53ec6014b

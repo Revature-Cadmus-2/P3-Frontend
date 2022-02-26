@@ -41,3 +41,35 @@
 
 
 <!-- sessionUserName -->
+
+<div *ngIf="sessionUserName != profileUser.username">
+    <app-follow-button [followId]="id" ></app-follow-button>
+</div>
+<div class="greeting container" *ngIf="sessionUserName != profileUser.username; else elseWelcome">
+    <h1>Welcome to {{profileUser.username}}'s Page</h1>
+</div>
+<div>
+    <ng-template #elseWelcome>
+        <h1 class="greeting">Hello, {{sessionUserName}}</h1>
+    </ng-template>
+</div>
+<br>
+<div class="container">
+    <div class="row center-text">
+        <div class="col">
+            <app-recent-activity [username]="profileUser.username"></app-recent-activity>
+        </div>
+        <div class="col">
+            <app-users-follower-list [id]="id"></app-users-follower-list>
+        </div>
+        <div class="col">
+            <app-list-of-followers [id]="id"></app-list-of-followers>
+        </div>
+        <div class="col">
+            <app-followed-posts [id]="id"></app-followed-posts>
+        </div>
+        <div class="col">
+            <app-book-mark [id]="id"></app-book-mark>
+        </div>
+    </div>
+</div>

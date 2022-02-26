@@ -25,6 +25,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+import { SettingsButtonComponent } from './profile/settings-button/settings-button.component';
+import { SettingsPageComponent } from './profile/settings-page/settings-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
@@ -39,6 +41,10 @@ import { UsersFollowerListComponent } from './profile/users-follower-list/users-
 
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationListComponent } from './profile/notification-list/notification-list.component';
+import { BookMarkComponent } from './profile/book-mark/book-mark.component';
+import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-button.component';
+import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';
+
 
 @NgModule({
   declarations: [
@@ -64,6 +70,11 @@ import { NotificationListComponent } from './profile/notification-list/notificat
     DialogComponent,
     UsersFollowerListComponent,
     NotificationListComponent,
+    SettingsButtonComponent,
+    SettingsPageComponent,
+    BookMarkComponent,
+    BookMarkButtonComponent,
+    ProfilePicComponent,
   ],
   imports: [
     BrowserModule,

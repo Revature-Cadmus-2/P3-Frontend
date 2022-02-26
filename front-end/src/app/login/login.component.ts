@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
 import { UserCreationService } from '../service/user-creation.service';
+import { userInfo } from 'os';
 import { User } from "../models/user";
 
 @Component({
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
     //   }
     // })
   }
+
 
   Loginfunc(){
     this.auth.loginWithRedirect({ appState: { target: '/buffer' } });
