@@ -13,6 +13,9 @@
 .center-text {
     text-align: center;
 }
+.container{
+    min-width: 100%;
+}
 
 
 /* 

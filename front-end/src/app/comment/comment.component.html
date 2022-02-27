@@ -40,6 +40,7 @@
                         <div *ngIf="postForm.controls['message']?.valid; else invalid">
                             <input class="btn btn-primary btn-sm rounded-pill" type="submit" value="Comment">
                         </div>
+                        <!-- this is the comment button that needs an onclick -->
                         <ng-template #invalid>
                             <input class="btn btn-primary btn-sm rounded-pill disabled" type="submit" value="Comment">
                         </ng-template>

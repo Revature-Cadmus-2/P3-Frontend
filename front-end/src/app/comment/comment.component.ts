@@ -9,6 +9,8 @@ import { Vote } from '../models/vote';
 import { User } from '../models/user';
 import { ProfileService } from '../service/profile.service';
 import { ToastrService } from 'ngx-toastr';
+import { Notification } from '../models/Notifications';
+
 
 @Component({
   selector: 'app-comment',
@@ -55,6 +57,15 @@ export class CommentComponent implements OnInit {
     commentId: 0
   }
 
+  postNotification: Notification = {
+    id: 0,
+    userId: 0,
+    FollowersId: 0,
+    postId: 0,
+    commentId: 0,
+    message: ''
+  };
+
   ngOnInit(): void {
     this.auth.user$.subscribe((user) => {
       if (user?.preferred_username) {
@@ -89,7 +100,21 @@ export class CommentComponent implements OnInit {
 
     this.auth.user$.subscribe((user) => {
       if (user?.preferred_username) {
-        this.comment.userName = user.preferred_username
+        this.comment.userName = user.preferred_username;
+        this.currentRoute.params.subscribe(params => {
+          this.id = params['id'];
+        this.rootService.getRootById(this.id).then((result: Root) => {
+          this.root = result;
+          this.profileService.getUserByName(this.root.userName).then((resulting: User) => {
+            console.log(resulting);
+            this.postNotification.userId = resulting.id;
+            this.postNotification.postId = this.id;
+            this.postNotification.message = `A comment has been made on on your post`;
+            console.log(this.postNotification.message)
+            this.profileService.addNotification(this.postNotification);
+          })
+        })
+      })
       }
 
       this.currentRoute.params.subscribe(params => {

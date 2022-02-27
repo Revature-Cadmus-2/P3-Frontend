@@ -36,13 +36,8 @@ export class SettingsPageComponent implements OnInit {
   }
 
   onUpload(){
-<<<<<<< HEAD
-    
-    var imgurl =this.amazons3.uploadFileToS3Bucket(this.selectedFile);
-=======
     console.log("on upload called in setting page")
     let imgurl =this.amazons3.uploadFileToS3Bucket(this.selectedFile);
->>>>>>> 291868da2c149f88cb3b3ff3fc82ee0f17488922
     console.log(imgurl);
     this.auth.user$.subscribe((userInfo)=> { 
       if (userInfo?.preferred_username==null) {
@@ -52,10 +47,7 @@ export class SettingsPageComponent implements OnInit {
         console.log(userInfo);
         if(typeof(imgurl)=='string'|| imgurl instanceof String) {
         this.amazons3.AddUserProfilePicture(userInfo?.preferred_username, imgurl)
-<<<<<<< HEAD
-=======
         
->>>>>>> 291868da2c149f88cb3b3ff3fc82ee0f17488922
         } else {
           console.log("not a string");
         }
