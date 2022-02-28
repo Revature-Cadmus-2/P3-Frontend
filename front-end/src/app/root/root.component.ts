@@ -7,6 +7,7 @@ import { Vote } from '../models/vote';
 import { ProfileService } from '../service/profile.service';
 import { User } from '../models/user';
 import { ThemeService } from '../ThemeService';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-root',

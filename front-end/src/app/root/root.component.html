@@ -1,27 +1,32 @@
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+<!-- <div class="header-container">
+    <div class="searchComponent">
+        <app-search></app-search>
+    </div>
+    <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
+</div>
+<div class="feature-container">
+    <h1>Today's Featured Post</h1>
+</div> -->
+
+
 <div class="container-fluid" id="rc">
     <div class="row">
         <div class="row col-6" id="center">
-            <!-- search bar and create post button -->
-            <!-- <div class="col">
-                <h1>Welcome, <span id="username-span"
-                        routerLink="/profile/{{currentUser.id}}">{{ currentUser.username }}</span></h1>
-            </div> -->
-            <div class="col">
-                <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> Create Post</a>
+            <div class="col-12">
+                <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
             </div>
+            <h1 style="padding-top: 20px;">Today's Featured Post</h1>
+            <!-- search bar and create post button -->
 
             <!-- featured post-->
-            <h3 style="padding-top: 20px;">Featured Post</h3>
             <div class="container" id="featured-post">
                 <div class="row">
                     <div class="col">
-                        <p style="font-size: 16px;"><span style="font-size: 18px;"
-                                (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{
-                            popular[0]?.dateTime |
-                            date:'short' }}</p>
+                        <mat-icon>add_a_photo</mat-icon>                       
+                        <span style="font-size: 25px;" (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{popular[0]?.dateTime | date:'short'}}
                     </div>
-                    <div class="col" id="follow-post-btn">
-                    </div>
+                    <div class="col" id="follow-post-btn"></div>
                 </div>
                 <div class="row" style="margin-top: -10px;">
                     <h5 style="font-size: 15px;">{{ popular[0]?.title }}</h5>

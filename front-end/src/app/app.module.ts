@@ -45,7 +45,7 @@ import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-bu
 import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';
 import { CommonModule } from '@angular/common';
 import {NgToastModule} from 'ng-angular-popup';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -106,6 +106,7 @@ import {NgToastModule} from 'ng-angular-popup';
     MatCardModule,
     CommonModule,
     NgToastModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

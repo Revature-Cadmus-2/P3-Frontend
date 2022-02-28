@@ -20,6 +20,17 @@
     background-color: #f7f2ff;
 } */
 
+mat-icon{
+    margin: 0 5px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Rubik", sans-serif;
+}
+
 #username-span {
     font-size: 1.5rem;
     font-weight: bold;
@@ -33,6 +44,8 @@
 
 #create-btn {
     float: right;
+    max-height: 35px;
+    margin: 20px;
 }
 
 .btn-primary {
@@ -61,7 +74,7 @@
 
 #featured-post {
     padding: 10px;
-    border: 1px solid rgb(100, 100, 100);
+    border: 1px solid #E1D309;
     border-radius: 5px;
 }
 
@@ -83,9 +96,9 @@ span:hover {
     text-decoration: underline;
 }
 
-p {
-    font-size: 14px;
-    /* color: rgba(20, 20, 20, 0.8); */
+h3{
+    font-size: 25px;
+    display: inline;
 }
 
 #follow-post-btn {
@@ -122,4 +135,18 @@ p {
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchComponent{
+    margin: 20px;
+}
+
+.feature-container{
+    display: flex;
+    justify-content: center;
 }
