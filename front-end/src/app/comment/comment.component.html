@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
 <div class="container-fluid" id="rr">
     <div class="row">
         <div class="row col-6" id="center">
@@ -13,8 +14,8 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top: -10px;">
-                    <h5 style="font-size: 16px;">{{ root.title }}</h5>
-                    <h6 style="font-size: 14px;">{{ root.message }}</h6>
+                    <h5 style="font-size: 20px;">{{ root.title }}</h5>
+                    <h6 style="font-size: 18px;">{{ root.message }}</h6>
                 </div>
                 <div class="row">
                     <div class="col">
@@ -64,13 +65,13 @@
             <div class="allComments">
                 <div class="container" id="comments" *ngFor='let comment of root.comments'>
                     <div class="row">
-                        <p style="font-size: 16px;"><span style="font-size: 18px;"
+                        <p style="font-size: 18px;"><span style="font-size: 18px;"
                                 (click)="goToUserProfile(comment.userName)">{{ comment.userName }}</span> • {{
                             comment.dateTime | date:'short' }}
                         </p>
                     </div>
                     <div class="row" style="margin-bottom: 5px;">
-                        <h6 style="font-size: 14px;">{{ comment.message }}</h6>
+                        <h6 style="font-size: 20px;">{{ comment.message }}</h6>
                     </div>
                     <div class="row">
                         <div class="col" id="buttons">

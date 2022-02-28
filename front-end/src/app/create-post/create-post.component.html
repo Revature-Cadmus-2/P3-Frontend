@@ -1,5 +1,8 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
 <div class="container">
-    <h6>Create a post</h6>
+    <h1>Create a post</h1>
     <form (ngSubmit)="onSubmit(postForm)" #postForm="ngForm">
     <mat-form-field appearence="fill">
         <input type="text" style="width: 800px" maxlength="50" class="form-control" id="post-title" placeholder="Title" [(ngModel)]="root.title" name="title" #title="ngModel" required>
