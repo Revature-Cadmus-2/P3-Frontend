@@ -72,17 +72,19 @@ h1 {
     border-color: #3700B3;
 }
 
-#featured-post {
+.featured-post {
     padding: 10px;
     border: 1px solid #E1D309;
     border-radius: 5px;
+    width: 650px;
 }
 
-#feed {
+.feed {
     padding: 10px;
-    border: 1px solid rgb(100, 100, 100);
     border-radius: 5px;
-    margin-bottom: 2vh;
+    margin: 2vh auto;
+    width: 650px;
+    border: 1px solid #E1D309;
 }
 
 span {
@@ -122,9 +124,14 @@ h3{
 }
 
 #filter-bar {
-    margin: 5vh 0 2vh 0;
-    background-color: #3700B3;
+    margin: 40px auto;
+    background-color: #BB86FC;
     border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 650px;
+
 }
 
 #filter-btn {
@@ -149,4 +156,17 @@ h3{
 .feature-container{
     display: flex;
     justify-content: center;
+}
+
+h5, h6{
+    margin: 20px;
+}
+
+h5{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h6{
+    font-size:20px;
 }

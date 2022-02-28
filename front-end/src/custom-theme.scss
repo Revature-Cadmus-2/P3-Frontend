@@ -33,9 +33,14 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   // > :host ::ng-deep .mat-form-field {
   //     background-color: #eef2f7;
   // }
-  > input.form-control[type="text"], #post-title, textarea {
-    background-color: #eef2f7;
+  > input.form-control[type="text"], input.form-control[type="search"], #post-title, textarea {
+    background-color: white;
   }
+  > input.featured-post, #post{
+    background-color: white;
+  }
+
+  
 }
 
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
@@ -53,8 +58,14 @@ $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
     background-color: #333;
     color: whitesmoke;
   }
+  input.form-control[type="search"]{
+    background-color: #424242;
+  }
+  > input.featured-post, #post{
+    background-color: #424242;
+  }
 }
-
+// #424242
 html,
 body {
   height: 100%;

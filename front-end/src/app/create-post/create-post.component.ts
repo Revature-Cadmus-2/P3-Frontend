@@ -43,7 +43,7 @@ export class CreatePostComponent implements OnInit {
       this.toastr.success( 'You Successfully Created a Post','Post Notification', {
         timeOut: 2000,
       } ); //Notification for displaying Successfully Posted. GM
-        alert("Post successfully created")
+        //alert("Post successfully created")
         //this.toast.success({detail:'Success Message',summary:'Post successfully created',duration:10000});
         this.router.navigateByUrl('root');
       })

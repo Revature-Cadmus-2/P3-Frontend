@@ -131,7 +131,7 @@ export class CommentComponent implements OnInit {
       this.toastr.success( 'You Successfully Commented','Comment Notification', {
         timeOut: 2000,
       } ); //Notification for displaying Successfully Commented. GM
-        alert("Comment successfully created")
+        //alert("Comment successfully created")
         this.toast.success({detail:'Success Message',summary:'Comment successfully created!',duration:10000});
         location.reload()
       })
