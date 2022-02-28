@@ -46,6 +46,7 @@ import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component
 import { CommonModule } from '@angular/common';
 import {NgToastModule} from 'ng-angular-popup';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     CommonModule,
     NgToastModule,
     MatGridListModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -39,8 +39,6 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   > input.featured-post, #post{
     background-color: white;
   }
-
-  
 }
 
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);

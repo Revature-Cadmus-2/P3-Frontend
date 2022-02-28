@@ -4,6 +4,8 @@ import { ProfileService } from 'src/app/service/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { AppComponent } from 'src/app/app.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
