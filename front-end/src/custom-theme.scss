@@ -39,6 +39,11 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   > input.featured-post, #post{
     background-color: white;
   }
+  >input.container, #root{
+    background-color: white;
+  }
+
+  
 }
 
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
@@ -60,6 +65,9 @@ $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
     background-color: #424242;
   }
   > input.featured-post, #post{
+    background-color: #424242;
+  }
+  >input.container, #root{
     background-color: #424242;
   }
 }
