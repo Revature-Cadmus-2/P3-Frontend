@@ -96,5 +96,5 @@ jobs:
           uses: ianbelcher/eks-kubectl-action@master
           with:
             cluster_name: juniper-apollo
-            args: set image --record deployment/frontend-deployment frontend-deployment=https://hub.docker.com/repository/docker/joninfante/frontend-apollo
+            args: set image --record deployment/frontend-deployment.apollo frontend-deployment.apollo=https://hub.docker.com/repository/docker/joninfante/frontend-apollo
         # --- #
