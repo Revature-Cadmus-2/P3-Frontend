@@ -22,7 +22,12 @@
     min-width: 100%;
 }
 
-
+.noti{
+    position: absolute;
+    left: 100px; 
+    top: 100px
+    
+}
 /* 
 .box {
     margin-left: 5px;
