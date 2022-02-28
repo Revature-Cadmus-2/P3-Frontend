@@ -16,7 +16,10 @@
     display: flex; 
     justify-content:center; 
     align-items:center;
+}
     
+.container{
+    min-width: 100%;
 }
 
 
@@ -24,21 +27,21 @@
 .box {
     margin-left: 5px;
     margin-right: 5px;
-    background-color: #291A4A;
+    background-color: #3700B3;
 }
 
 .card {
     text-align: center;
     padding: 0%;
-    border: 5px solid #291A4A;
-    border-bottom: 10px solid #291A4A;
+    border: 5px solid #3700B3;
+    border-bottom: 10px solid #3700B3;
     box-shadow: 5px 5px 5px grey;
 }
 
 .card h1 {
     font-size: 25px;
-    background-color: #291A4A;
-    border-bottom: 5px solid #291A4A;
+    background-color: #3700B3;
+    border-bottom: 5px solid #3700B3;
     font-weight: bold;
     color: white;
     margin-bottom: 0px;
@@ -55,7 +58,7 @@
 }
 
 .card p:hover{
-    background-color: #986AA8;
+    background-color: #BB86FC;
     text-align: center;
     color: white;
     font-weight: bold;

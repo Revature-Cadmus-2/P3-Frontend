@@ -4,6 +4,8 @@ import { FollowedBy } from 'src/app/models/FollowedBy';
 import { ProfileService } from 'src/app/service/profile.service';
 import { User } from '@auth0/auth0-spa-js';
 
+//people following you, cynthias new code
+
 @Component({
   selector: 'app-users-follower-list',
   templateUrl: './users-follower-list.component.html',

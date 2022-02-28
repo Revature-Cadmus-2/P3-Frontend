@@ -42,7 +42,7 @@ export class SettingsPageComponent implements OnInit {
       console.log(imglink);
 
   }
-    )}
+  )}
 
 }
 

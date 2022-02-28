@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
 import { FollowedBy } from '../models/FollowedBy';
-
+import { Post } from "../models/post";
+import { Notification } from "../models/Notifications";
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,7 @@ export class ProfileService {
   followUrl = 'https://54.87.122.77/user/api/Following';
   followingPostUrl = 'https://54.87.122.77/user/api/FollowingPost'
   followedByUrl = 'https://54.87.122.77/user/api/FollowedBy';
-
-  
+  notificationUrl = 'https://54.87.122.77/user/api/notifications';
 
   constructor(private http: HttpClient) { }
 
@@ -68,23 +68,23 @@ export class ProfileService {
   {
     var activityList= new Array();
 
-    this.http.get<[]>(this.rootUrl).toPromise().then((result: Comment[]) => {
-      for(let i = 0; i<result.length; i++){
-        if (result[i].userName==username){
-          let activityToAdd: RecentActivity= {
-            id: 0,
-            date: null,
-            type: "",
-            title:""
-          }
-          activityToAdd.date=result[i].dateTime;
-          activityToAdd.id=result[i].id;
-          activityToAdd.type="nest";
-          activityToAdd.title=result[i].message; 
-          activityList.push(activityToAdd);
-          }
-        };
-    });
+    // this.http.get<[]>(this.rootUrl).toPromise().then((result: Comment[]) => {
+    //   for(let i = 0; i<result.length; i++){
+    //     if (result[i].userName==username){
+    //       let activityToAdd: RecentActivity= {
+    //         id: 0,
+    //         date: null,
+    //         type: "",
+    //         title:""
+    //       }
+    //       activityToAdd.date=result[i].dateTime;
+    //       activityToAdd.id=result[i].id;
+    //       activityToAdd.type="nest";
+    //       activityToAdd.title=result[i].message; 
+    //       activityList.push(activityToAdd);
+    //       }
+    //     };
+    // });
     this.http.get<[]>(this.rootUrl).toPromise().then((result: Root[]) => {
       for(let i = 0; i<result.length; i++){
         if (result[i].userName==username){
@@ -159,4 +159,56 @@ export class ProfileService {
     
   }
 
+  addNotification(notifications: Notification): Promise<Notification> {
+    return this.http.post<Notification>(this.notificationUrl, notifications).toPromise();
+  }
+
+  getNotificationByUser(id: number): Promise<Notification[]> {
+    return this.http.get<Notification[]>(this.notificationUrl+ "/userId/" +id).toPromise();
+  }
+
+  
+  getNotifications(username: string): Notification[]{
+    var notificationList = new Array();
+    this.http.get<[]>(this.notificationUrl).toPromise().then((result: Post[]) => {
+      for(let i = 0; i < result.length; i++){
+        if(result[i].userName == username){
+          let notificationToAdd: Notification = {
+            id: 0,
+            userId: 0,
+            FollowersId: 0,
+            postId: 0,
+            commentId: 0,
+          }
+          notificationToAdd.postId = result[i].id;
+          notificationList.push(notificationToAdd);
+        }
+      }
+    });
+    this.http.get<[]>(this.notificationUrl).toPromise().then((result: Comment[]) =>{
+      for(let i = 0; i < result.length; i++){
+        if(result[i].userName == username){
+          let notificationToAdd = {
+            id: 0,
+            userId: 0,
+            FollowersId: 0,
+            postId: 0,
+            commentId: 0,
+          }
+          notificationToAdd.commentId = result[i].id;
+          notificationList.push(notificationToAdd);
+        }
+      }
+    });
+    return(notificationList);
+  }
+  removeNotification(id: number): Promise<Notification>{
+    return this.http.delete<Notification>(this.notificationUrl + "/id/" + id).toPromise();
+  }
+  getNotificationByUserID(id: number): Promise<Notification[]>{
+    return this.http.get<[]>(this.notificationUrl + "/userId/" + id).toPromise();
+  }
+  getNotificationByID(id: number): Promise<Notification>{
+    return this.http.get<Notification>(this.notificationUrl + "/id/" + id).toPromise();
+  }
 }

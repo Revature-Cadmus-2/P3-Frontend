@@ -38,10 +38,15 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
+import { NotificationListComponent } from './profile/notification-list/notification-list.component';
+import { ToastrModule } from 'ngx-toastr';
 import { BookMarkComponent } from './profile/book-mark/book-mark.component';
 import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-button.component';
 import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';
-
+import { CommonModule } from '@angular/common';
+import {NgToastModule} from 'ng-angular-popup';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -64,10 +69,11 @@ import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
-    SettingsButtonComponent,
-    SettingsPageComponent,
     DialogComponent,
     UsersFollowerListComponent,
+    NotificationListComponent,
+    SettingsButtonComponent,
+    SettingsPageComponent,
     BookMarkComponent,
     BookMarkButtonComponent,
     ProfilePicComponent,
@@ -79,6 +85,13 @@ import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component
     NgbModule,
     RouterModule.forRoot([]),
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ //For the Notifications
+      timeOut: 1000, //time is in milliseconds
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true,
+    }),
     AuthModule.forRoot({
       domain: 'dev-b0fxq42a.us.auth0.com',
       clientId: 'Hp374kDB7mqFHtv2tYvbE0g2IS6zQwum'
@@ -92,6 +105,10 @@ import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
+    CommonModule,
+    NgToastModule,
+    MatGridListModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

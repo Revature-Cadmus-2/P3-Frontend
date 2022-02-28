@@ -20,10 +20,21 @@
     background-color: #f7f2ff;
 } */
 
+mat-icon{
+    margin: 0 5px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Rubik", sans-serif;
+}
+
 #username-span {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #4d4382;
+    color: #3700B3;
     cursor: pointer;
 }
 
@@ -33,47 +44,52 @@
 
 #create-btn {
     float: right;
+    max-height: 35px;
+    margin: 20px;
 }
 
 .btn-primary {
-    color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    color: #000;
+    background-color: #BB86FC;
+    border-color: #BB86FC;
 }
 
 .btn-primary:hover {
     color: #fdf4f7;
-    background-color: #291a4a;
-    border-color: #291a4a;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
 .btn-outline-primary {
-    color: #4d4382;
-    border-color: #4d4382;
+    color: #000;
+    background-color:#E1D309;
+    border-color: #E1D309;
 }
 
 .btn-outline-primary:hover {
     color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
-#featured-post {
+.featured-post {
     padding: 10px;
-    border: 1px solid rgb(100, 100, 100);
+    border: 1px solid #E1D309;
     border-radius: 5px;
+    width: 650px;
 }
 
-#feed {
+.feed {
     padding: 10px;
-    border: 1px solid rgb(100, 100, 100);
     border-radius: 5px;
-    margin-bottom: 2vh;
+    margin: 2vh auto;
+    width: 650px;
+    border: 1px solid #E1D309;
 }
 
 span {
     font-size: 16px;
-    color: black;
+    /* color: black; */
     font-weight: bold;
 }
 
@@ -82,9 +98,9 @@ span:hover {
     text-decoration: underline;
 }
 
-p {
-    font-size: 14px;
-    color: rgba(20, 20, 20, 0.8);
+h3{
+    font-size: 25px;
+    display: inline;
 }
 
 #follow-post-btn {
@@ -108,9 +124,14 @@ p {
 }
 
 #filter-bar {
-    margin: 5vh 0 2vh 0;
-    background-color: #291a4a;
+    margin: 40px auto;
+    background-color: #BB86FC;
     border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 650px;
+
 }
 
 #filter-btn {
@@ -135,4 +156,30 @@ p {
     margin-top: 100px;
     width: 5em;
     height: 5em;
+}
+.header-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchComponent{
+    margin: 20px;
+}
+
+.feature-container{
+    display: flex;
+    justify-content: center;
+}
+
+h5, h6{
+    margin: 20px;
+}
+
+h5{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h6{
+    font-size:20px;
 }

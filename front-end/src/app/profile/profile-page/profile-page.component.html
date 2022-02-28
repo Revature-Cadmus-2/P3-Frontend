@@ -12,6 +12,9 @@
     <ng-template #elseWelcome>
         <h1 class="greeting">Hello, {{sessionUserName}}</h1>
     </ng-template>
+    <div class="col-2">
+        <app-notification-list [id]="id"></app-notification-list>
+    </div>
 </div>
 <div class="center"> 
     <app-profile-pic></app-profile-pic>
@@ -27,9 +30,6 @@
         </div>
         <div class="col">
             <app-list-of-followers [id]="id"></app-list-of-followers>
-        </div>
-        <div class="col">
-            <app-followed-posts [id]="id"></app-followed-posts>
         </div>
         <div class="col">
             <app-book-mark [id]="id"></app-book-mark>

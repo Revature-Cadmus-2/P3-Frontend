@@ -4,6 +4,8 @@ import { ProfileService } from 'src/app/service/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { AppComponent } from 'src/app/app.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -48,6 +50,8 @@ export class ProfilePageComponent implements OnInit {
     this.auth.user$.subscribe(
         (profile) => (this.currentUser.username = sessionUserName)
         )
+        console.log();
+
         this.currentRoute.params.subscribe(params => {
         this.id = params['id'];
         this.profileService.getUserById(this.id).then((result: User) => {
@@ -55,7 +59,8 @@ export class ProfilePageComponent implements OnInit {
           });
         });
         this.auth.user$.subscribe((user) => {
-          if (user?.sessionUserName) {
+          if (user?.username) {
+          // if (user?.sessionUserName) {
             this.currentUser.username = sessionUserName;
           }
       })

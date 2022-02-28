@@ -1,7 +1,6 @@
-<div class="container-fluid">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+<div class="container-fluid" id="rr">
     <div class="row">
-        <div class="col-3" id="left">
-        </div>
         <div class="row col-6" id="center">
             <div class="container" id="root">
                 <div class="row">
@@ -15,18 +14,16 @@
                 <div class="row" style="padding: 10px;">
                     <h1>{{ root.title }}</h1>
                     <div class="split"></div>
-                    <div class="part" style="padding-top: 0px;">
+                    <div class="part" id="rooting" style="padding-top: 0px;">
                         <p>{{ root.userName }}</p>
                         <h5>{{ root.message }}</h5>
                     </div>
-                    <div class="part" *ngFor="let part of topStory">
+                    <div class="part" id="rooting" *ngFor="let part of topStory">
                         <p>{{ part.userName }}</p>
                         <h5>{{ part.message }}</h5>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-3" id="right">
         </div>
     </div>
 </div>

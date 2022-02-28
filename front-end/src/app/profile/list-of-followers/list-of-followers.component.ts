@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Followings } from 'src/app/models/Followings';
 import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
+import { MatCardModule } from "@angular/material/card";
+
+//people you are following, old code
 
 @Component({
   selector: 'app-list-of-followers',

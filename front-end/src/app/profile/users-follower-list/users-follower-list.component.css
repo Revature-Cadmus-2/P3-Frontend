@@ -1,4 +1,38 @@
+.card-title{
+    /* background-color: #3700B3; */
+    padding: 0%;
+    border-bottom: solid 1px #e1d309;
+}
+ul {
+    text-align: center;
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+}
 
+li{
+    font-family: Rubik, sans-serif;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.edit{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.edit:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+h3{
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+
+/* 
 .box {
     margin-left: 5px;
     margin-right: 5px;
@@ -39,4 +73,4 @@
     text-align: center;
     color: white;
     font-weight: bold;
-}
+} */

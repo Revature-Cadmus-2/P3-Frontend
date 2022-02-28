@@ -1,7 +1,5 @@
-<div class="container-fluid">
+<div class="container-fluid" id="rr">
     <div class="row">
-        <div class="col-3" id="left">
-        </div>
         <div class="row col-6" id="center">
             <div class="container" id="root">
                 <div class="row">
@@ -37,7 +35,7 @@
             <div class="allComments">
                 <div class="container" id="comments" *ngFor='let comment of root.comments'>
                     <div class="row">
-                        <p style="font-size: 13px;"><span style="font-size: 15px;">{{ comment.userName }}</span> • {{
+                        <p style="font-size: 18px;"><span style="font-size: 15px;">{{ comment.userName }}</span> • {{
                             comment.dateTime | date:'short' }}
                         </p>
                     </div>
@@ -88,8 +86,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-3" id="right">
         </div>
     </div>
 </div>

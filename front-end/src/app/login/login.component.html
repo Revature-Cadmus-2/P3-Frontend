@@ -2,9 +2,7 @@
     <div class="container mt-5 d-flex justify-content-center">
         <div class="loginhtml">
             <div class="ml-3 w-100">
-                <div class = "row">
             <img class="img center" src="../../assets/apollologo.png" alt="Apollo">
-            </div>
                 <button type="button" class="btn btn-success btn-lg btn1 center"  (click)="Loginfunc()" *ngIf="!(auth.isAuthenticated$ | async)" alt="Login">Log into Apollo</button>
                 <button type="button" class="btn btn-success btn-lg btn2 center"  (click)="Registerfunc()" *ngIf="!(auth.isAuthenticated$ | async)" alt="Register">Create new account</button>
                 <button type="button" class="btn btn-success" (click)="Logoutfunc()"  *ngIf="(auth.isAuthenticated$ | async)" alt="Logout">Logout</button>

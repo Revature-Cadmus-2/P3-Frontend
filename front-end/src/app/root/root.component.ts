@@ -6,6 +6,8 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Vote } from '../models/vote';
 import { ProfileService } from '../service/profile.service';
 import { User } from '../models/user';
+import { ThemeService } from '../ThemeService';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +17,11 @@ import { User } from '../models/user';
 
 export class RootComponent implements OnInit {
 
-  constructor(private router: Router, private rootService: RootServiceService, public auth: AuthService, public profileService: ProfileService) { }
-
-  isLoaded = false;
+  constructor(private router: Router, private rootService: RootServiceService, public auth: AuthService, public profileService: ProfileService, private themeService: ThemeService) { }
+  isDarkMode: boolean;
   voteCounter: number = 0;
   rootVoteCounter: number = 0;
+  isLoaded = false;
   roots: Root[] = [];
   votes: Vote[] = [];
 
@@ -40,7 +42,8 @@ export class RootComponent implements OnInit {
   }; 
 
   ngOnInit(): void {
-    console.log(this.isLoaded)
+    this.themeService.initTheme();
+    this.isDarkMode = this.themeService.isDarkMode();
     this.rootService.getAllRoots().then(result => {
       result.sort((a, b) => (a.dateTime < b.dateTime) ? 1 : -1);
       this.roots = result;
