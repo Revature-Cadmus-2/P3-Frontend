@@ -79,10 +79,25 @@ export class NestedComponent implements OnInit {
     this.auth.user$.subscribe((user) => {
       if (user?.preferred_username) {
         this.comment.userName = user.preferred_username
+        
       }
 
       this.currentRoute.params.subscribe(params => {
         this.comment.parentId = params['id'];
+        // this.currentRoute.params.subscribe(params => {
+        //   this.comment.parentId = params['id'];
+        //   this.rootService.getCommentById(this.id).then((result: Comment) => {
+        //     this.comment = result;
+        //     this.profileService.getUserByName(this.comment.userName).then((resulting: User) => {
+        //       console.log(resulting);
+        //       this.postNotification.userId = resulting.id;
+        //       this.postNotification.postId = this.id;
+        //       this.postNotification.message = `Someone replied to your comment`;
+        //       console.log(this.postNotification.message)
+        //       this.profileService.addNotification(this.postNotification);
+        //     })
+        //   })
+        // })
       })
 
       this.comment.dateTime = new Date();

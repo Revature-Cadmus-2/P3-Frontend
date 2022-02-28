@@ -220,6 +220,31 @@ export class FollowButtonComponent implements OnInit {
       })
       this.isFollower == false;
     }
+    this.isFollower = !this.isFollower;
+    //currently ?? idk if im doing it right LOL
+    if(this.isFollower){
+      this.profileService.getUserById(this.followId).then((result: User) => {
+      this.followingUser.userId=this.followId;
+      this.followingUser.followersId=this.currentUser.id;
+      this.followingUser.followersUserName=this.currentUser.username;
+      this.profileService.userFollowers(this.followingUser);
+      this.isFollower = true;
+    })
+    } else if (!this.isFollower){
+      this.profileService.getFollowersByUserId(this.followId).then((result: FollowedBy[]) => {
+        console.log('user unfollowed in follower list')
+        let listofFollowers = result;
+        console.log(result);
+        for(let i = 0; i < listofFollowers.length; i++){
+          if(listofFollowers[i].userId == this.followedById){
+            this.profileService.userUnFollower(listofFollowers[i].id);
+            console.log(listofFollowers[i].id)
+            break;
+          }
+        }
+      })
+      this.isFollower == false;
+    }
   }
   
 }

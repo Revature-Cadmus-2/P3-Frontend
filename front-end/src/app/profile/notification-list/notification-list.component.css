@@ -1,0 +1,43 @@
+.card-title{
+    /* background-color: #3700B3; */
+    padding: 0%;
+    border-bottom: solid 1px #e1d309;
+}
+ul {
+    /* color: white; */
+    padding: 0%;
+    /* border: 5px solid #3700B3; */
+    border-bottom: 1px solid #E1D309;
+}
+ul{
+    text-align: center;
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+}
+
+.follow-name{
+    font-family: Rubik, sans-serif;
+    padding: 10px;
+    font-size: 20px;
+}
+.follow-name:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.notification-name{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.notification-name:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+}
+h3{
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    letter-spacing: 1px;
+}

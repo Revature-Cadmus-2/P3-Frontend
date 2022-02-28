@@ -5,7 +5,10 @@ import { Root } from '../models/root';
 import { AuthService } from '@auth0/auth0-angular';
 import { RootServiceService } from '../service/root-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 
+import { NgToastService } from 'ng-angular-popup';
+import { NgToastModule } from 'ng-angular-popup';
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -40,6 +43,8 @@ export class CreatePostComponent implements OnInit {
       this.toastr.success( 'You Successfully Created a Post','Post Notification', {
         timeOut: 2000,
       } ); //Notification for displaying Successfully Posted. GM
+        //alert("Post successfully created")
+        //this.toast.success({detail:'Success Message',summary:'Post successfully created',duration:10000});
         this.router.navigateByUrl('root');
       })
 

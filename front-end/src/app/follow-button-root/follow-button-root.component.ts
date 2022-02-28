@@ -42,9 +42,11 @@ export class FollowButtonRootComponent implements OnInit {
 
 
   postNotification: Notification = {
+    id: 0,
     userId: 0,
     FollowersId: 0,
     postId: 0,
+    commentId: 0,
     message: ''
   };
 
@@ -75,7 +77,7 @@ export class FollowButtonRootComponent implements OnInit {
             }
           }
         })    
-          });
+      });
         }
       })
     }  
@@ -110,7 +112,6 @@ export class FollowButtonRootComponent implements OnInit {
           console.log(this.postNotification.message)
           this.profileService.addNotification(this.postNotification);
         })
-        
       })
       };
       if(this.isFollow == true){
@@ -126,7 +127,6 @@ export class FollowButtonRootComponent implements OnInit {
             }
           }
         })    
-        
         this.isFollow=false;
       }  
     };

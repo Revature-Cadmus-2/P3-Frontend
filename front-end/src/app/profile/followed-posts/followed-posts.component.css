@@ -1,7 +1,7 @@
 .card-title{
-    background-color: #3700B3;
-    color: white;
+    /* background-color: #3700B3; */
     padding: 0%;
+    border-bottom: solid 1px #e1d309;
 }
 ul {
     text-align: center;
@@ -15,15 +15,10 @@ ul {
     padding: 10px;
     font-size: 20px;
 }
-.follow-name:hover{
-    background-color: #bb86FC;
+
+.card td:hover{
+    background-color: #BB86FC;
+    text-align: center;
     color: white;
     font-weight: bold;
-    cursor: pointer;
-}
-h3{
-    font-family: Rubik, sans-serif;
-    font-size: 25px;
-    padding: 10px;
-    letter-spacing: 1px;
-}
+} 

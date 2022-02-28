@@ -1,0 +1,25 @@
+
+
+
+
+<div>
+    <a class="btn" routerLink="/profile/:id">Back</a>
+</div>
+<h1> welcome to ur profile </h1>
+<div>
+    <h2> click here to add profile pic </h2>
+    <input type="file" (change)="onFileSelected($event)">
+    <button class="btn" (click)="onUpload()"> upload </button>
+</div>
+
+<div>
+    <h2> click hEre to edit bio </h2>
+    <form>
+        <textarea (change)="onFileSelected($event)" type="text" rows="4" cols="50"></textarea>
+        <button class="btn" (click)="onUpload()"> upload Bio</button>
+    </form>
+</div> 
+
+<div>
+    <h2> click here to reSet password </h2>
+</div> 

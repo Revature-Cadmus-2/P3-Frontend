@@ -23,9 +23,7 @@ export class ProfileService {
   followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
   notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/notifications';
 
-
   constructor(private http: HttpClient) { }
-
 
   // getAll(): Observable<any> {
   //   return this.http.get(this.apiUrl + '_sort=id&order=desc')
@@ -160,11 +158,52 @@ export class ProfileService {
     return this.http.post<Notification>(this.notificationUrl, notifications).toPromise();
   }
 
-  
   getNotificationByUser(id: number): Promise<Notification[]> {
     return this.http.get<Notification[]>(this.notificationUrl+ "/userId/" +id).toPromise();
   }
 
+  
+  getNotifications(username: string): Notification[]{
+    var notificationList = new Array();
+    this.http.get<[]>(this.notificationUrl).toPromise().then((result: Post[]) => {
+      for(let i = 0; i < result.length; i++){
+        if(result[i].userName == username){
+          let notificationToAdd: Notification = {
+            id: 0,
+            userId: 0,
+            FollowersId: 0,
+            postId: 0,
+            commentId: 0,
+          }
+          notificationToAdd.postId = result[i].id;
+          notificationList.push(notificationToAdd);
+        }
+      }
+    });
+    this.http.get<[]>(this.notificationUrl).toPromise().then((result: Comment[]) =>{
+      for(let i = 0; i < result.length; i++){
+        if(result[i].userName == username){
+          let notificationToAdd = {
+            id: 0,
+            userId: 0,
+            FollowersId: 0,
+            postId: 0,
+            commentId: 0,
+          }
+          notificationToAdd.commentId = result[i].id;
+          notificationList.push(notificationToAdd);
+        }
+      }
+    });
+    return(notificationList);
+  }
+  removeNotification(id: number): Promise<Notification>{
+    return this.http.delete<Notification>(this.notificationUrl + "/id/" + id).toPromise();
+  }
+  getNotificationByUserID(id: number): Promise<Notification[]>{
+    return this.http.get<[]>(this.notificationUrl + "/userId/" + id).toPromise();
+  }
+  getNotificationByID(id: number): Promise<Notification>{
+    return this.http.get<Notification>(this.notificationUrl + "/id/" + id).toPromise();
+  }
 }
-
-
