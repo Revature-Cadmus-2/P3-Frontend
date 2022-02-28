@@ -68,23 +68,23 @@ export class ProfileService {
   {
     var activityList= new Array();
 
-    this.http.get<[]>(this.rootUrl).toPromise().then((result: Comment[]) => {
-      for(let i = 0; i<result.length; i++){
-        if (result[i].userName==username){
-          let activityToAdd: RecentActivity= {
-            id: 0,
-            date: null,
-            type: "",
-            title:""
-          }
-          activityToAdd.date=result[i].dateTime;
-          activityToAdd.id=result[i].id;
-          activityToAdd.type="nest";
-          activityToAdd.title=result[i].message; 
-          activityList.push(activityToAdd);
-          }
-        };
-    });
+    // this.http.get<[]>(this.rootUrl).toPromise().then((result: Comment[]) => {
+    //   for(let i = 0; i<result.length; i++){
+    //     if (result[i].userName==username){
+    //       let activityToAdd: RecentActivity= {
+    //         id: 0,
+    //         date: null,
+    //         type: "",
+    //         title:""
+    //       }
+    //       activityToAdd.date=result[i].dateTime;
+    //       activityToAdd.id=result[i].id;
+    //       activityToAdd.type="nest";
+    //       activityToAdd.title=result[i].message; 
+    //       activityList.push(activityToAdd);
+    //       }
+    //     };
+    // });
     this.http.get<[]>(this.rootUrl).toPromise().then((result: Root[]) => {
       for(let i = 0; i<result.length; i++){
         if (result[i].userName==username){
