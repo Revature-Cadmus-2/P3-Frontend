@@ -1,20 +1,11 @@
 .container-fluid {
     padding: 0;
-    background-color: #f7f2ff;
+    /* background-color: #f7f2ff; */
     background-size: cover;
 }
-
-#left {
-    background-color: #f7f2ff;
-}
-
 #center {
     padding-top: 20px;
     margin: 0 auto;
-}
-
-#right {
-    background-color: #f7f2ff;
 }
 
 .btn-primary {
@@ -42,7 +33,7 @@
 
 span {
     font-size: 16px;
-    color: black;
+    /* color: black; */
     font-weight: bold;
 }
 
@@ -53,7 +44,7 @@ span:hover {
 
 p {
     font-size: 14px;
-    color: rgba(20, 20, 20, 0.8);
+    /* color: rgba(20, 20, 20, 0.8); */
 }
 
 hr {
@@ -68,11 +59,11 @@ hr {
 }
 
 textarea{
-    background-color: rgb(228, 228, 228);
+    /* background-color: rgb(228, 228, 228); */
 }
 
 .allComments {
-    background-color: white;
+    /* background-color: white; */
     border: 1px solid rgb(100, 100, 100);
     border-radius: 5px;
     margin-bottom: 3vh;
@@ -99,7 +90,11 @@ textarea{
 }
 
 .container {
-    background-color: white;
+    /* background-color: white; */
+}
+
+h5, h4{
+    font-size: 20px;
 }
 
 /* #buttons {

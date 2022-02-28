@@ -1,3 +1,1 @@
-<p>
-    <span (click)="Logoutfunc()" *ngIf="(auth.isAuthenticated$ | async) === true" class="logout">Logout</span>
-</p>
+<button mat-icon-button class="icon" aria-label="Example icon-button profile" (click)="Logoutfunc()" *ngIf="(auth.isAuthenticated$ | async) === true" class="logout"><mat-icon>logout</mat-icon></button>

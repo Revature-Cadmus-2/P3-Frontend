@@ -1,43 +1,29 @@
-
-.box {
-    margin-left: 5px;
-    margin-right: 5px;
-    background-color: #291A4A;
-}
-
-.card {
-    text-align: center;
+.card-title{
+    /* background-color: #3700B3; */
     padding: 0%;
-    border: 5px solid #291A4A;
-    border-bottom: 10px solid #291A4A;
-    box-shadow: 5px 5px 5px grey;
+    border-bottom: solid 1px #e1d309;
+}
+ul {
+    text-align: center;
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+    font-size: 20px;
+    font-family: Rubik, sans-serif;
 }
 
-.card h1 {
+.activity-name{
+    font-family: Rubik, Geneva, Tahoma, sans-serif;
+}
+.activity-name:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+h3{
+    font-family: Rubik, sans-serif;
     font-size: 25px;
-    background-color: #291A4A;
-    border-bottom: 5px solid #291A4A;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0px;
+    padding: 10px;
+    letter-spacing: 1px;
 }
-
-.card body {
-    text-align: center;
-    padding-bottom: 0%;
-}
-
-.card td{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: white;
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
-.card td:hover{
-    background-color: #986AA8;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-}
-

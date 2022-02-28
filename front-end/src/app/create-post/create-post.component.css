@@ -2,13 +2,22 @@
     margin-top: 40px;
 }
 
-h6 {
+h1 {
     margin-bottom: 30px;
     padding-bottom: 20px;
     width: 75%;
     border-bottom: solid 1px #666;
+    font-size:40px;
+    font-family: "Rubik", sans-serif;
 }
 
 .form-text {
     color: #ee0000;
 }
+/* .form-control.light-mode {
+    background-color: #eef2f7;
+}
+.form-control.dark-mode{
+    background-color: rgb(95, 93, 93);
+    color: whitesmoke;
+} */

@@ -27,7 +27,7 @@ export class RegisterButtonComponent implements OnInit {
         if (user?.preferred_username) {
           this.username = user.preferred_username;
           this.profileService.getUserByName(this.username).then((result: User) => {
-            this.userId= result.id;
+          this.userId= result.id;
           });
         }
       })

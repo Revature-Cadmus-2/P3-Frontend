@@ -8,6 +8,11 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Vote } from '../models/vote';
 import { User } from '../models/user';
 import { ProfileService } from '../service/profile.service';
+import { ToastrService } from 'ngx-toastr';
+import { Notification } from '../models/Notifications';
+import { MatFormField, MatFormFieldModule } from "@angular/material/form-field"
+
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-comment',
@@ -16,7 +21,7 @@ import { ProfileService } from '../service/profile.service';
 })
 export class CommentComponent implements OnInit {
 
-  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService) { }
+  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService, private toastr: ToastrService, private toast : NgToastService) { }
 
   id = 0;
   user: string = '';
@@ -54,6 +59,15 @@ export class CommentComponent implements OnInit {
     commentId: 0
   }
 
+  postNotification: Notification = {
+    id: 0,
+    userId: 0,
+    FollowersId: 0,
+    postId: 0,
+    commentId: 0,
+    message: ''
+  };
+
   ngOnInit(): void {
     this.auth.user$.subscribe((user) => {
       if (user?.preferred_username) {
@@ -88,7 +102,21 @@ export class CommentComponent implements OnInit {
 
     this.auth.user$.subscribe((user) => {
       if (user?.preferred_username) {
-        this.comment.userName = user.preferred_username
+        this.comment.userName = user.preferred_username;
+        this.currentRoute.params.subscribe(params => {
+          this.id = params['id'];
+        this.rootService.getRootById(this.id).then((result: Root) => {
+          this.root = result;
+          this.profileService.getUserByName(this.root.userName).then((resulting: User) => {
+            console.log(resulting);
+            this.postNotification.userId = resulting.id;
+            this.postNotification.postId = this.id;
+            this.postNotification.message = `A comment has been made on on your post`;
+            console.log(this.postNotification.message)
+            this.profileService.addNotification(this.postNotification);
+          })
+        })
+      })
       }
 
       this.currentRoute.params.subscribe(params => {
@@ -97,9 +125,14 @@ export class CommentComponent implements OnInit {
 
       this.comment.dateTime = new Date();
       this.comment.parentId = -1;
-
+      
       this.rootService.addComment(this.comment).then(res => {
-        alert("Comment successfully created")
+      //  alert("Comment successfully created")
+      this.toastr.success( 'You Successfully Commented','Comment Notification', {
+        timeOut: 2000,
+      } ); //Notification for displaying Successfully Commented. GM
+        //alert("Comment successfully created")
+        this.toast.success({detail:'Success Message',summary:'Comment successfully created!',duration:10000});
         location.reload()
       })
     })

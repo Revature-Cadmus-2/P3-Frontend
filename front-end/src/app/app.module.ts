@@ -25,6 +25,32 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+import { SettingsButtonComponent } from './profile/settings-button/settings-button.component';
+import { SettingsPageComponent } from './profile/settings-page/settings-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatButtonModule } from "@angular/material/button";
+import { DialogComponent } from './dialog/dialog.component';
+import { MatIconModule } from "@angular/material/icon";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatCardModule } from "@angular/material/card";
+import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
+import { NotificationListComponent } from './profile/notification-list/notification-list.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BookMarkComponent } from './profile/book-mark/book-mark.component';
+import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-button.component';
+import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';
+import { CommonModule } from '@angular/common';
+import { NgToastModule } from 'ng-angular-popup';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { GroupsComponent } from './groups/groups.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
+// angular material
+import { GroupProfileComponent } from './group-profile/group-profile.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +73,17 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
+    DialogComponent,
+    UsersFollowerListComponent,
+    NotificationListComponent,
+    SettingsButtonComponent,
+    SettingsPageComponent,
+    BookMarkComponent,
+    BookMarkButtonComponent,
+    ProfilePicComponent,
+    GroupsComponent,
+    CreateGroupComponent,
+    GroupProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,10 +92,30 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     NgbModule,
     RouterModule.forRoot([]),
     FormsModule,
-    AuthModule.forRoot({
-      domain: 'dev-0w--5cqa.us.auth0.com',
-      clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ //For the Notifications
+      timeOut: 1000, //time is in milliseconds
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true,
     }),
+    AuthModule.forRoot({
+      domain: 'dev-b0fxq42a.us.auth0.com',
+      clientId: 'Hp374kDB7mqFHtv2tYvbE0g2IS6zQwum'
+    }),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    CommonModule,
+    NgToastModule,
+    MatGridListModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

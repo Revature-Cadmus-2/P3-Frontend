@@ -11,21 +11,21 @@ export class UserCreationService {
 
   constructor(private http: HttpClient) { }
 
-  apiUrl = 'https://52.141.211.229/user/api';
+  apiUrl = "https://54.87.122.77/user/api";
 
 
   getAllUsers(): Promise<User[]>
   {
-    return this.http.get<[]>(this.apiUrl + "/user/").toPromise();
+    return this.http.get<[]>(this.apiUrl + "/User/").toPromise();
   }
 
   getUserByName(username: string): Promise<User> {
-    return this.http.get<User>(this.apiUrl + "/user/username/" + username).toPromise();
+    return this.http.get<User>(this.apiUrl + "/User/username/" + username).toPromise();
   }
 
   AddObject(user: User): Promise<User>
   {
-    return this.http.post<User>(this.apiUrl + "/user/", user).toPromise();
+    return this.http.post<User>(this.apiUrl + "/User", user).toPromise();
   }
-
+  
 }

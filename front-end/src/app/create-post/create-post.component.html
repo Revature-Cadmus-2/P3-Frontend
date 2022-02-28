@@ -1,4 +1,34 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
 <div class="container">
+    <h1>Create a post</h1>
+    <form (ngSubmit)="onSubmit(postForm)" #postForm="ngForm">
+    <mat-form-field appearence="fill">
+        <input type="text" style="width: 800px" maxlength="50" class="form-control" id="post-title" placeholder="Title" [(ngModel)]="root.title" name="title" #title="ngModel" required>
+        <div *ngIf="postForm.controls['title']?.invalid && postForm.controls['title'].touched"> 
+            <span *ngIf="postForm.controls['title'].errors?.required" class="form-text">Title is required</span>
+        </div>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearence="fill">
+        <textarea class="form-control" style="width: 800px" id="exampleFormControlTextarea1" placeholder="What's on your mind..." 
+        rows="3" maxlength="140" [(ngModel)]="root.message" name="message" #message="ngModel" 
+        required></textarea>
+        <div *ngIf="postForm.controls['message']?.invalid && postForm.controls['message'].touched"> 
+            <span *ngIf="postForm.controls['message'].errors?.required" class="form-text">Text body is required</span>
+        </div>
+    </mat-form-field>
+    <br>
+        <div *ngIf="postForm.controls['message']?.valid && postForm.controls['title']?.valid; else invalid">
+            <input class="btn btn-primary rounded-pill" type="submit" value="Post">
+        </div>
+        <ng-template #invalid>
+            <input class="btn btn-primary rounded-pill disabled" type="submit" value="Post">
+        </ng-template>
+</form>
+</div>
+<!-- <div class="container">
     <h6>Create a post</h6>
     <div class="card w-75">
         <div class="card-body">
@@ -31,4 +61,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->

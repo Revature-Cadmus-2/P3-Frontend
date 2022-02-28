@@ -3,6 +3,8 @@ import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { AppComponent } from 'src/app/app.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-profile-page',
@@ -22,33 +24,44 @@ export class ProfilePageComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   };
   test = 0;
 
   profileUser: User = {
     id: 0,
-    username:"",
+    username: "",
     email: "",
     name: "",
-    followings: []
-  };
-
-  ngOnInit(): void {
-    if(this.auth.isAuthenticated$){
-      this.auth.user$.subscribe(
-        (profile) => (this.currentUser.username = profile.preferred_username)
-        )
-        this.currentRoute.params.subscribe(params => {
-          this.id = params['id'];
+    followings: [],
+    followers: [],
+    notifications: []
     
-          this.profileService.getUserById(this.id).then((result: User) => {
+  };
+  sessionUserName = sessionStorage.getItem('username');
+  ngOnInit(): void {
+
+        const sessionUserName = sessionStorage.getItem('username');
+        console.log(sessionUserName+'this is my sessions storage preferred username in *****');
+    
+  if(this.auth.isAuthenticated$){
+    this.auth.user$.subscribe(
+        (profile) => (this.currentUser.username = sessionUserName)
+        )
+        console.log();
+
+        this.currentRoute.params.subscribe(params => {
+        this.id = params['id'];
+        this.profileService.getUserById(this.id).then((result: User) => {
             this.profileUser= result;
           });
         });
         this.auth.user$.subscribe((user) => {
-          if (user?.preferred_username) {
-            this.currentUser.username = user.preferred_username;
+          if (user?.username) {
+          // if (user?.sessionUserName) {
+            this.currentUser.username = sessionUserName;
           }
       })
     }

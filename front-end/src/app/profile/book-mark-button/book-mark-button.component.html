@@ -1,0 +1,5 @@
+<ng-button class="btn" [ngClass]="{'booked':booked == false,
+'Bookmark':notbooked == true }" (click)="onbookmarkClick()">
+{{booked == true ? 'unbookmark' : (booked == false ? 
+'Bookmark' : '' )}}
+</ng-button>

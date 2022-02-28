@@ -1,43 +1,24 @@
-
-.box {
-    margin-left: 5px;
-    margin-right: 5px;
-    background-color: #291A4A;
-}
-
-.card {
-    text-align: center;
+.card-title{
+    /* background-color: #3700B3; */
     padding: 0%;
-    border: 5px solid #291A4A;
-    border-bottom: 10px solid #291A4A;
-    box-shadow: 5px 5px 5px grey;
+    border-bottom: solid 1px #e1d309;
 }
-
-.card h1 {
-    font-size: 25px;
-    background-color: #291A4A;
-    border-bottom: 5px solid #291A4A;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0px;
-}
-
-.card body {
+ul {
     text-align: center;
-    padding-bottom: 0%;
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
 }
 
-.card td{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: white;
-    margin-bottom: 0px;
-    margin-top: 0px;
+.follow-name{
+    font-family: Rubik, sans-serif;
+    padding: 10px;
+    font-size: 20px;
 }
 
 .card td:hover{
-    background-color: #986AA8;
+    background-color: #BB86FC;
     text-align: center;
     color: white;
     font-weight: bold;
-}
-
+} 

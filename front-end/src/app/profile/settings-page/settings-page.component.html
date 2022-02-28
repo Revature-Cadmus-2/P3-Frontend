@@ -1,0 +1,10 @@
+<div>
+    <a class="btn" routerLink="/profile/:id">Back</a>
+</div>
+<h1 class="greeting" > Settings Page </h1>
+<div class="center">
+    <h2> Add profile pic </h2>
+    <input type="file" (change)="onFileSelected($event)">
+    <button type="submit" class="btn" (click)="onUpload()"> Upload </button>
+</div>
+
