@@ -3,6 +3,7 @@
     <div class="searchComponent">
         <app-search></app-search>
     </div>
+    <a class="btn btn-primary" id="create-btn" role="button" routerLink="/groups/"> My Groups</a>
     <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
 </div>
 <h1>Today's Featured Post</h1>
@@ -97,6 +98,29 @@
                             Story</a>
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+            </div>
+
+            <div class="container-fluid" id="filter-bar">
+                <div class="row">
+                    <div class="col" id="filter-col">
+                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                            (click)="sortPopular()"><em
+                                class="fa fa-star"></em> Popular</button>
+                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                            (click)="sortNewest()"><em
+                                class="fa fa-hourglass-start"></em>
+                            Newest</button>
+                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                            (click)="sortOldest()"><em
+                                class="fa fa-hourglass-end"></em>
+                            Oldest</button>
+                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn" (click)="sortGroupPosts()"><em
+                                class="fa fa-hourglass-end"></em>
+                            Groups</button>
+                    </div>
+>>>>>>> 872b31ed4457d4550a35cd7b23811f8e3eba6b94
                 </div>
             </div>
                 <!-- feed -->

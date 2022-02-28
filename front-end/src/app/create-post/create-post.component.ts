@@ -23,7 +23,7 @@ export class CreatePostComponent implements OnInit {
     title: '',
     message: '',
     totalVote: 0,
-    dateTime: new Date(0),
+    dateTime: new Date(0), //may have to remove '0' from new Date
     userName: '',
     comments: []
   }

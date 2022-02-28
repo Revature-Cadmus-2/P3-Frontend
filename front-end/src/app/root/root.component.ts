@@ -60,7 +60,10 @@ export class RootComponent implements OnInit {
           this.rootVoteCounter = this.rootVoteCounter + comment.totalVote
         }
         root.totalVote = this.rootVoteCounter
+        
       }
+            this.isLoaded = true;
+
     })
 
     this.rootService.getAllVotes().then(result => {
@@ -68,7 +71,6 @@ export class RootComponent implements OnInit {
     this.rootService.getAllRoots().then(result => {
       result.sort((a, b) => (a.totalVote < b.totalVote) ? 1 : -1);
       this.popular = result;
-      this.isLoaded = true;
     })
 
     this.auth.user$.subscribe((user) => {
@@ -121,5 +123,10 @@ export class RootComponent implements OnInit {
       this.isLoaded = true;
     })
   }
+  
+  sortGroupPosts(): void {
+    console.log("You clicked me")
+    }
+  }
 
-}
+// }

@@ -13,6 +13,7 @@ export class RootServiceService {
   private rootUrl_1: string = "https://54.87.122.77/post/api/Comment";
   private rootUrl_2: string = "https://54.87.122.77/post/api/Vote";
   private userUrl: string = "https://54.87.122.77/user/api/User";
+  private groupUrl: string = "https://54.87.122.77/user/api/Group"
 
   story: string[]
 
