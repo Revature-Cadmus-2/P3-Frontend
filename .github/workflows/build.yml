@@ -93,7 +93,7 @@ jobs:
             aws-region: us-east-1
 
         - name: Trigger deploy
-          uses: angela-mylo/EKSKUBECTL@main
+          uses: angela-mylo/eks-kubectl@main
           env:
             KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
           with:
