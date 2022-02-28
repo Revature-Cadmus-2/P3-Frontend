@@ -92,9 +92,9 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-1
 
-        - name: Trigger deploy
-          uses: angela-mylo/eks-kubectl@main
-          env:
-            KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
+        - name: Build and push
+          uses: ianbelcher/eks-kubectl-action@master
           with:
-            args: apply frontend.yaml
+            cluster_name: ${{ juniper-apollo }}
+            args: set image --record deployment/frontend-deployment-9f7b67cdd-c67mk frontend-deployment-9f7b67cdd-c67mk=https://hub.docker.com/repository/docker/joninfante/frontend-apollo
+        # --- #
