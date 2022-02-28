@@ -85,16 +85,13 @@ jobs:
             push: true
             tags: joninfante/frontend-apollo:latest
         
-        - name: Configure AWS Credentials
-          uses: aws-actions/configure-aws-credentials@v1
-          with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: us-east-1
-
-        - name: Build and push
+        - name: Upload to Kubernetes
           uses: ianbelcher/eks-kubectl-action@master
           with:
+            aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws_region: us-east-1
             cluster_name: juniper-apollo
-            args: set image --record deployment/frontend-deployment frontend-deployment=https://hub.docker.com/repository/docker/joninfante/frontend-apollo
+            eks_role_arn: ${{ secrets.AWS_ARN }}
+            args: set image --record deployment/apollo.frontend-deployment apollo.frontend-deployment=https://hub.docker.com/repository/docker/joninfante/frontend-apollo
         # --- #
