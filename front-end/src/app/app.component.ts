@@ -11,7 +11,6 @@ import { User } from 'src/app/models/user';
 export class AppComponent {
   title = 'front-end';
   isDarkMode: boolean;
-
   constructor(public auth: AuthService, private themeService: ThemeService) { }
   
   user: User = {

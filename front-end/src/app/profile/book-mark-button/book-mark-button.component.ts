@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class BookMarkButtonComponent implements OnInit {
 
   constructor() { }
-
+  booked = false;
+  notbooked = false;
+  
   ngOnInit(): void {
   }
+  onbookmarkClick(){
 
+  }
 }

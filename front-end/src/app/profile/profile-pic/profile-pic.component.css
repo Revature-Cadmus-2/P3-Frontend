@@ -1,6 +1,15 @@
 
 .imgsizer{
-    max-width: 100px;
-    max-height: 100px;
-    
+    max-width: auto;
+    max-height: 400px;
+    width:100%;
+    margin:auto;
+
+    border: solid;
+    border-color: #3700B3;
+    border-radius: 20%;
+
+}
+.profilePic{
+    text-align: center; 
 }

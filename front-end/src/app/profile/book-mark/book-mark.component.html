@@ -1,8 +1,21 @@
 
-<div>
-    <ul>
-        <li> this is a placeholder list of bookmarked posts</li>
-        <li>bookedmark post example</li>
+<mat-card>
+<mat-card-title class="card-title">
+    <h3>
+        Bookmarked Posts
+    </h3>
+    
+</mat-card-title>
+<mat-card-content>
+<ul>
+    <ul *ngFor="let post of BookedList">
+        <li  class="book-name">{{post.postname}}</li>
     </ul>
-</div>
+    <ul *ngIf="(BookedList == undefined || BookedList.length == 0)">
+        <li>No Booked Posts</li>
+    </ul>
+</ul>
+</mat-card-content>
+</mat-card> 
+
 

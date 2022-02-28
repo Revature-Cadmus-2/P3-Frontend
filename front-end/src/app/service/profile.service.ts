@@ -151,4 +151,10 @@ export class ProfileService {
   userUnFollower(id: number): Promise<FollowedBy> {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
+
+  AddUserProfilePicture(sessionUserName: string, imgurl: string) {
+    console.log("Uploading imgurl "+ imgurl + " to user "+ sessionUserName+"'s profile" );
+    
+  }
+
 }

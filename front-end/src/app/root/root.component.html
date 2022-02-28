@@ -25,6 +25,7 @@
                     <div class="col" id="follow-post-btn">
                     </div>
                 </div>
+                
                 <div class="row" style="margin-top: -10px;">
                     <h5>{{ popular[0]?.title }}</h5>
                     <h6>{{ popular[0]?.message }}</h6>
@@ -68,6 +69,7 @@
                     </div>
                     <div class="col" id="follow-post-btn">
                         <app-follow-button-root class="follow" [id]="root.id"></app-follow-button-root>
+                        <app-book-mark-button class="bookmark" [id]="root.id"></app-book-mark-button>
                     </div>
                 </div>
                 <div class="row" style="margin-top: -10px;">
