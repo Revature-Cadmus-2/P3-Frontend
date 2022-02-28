@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Notification } from '../models/Notifications';
 import { MatFormField, MatFormFieldModule } from "@angular/material/form-field"
 
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-comment',
@@ -20,7 +21,7 @@ import { MatFormField, MatFormFieldModule } from "@angular/material/form-field"
 })
 export class CommentComponent implements OnInit {
 
-  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService, private toastr: ToastrService) { }
+  constructor(public profileService: ProfileService, public router: Router, private currentRoute: ActivatedRoute, public rootService: RootServiceService, private cdr: ChangeDetectorRef, public auth: AuthService, private toastr: ToastrService, private toast : NgToastService) { }
 
   id = 0;
   user: string = '';
@@ -130,6 +131,8 @@ export class CommentComponent implements OnInit {
       this.toastr.success( 'You Successfully Commented','Comment Notification', {
         timeOut: 2000,
       } ); //Notification for displaying Successfully Commented. GM
+        alert("Comment successfully created")
+        this.toast.success({detail:'Success Message',summary:'Comment successfully created!',duration:10000});
         location.reload()
       })
     })

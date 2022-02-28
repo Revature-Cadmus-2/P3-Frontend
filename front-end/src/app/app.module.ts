@@ -43,6 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BookMarkComponent } from './profile/book-mark/book-mark.component';
 import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-button.component';
 import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';
+import { CommonModule } from '@angular/common';
+import {NgToastModule} from 'ng-angular-popup';
 
 
 @NgModule({
@@ -102,6 +104,8 @@ import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
+    CommonModule,
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
