@@ -6,6 +6,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Vote } from '../models/vote';
 import { ProfileService } from '../service/profile.service';
 import { User } from '../models/user';
+import { ThemeService } from '../ThemeService';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,8 @@ import { User } from '../models/user';
 
 export class RootComponent implements OnInit {
 
-  constructor(private router: Router, private rootService: RootServiceService, public auth: AuthService, public profileService: ProfileService) { }
-
+  constructor(private router: Router, private rootService: RootServiceService, public auth: AuthService, public profileService: ProfileService, private themeService: ThemeService) { }
+  isDarkMode: boolean;
   voteCounter: number = 0;
   rootVoteCounter: number = 0;
   roots: Root[] = [];
@@ -39,6 +40,8 @@ export class RootComponent implements OnInit {
   }; 
 
   ngOnInit(): void {
+    this.themeService.initTheme();
+    this.isDarkMode = this.themeService.isDarkMode();
     this.rootService.getAllRoots().then(result => {
       result.sort((a, b) => (a.dateTime < b.dateTime) ? 1 : -1);
       this.roots = result;

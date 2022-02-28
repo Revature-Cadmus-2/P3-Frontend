@@ -15,7 +15,11 @@ li{
     padding: 10px;
     font-size: 20px;
 }
-.activity-name:hover{
+
+.edit{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.edit:hover{
     background-color: #bb86FC;
     color: white;
     font-weight: bold;

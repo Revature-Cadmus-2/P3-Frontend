@@ -1,7 +1,5 @@
-<div class="container-fluid">
+<div class="container-fluid" id="rc">
     <div class="row">
-        <div class="col-3" id="left">
-        </div>
         <div class="row col-6" id="center">
             <!-- search bar and create post button -->
             <!-- <div class="col">
@@ -17,7 +15,7 @@
             <div class="container" id="featured-post">
                 <div class="row">
                     <div class="col">
-                        <p style="font-size: 13px;"><span style="font-size: 13px;"
+                        <p style="font-size: 16px;"><span style="font-size: 18px;"
                                 (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{
                             popular[0]?.dateTime |
                             date:'short' }}</p>
@@ -26,8 +24,8 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top: -10px;">
-                    <h5>{{ popular[0]?.title }}</h5>
-                    <h6>{{ popular[0]?.message }}</h6>
+                    <h5 style="font-size: 15px;">{{ popular[0]?.title }}</h5>
+                    <h6 style="font-size:14px;">{{ popular[0]?.message }}</h6>
                 </div>
                 <div class="row">
                     <div class="col">
@@ -62,7 +60,7 @@
             <div class="container" id="feed" *ngFor="let root of roots">
                 <div class="row">
                     <div class="col">
-                        <p style="font-size: 13px;"><span style="font-size: 13px;"
+                        <p style="font-size: 16px;"><span style="font-size: 18px;"
                                 (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{ root.dateTime |
                             date:'short' }}</p>
                     </div>
@@ -71,8 +69,8 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top: -10px;">
-                    <h5>{{ root.title }}</h5>
-                    <h6>{{ root.message }}</h6>
+                    <h5 style="font-size: 15px;">{{ root.title }}</h5>
+                    <h6 style="font-size: 14px;">{{ root.message }}</h6>
                 </div>
                 <div class="row">
                     <div class="col">
@@ -84,8 +82,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-3" id="right">
         </div>
     </div>
 </div>

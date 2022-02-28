@@ -23,7 +23,7 @@
 #username-span {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #4d4382;
+    color: #3700B3;
     cursor: pointer;
 }
 
@@ -36,26 +36,27 @@
 }
 
 .btn-primary {
-    color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    color: #000;
+    background-color: #BB86FC;
+    border-color: #BB86FC;
 }
 
 .btn-primary:hover {
     color: #fdf4f7;
-    background-color: #291a4a;
-    border-color: #291a4a;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
 .btn-outline-primary {
-    color: #4d4382;
-    border-color: #4d4382;
+    color: #000;
+    background-color:#E1D309;
+    border-color: #E1D309;
 }
 
 .btn-outline-primary:hover {
     color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
 #featured-post {
@@ -73,7 +74,7 @@
 
 span {
     font-size: 16px;
-    color: black;
+    /* color: black; */
     font-weight: bold;
 }
 
@@ -84,7 +85,7 @@ span:hover {
 
 p {
     font-size: 14px;
-    color: rgba(20, 20, 20, 0.8);
+    /* color: rgba(20, 20, 20, 0.8); */
 }
 
 #follow-post-btn {
@@ -109,7 +110,7 @@ p {
 
 #filter-bar {
     margin: 5vh 0 2vh 0;
-    background-color: #291a4a;
+    background-color: #3700B3;
     border-radius: 5px;
 }
 

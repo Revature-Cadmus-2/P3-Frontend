@@ -28,6 +28,4 @@ export class NotificationListComponent implements OnInit {
       this.notificationsList = result;
     })
   }
-
-  
 }

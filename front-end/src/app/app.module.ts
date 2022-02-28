@@ -38,9 +38,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { UsersFollowerListComponent } from './profile/users-follower-list/users-follower-list.component';
-
-import { ToastrModule } from 'ngx-toastr';
 import { NotificationListComponent } from './profile/notification-list/notification-list.component';
+import { ToastrModule } from 'ngx-toastr';
 import { BookMarkComponent } from './profile/book-mark/book-mark.component';
 import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-button.component';
 import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';

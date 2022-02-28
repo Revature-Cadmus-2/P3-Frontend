@@ -5,6 +5,7 @@ import { Root } from '../models/root';
 import { AuthService } from '@auth0/auth0-angular';
 import { RootServiceService } from '../service/root-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-create-post',

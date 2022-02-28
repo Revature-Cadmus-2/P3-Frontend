@@ -10,6 +10,7 @@ import { User } from '../models/user';
 import { ProfileService } from '../service/profile.service';
 import { ToastrService } from 'ngx-toastr';
 import { Notification } from '../models/Notifications';
+import { MatFormField, MatFormFieldModule } from "@angular/material/form-field"
 
 
 @Component({

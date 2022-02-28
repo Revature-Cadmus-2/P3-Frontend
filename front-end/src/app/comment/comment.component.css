@@ -1,11 +1,7 @@
 .container-fluid {
     padding: 0;
-    background-color: #f7f2ff;
+    /*background-color: #f7f2ff;*/
     background-size: cover;
-}
-
-#left {
-    background-color: #f7f2ff;
 }
 
 #center {
@@ -13,36 +9,33 @@
     margin: 0 auto;
 }
 
-#right {
-    background-color: #f7f2ff;
-}
-
 .btn-primary {
-    color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    color: #000;
+    background-color: #BB86FC;
+    border-color: #BB86FC;
 }
 
 .btn-primary:hover {
     color: #fdf4f7;
-    background-color: #291a4a;
-    border-color: #291a4a;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
 .btn-outline-primary {
-    color: #4d4382;
-    border-color: #4d4382;
+    color: #000;
+    background-color: #E1D309;
+    border-color: #E1D309;
 }
 
 .btn-outline-primary:hover {
     color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
 span {
     font-size: 16px;
-    color: black;
+    /* color: black; */
     font-weight: bold;
 }
 
@@ -52,8 +45,8 @@ span:hover {
 }
 
 p {
-    font-size: 14px;
-    color: rgba(20, 20, 20, 0.8);
+    font-size: 20x;
+    /* color: rgba(20, 20, 20, 0.8); */
 }
 
 #follow-post-btn {
@@ -72,7 +65,7 @@ hr {
 }
 
 textarea{
-    background-color: rgb(228, 228, 228);
+    /*background-color: rgb(228, 228, 228);*/
 }
 
 #up{
@@ -106,11 +99,11 @@ textarea{
 #vote{
     margin-left: 5px;
     margin-right: 5px;
-    background-color: white;
+    /*background-color: white;*/
 }
 
 .allComments {
-    background-color: white;
+    /*background-color: white;*/
     border: 1px solid rgb(100, 100, 100);
     border-radius: 5px;
     margin-bottom: 3vh;
@@ -137,7 +130,7 @@ textarea{
 }
 
 .container {
-    background-color: white;
+    /*background-color: white;*/
 }
 
 /* #buttons {

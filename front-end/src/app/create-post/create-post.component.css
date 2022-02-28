@@ -12,3 +12,10 @@ h6 {
 .form-text {
     color: #ee0000;
 }
+/* .form-control.light-mode {
+    background-color: #eef2f7;
+}
+.form-control.dark-mode{
+    background-color: rgb(95, 93, 93);
+    color: whitesmoke;
+} */
