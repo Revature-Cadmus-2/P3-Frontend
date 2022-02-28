@@ -25,6 +25,17 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { FollowButtonRootComponent } from './follow-button-root/follow-button-root.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatButtonModule } from "@angular/material/button";
+import { DialogComponent } from './dialog/dialog.component';
+import { MatIconModule } from "@angular/material/icon";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatCardModule } from "@angular/material/card";
+
 
 @NgModule({
   declarations: [
@@ -47,6 +58,7 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +71,15 @@ import { FollowButtonRootComponent } from './follow-button-root/follow-button-ro
       domain: 'dev-b0fxq42a.us.auth0.com',
       clientId: 'Hp374kDB7mqFHtv2tYvbE0g2IS6zQwum'
     }),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

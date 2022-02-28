@@ -63,8 +63,6 @@ export class FollowButtonComponent implements OnInit {
   ngOnChanges(){
     this.isFollow= false;
     this.ngOnInit();
-
-
     }
 
   checkFollows(follows:Followings[]): Followings{

@@ -1,6 +1,8 @@
-FROM node:14-alpine as build-step
+FROM node:16.3.0-alpine as build-step
 
 WORKDIR /app
+
+RUN npm cache clean --force
 
 COPY /front-end/package.json /app
 
@@ -12,7 +14,7 @@ RUN npm run build
 
 # Stage 2
 
-FROM nginx:1.17.1-alpine
+FROM nginx:latest
 
 COPY --from=build-step /app/dist/front-end /usr/share/nginx/html
 # COPY /front-end/default.conf /etc/nginx/nginx.conf

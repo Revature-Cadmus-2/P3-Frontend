@@ -23,18 +23,25 @@ export class BufferComponent implements OnInit {
   myUserName: string;
 
   ngOnInit(): void {
+    console.log('init buffer compt');
     this.auth.user$.subscribe(profile =>
       {
+        console.log(profile);
         this.user.username = profile.preferred_username;
+        console.log(this.user.username);
         this._userService.userName = this.user.username;
         this._userService.getUserByName(profile.preferred_username).then((result: User) => {
+          console.log('buffer component...', result);
           if (result == null)
           {
-            let x = this._userService.AddObject(this.user)
-            console.log(x)
+            this._userService.AddObject(this.user).then((addedUser: User) => {
+              this.router.navigateByUrl('/root');
+            })
+          }
+          else {
+            this.router.navigateByUrl('/root');
           }
         })
-        this.router.navigateByUrl('/root');
       })
   }
 }

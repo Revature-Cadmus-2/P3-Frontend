@@ -1,1 +1,22 @@
 /*Intentionally blank*/
+mat-toolbar{
+    height: 100px;
+    background-color: #FBFDFE;
+}
+
+.logo{
+    margin-right: 20px;
+}
+
+.name{
+    height: auto;
+    width: 200px;
+}
+
+mat-icon{
+    margin: 0 10px;
+}
+
+mat-slide-toggle{
+    margin: 0 5px;
+}

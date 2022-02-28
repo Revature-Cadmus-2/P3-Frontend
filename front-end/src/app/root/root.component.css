@@ -1,24 +1,24 @@
-.container-fluid {
+/* .container-fluid {
     padding: 0;
     background-color: #f7f2ff;
-}
+} */
 
-.container {
+/* .container {
     background-color: white;
-}
+} */
 
-#left {
+/* #left {
     background-color: #f7f2ff;
-}
+} */
 
 #center {
     padding-top: 20px;
     margin: 0 auto;
 }
 
-#right {
+/* #right {
     background-color: #f7f2ff;
-}
+} */
 
 #username-span {
     font-size: 1.5rem;
@@ -121,4 +121,18 @@ p {
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.buffer {
+    margin-top: 100px;
+    width: 5em;
+    height: 5em;
 }
