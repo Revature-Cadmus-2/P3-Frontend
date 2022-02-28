@@ -95,6 +95,6 @@ jobs:
         - name: Build and push
           uses: ianbelcher/eks-kubectl-action@master
           with:
-            cluster_name: ${{ juniper-apollo }}
+            cluster_name: juniper-apollo
             args: set image --record deployment/frontend-deployment-9f7b67cdd-c67mk frontend-deployment-9f7b67cdd-c67mk=https://hub.docker.com/repository/docker/joninfante/frontend-apollo
         # --- #
