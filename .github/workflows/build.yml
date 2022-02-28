@@ -86,12 +86,11 @@ jobs:
             tags: joninfante/frontend-apollo:latest
         
         - name: Upload to Kubernetes
-          uses: ianbelcher/eks-kubectl-action@master
+          uses: tuongaz/kubctl-eks-action@master
+          env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION: us-east-1
+            KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
           with:
-            aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws_region: us-east-1
-            cluster_name: juniper-apollo
-            eks_role_arn: ${{ secrets.AWS_ARN }}
-            args: set image --record deployment/apollo.frontend-deployment apollo.frontend-deployment=https://hub.docker.com/repository/docker/joninfante/frontend-apollo
-        # --- #
+            args: set image --record deployment/apollo.frontend-deployment apollo.frontend-deployment=https://hub.docker.com/r/joninfante/frontend-apollo
