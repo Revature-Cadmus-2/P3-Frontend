@@ -34,7 +34,9 @@ export class FollowButtonRootComponent implements OnInit {
     username:"",
     email: "",
     name: "",
-    followings: []
+    followings: [],
+    followers: [],
+    notifications: []
   }; 
   constructor(public profileService: ProfileService, public auth: AuthService, public rootService: RootServiceService, public router: Router ) { }
 
@@ -72,6 +74,7 @@ export class FollowButtonRootComponent implements OnInit {
   ){  }
   
   onClick() {
+    console.log('post followed')
     if(this.isFollow== false){
       this.rootService.getRootById(this.id).then((result: Post) => {
         this.newFollowing.postname= result.title;
@@ -83,11 +86,13 @@ export class FollowButtonRootComponent implements OnInit {
       });
       };
       if(this.isFollow == true){
-      
+      console.log('unfollowed post');
         this.profileService.getFollowedPostByUserId(this.currentUser.id).then((result: FollowingPost[]) => {
           let listOfFollowings = result;
+          console.log(this.currentUser.id)
           for(let i = 0; i < listOfFollowings.length; i++){
             if (listOfFollowings[i].rootId == this.id){
+              console.log(listOfFollowings[i].rootId);
               this.profileService.unfollowPost(listOfFollowings[i].id);
               break;
             }

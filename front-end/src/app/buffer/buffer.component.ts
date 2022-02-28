@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class BufferComponent implements OnInit {
   flag: boolean = false;
-
   constructor(private auth: AuthService, private http: HttpClient, public _userService: UserCreationService, private router: Router) { }
 
   userList: User[];

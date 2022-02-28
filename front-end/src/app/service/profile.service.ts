@@ -7,6 +7,8 @@ import { FollowingPost } from '../models/FollowingPost';
 import { Observable } from 'rxjs';
 import { Followings } from '../models/Followings';
 import { RecentActivity } from '../models/RecentActivity';
+import { FollowedBy } from '../models/FollowedBy';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +19,11 @@ export class ProfileService {
   rootUrl = 'https://54.87.122.77/post/api/Post';
   followUrl = 'https://54.87.122.77/user/api/Following';
   followingPostUrl = 'https://54.87.122.77/user/api/FollowingPost'
+  followedByUrl = 'https://54.87.122.77/user/api/FollowedBy';
+
+  
 
   constructor(private http: HttpClient) { }
-
 
   // getAll(): Observable<any> {
   //   return this.http.get(this.apiUrl + '_sort=id&order=desc')
@@ -106,6 +110,11 @@ export class ProfileService {
     return this.http.get<[]>(this.followUrl + "/followeruserId/"+ id).toPromise();
   }
 
+  getFollowersByUserId(id: number): Promise<FollowedBy[]>
+  {
+    return this.http.get<[]>(this.followedByUrl + "/userId/" + id).toPromise();
+  }
+
   checkFollowingPost(followedPostId: number, currentUser:number): boolean{
 
     var doesFollow = false;
@@ -124,8 +133,9 @@ export class ProfileService {
     return this.http.post<FollowingPost>(this.followingPostUrl, followedPost).toPromise();
   }
 
-  unfollowPost(id: number) {
-    return this.http.delete<FollowingPost>(this.apiUrl+"/id/"+id).toPromise();
+  unfollowPost(id: number): Promise<FollowingPost>
+  {
+    return this.http.delete<FollowingPost>(this.followingPostUrl + "/id/" + id).toPromise();
   }
 
   followUser(follow: Followings): Observable<Followings> {
@@ -134,6 +144,19 @@ export class ProfileService {
 
   unfollowUser(followId: number): Observable<Followings> {
     return this.http.delete<Followings>(this.followUrl + "/id/"+ followId);
+  }
+
+  userFollowers(follower: FollowedBy): Promise<FollowedBy> {
+    return this.http.post<FollowedBy>(this.followedByUrl, follower).toPromise();
+  }
+
+  userUnFollower(id: number): Promise<FollowedBy> {
+    return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
+  }
+
+  AddUserProfilePicture(sessionUserName: string, imgurl: string) {
+    console.log("Uploading imgurl "+ imgurl + " to user "+ sessionUserName+"'s profile" );
+    
   }
 
 }

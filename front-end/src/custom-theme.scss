@@ -28,7 +28,8 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
 
 .light-mode {
   @include angular-material-theme($app-light-theme);
-  background-color: #FBFDFE;
+  background-color: #eef2f7;
+  
 }
 
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
@@ -46,5 +47,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Rubik, "Helvetica Neue", sans-serif;
 }

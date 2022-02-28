@@ -1,0 +1,39 @@
+.btn{
+    background-color: #4d4382;
+    color: white;
+    border: none;
+    padding: 0.6em 2em;
+    text-align: center;
+    margin: 1em;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: float;
+    cursor:pointer;
+    border-radius: 8px;
+    width: 120px;
+    min-width: 140px
+}
+
+.btn:hover {
+    color: #fdf4f7;
+    background-color: #291a4a;
+    border-color: #291a4a;
+}
+.greeting {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Rubik", sans-serif;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.center{
+    text-align: center;
+    margin: 0 auto;
+    align: center;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 10px;
+    max-width: 500px;
+    margin-top: 15px;
+}

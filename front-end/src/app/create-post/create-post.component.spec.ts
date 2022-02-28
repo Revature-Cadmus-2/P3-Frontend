@@ -19,8 +19,8 @@ describe('CreatePostComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [CreatePostComponent],
       imports: [FormsModule, RouterTestingModule, HttpClientTestingModule, AuthModule.forRoot({
-        domain: 'dev-0w--5cqa.us.auth0.com',
-        clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
+        domain: 'dev-b0fxq42a.us.auth0.com',
+        clientId: 'SxcDeoMfg6Lrkr0WpGzqVIuw02zOxNQCOvrkDKQxAOhom97sBSbuCIdjzds9Jgyt'
       })]
     })
       .compileComponents();

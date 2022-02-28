@@ -1,24 +1,30 @@
-.bg {
-    /* background-color: #f7f2ff; */
-}
 .followButton {
     display: flex;
     float: right;
 }
-.center-text {
-    text-align: center;
-}
-.box {
-    margin-left: 5px;
-    margin-right: 5px;
-    background-color: #291A4A;
-}
-
 .greeting {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Rubik", sans-serif;
+    margin-top: 40px;
+}
+.center-text {
+    text-align: center;
+}
+.center{
+    display: flex; 
+    justify-content:center; 
+    align-items:center;
+    
+}
+
+
+/* 
+.box {
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #291A4A;
 }
 
 .card {
@@ -53,5 +59,5 @@
     text-align: center;
     color: white;
     font-weight: bold;
-}
+} */
 
