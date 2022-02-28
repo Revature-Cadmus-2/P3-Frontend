@@ -93,6 +93,10 @@ textarea{
     /* background-color: white; */
 }
 
+h5, h4{
+    font-size: 20px;
+}
+
 /* #buttons {
     display: flex;
     flex-wrap: wrap;
