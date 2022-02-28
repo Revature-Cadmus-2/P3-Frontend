@@ -86,7 +86,7 @@ jobs:
             tags: joninfante/frontend-apollo:latest
         
         - name: Upload to Kubernetes
-          uses: tuongaz/kubctl-eks-action@master
+          uses: tuongaz/kubectl-eks-action@master
           env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
