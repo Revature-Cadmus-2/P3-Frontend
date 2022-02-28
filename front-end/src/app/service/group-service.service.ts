@@ -25,4 +25,9 @@ export class GroupServiceService {
   goToGroup(id: number): Promise<Group>{
     return this.http.get<Group>(this.groupUrl + '/' + id).toPromise();
   }
+
+  
+  // getAllGroupsByUserId(userId : any): Promise<Group[]>{
+  //   return this.http.get<Group[]>(this.)
+  // }
 }
