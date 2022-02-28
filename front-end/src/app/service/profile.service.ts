@@ -13,10 +13,10 @@ import { RecentActivity } from '../models/RecentActivity';
 })
 export class ProfileService {
 
-  apiUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User';
-  rootUrl = 'http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post';
-  followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
-  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost'
+  apiUrl = 'https://54.87.122.77/user/api/User';
+  rootUrl = 'https://54.87.122.77/post/api/Post';
+  followUrl = 'https://54.87.122.77/user/api/Following';
+  followingPostUrl = 'https://54.87.122.77/user/api/FollowingPost'
 
   constructor(private http: HttpClient) { }
 
