@@ -33,7 +33,7 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   // > :host ::ng-deep .mat-form-field {
   //     background-color: #eef2f7;
   // }
-  > input.form-control[type="text"], #post-title, textarea {
+  > input.form-control[type="text"], #post-title, #exampleFormControlTextarea1, textarea {
     background-color: #eef2f7;
   }
 }
@@ -49,7 +49,7 @@ $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
   //     background-color: rgb(95, 93, 93);
   //     color: whitesmoke;
   // }
-  > input.form-control[type="text"], #post-title, textarea{
+  > input.form-control[type="text"], #post-title, #exampleFormControlTextarea1, textarea{
     background-color: #333;
     color: whitesmoke;
   }
