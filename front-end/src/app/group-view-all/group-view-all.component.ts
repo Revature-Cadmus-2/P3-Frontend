@@ -9,11 +9,11 @@ import { UserCreationService } from '../service/user-creation.service';
 
 
 @Component({
-  selector: 'app-groups',
-  templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.css']
+  selector: 'app-group-view-all',
+  templateUrl: './group-view-all.component.html',
+  styleUrls: ['./group-view-all.component.css']
 })
-export class GroupsComponent implements OnInit {
+export class GroupViewAllComponent implements OnInit {
 
   constructor(private router: Router, public auth: AuthService, private rService: GroupServiceService,private currentRoute: ActivatedRoute, public profileService: ProfileService, public userService: UserCreationService) { }
 
@@ -39,8 +39,9 @@ export class GroupsComponent implements OnInit {
     notifications: []
   };
   id=0;
-
-  ngOnInit(): void { //this get all the list of groups for the user
+  
+  ngOnInit(): void {
+  
     const sessionUserName = sessionStorage.getItem('username');
         console.log(sessionUserName+' this is my sessions storage preferred username in *');
         if(this.auth.isAuthenticated$){
@@ -70,32 +71,15 @@ export class GroupsComponent implements OnInit {
     {
       this.allGroups = groupArray;
     }) 
-    
-      
-  }//End ngOnInit()
-
+  
+  }
 
   goToGroup(id: any): void {
 
     this.router.navigate([`groups/${id}`],);
   }
+
   
-  createNewGroups(): void {
-    
-    this.router.navigateByUrl('create-group');
-  }
-
-  viewAllGroups(): void {
-    this.router.navigateByUrl('view-groups');
-  }
 
 
-
-  // getUserId(username: any): any {
-  //   console.log("Requesting to get id by username.")
-  //   this.profileService.getUserByName(username).then((user) => {
-  //     this.currentUser.id = user.id
-  //   })
-  // }
-  
-}//End Class
+}

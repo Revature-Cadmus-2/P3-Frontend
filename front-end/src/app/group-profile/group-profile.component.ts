@@ -14,4 +14,9 @@ export class GroupProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // joinGroup(): void {
+    
+  //   this.router.navigate([`groups/${id}`],);
+  // }
+
 }

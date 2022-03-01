@@ -51,6 +51,7 @@ import { GroupsComponent } from './groups/groups.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 // angular material
 import { GroupProfileComponent } from './group-profile/group-profile.component';
+import { GroupViewAllComponent } from './group-view-all/group-view-all.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { GroupProfileComponent } from './group-profile/group-profile.component';
     GroupsComponent,
     CreateGroupComponent,
     GroupProfileComponent,
+    GroupViewAllComponent,
   ],
   imports: [
     BrowserModule,

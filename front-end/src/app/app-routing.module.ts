@@ -16,6 +16,7 @@ import { SettingsButtonComponent } from './profile/settings-button/settings-butt
 import { GroupsComponent } from './groups/groups.component';
 import { CreateGroupComponent } from "./create-group/create-group.component";
 import { GroupProfileComponent } from './group-profile/group-profile.component';
+import { GroupViewAllComponent } from './group-view-all/group-view-all.component';
 
 const routes: Routes = [
   { path: 'root', component: RootComponent, canActivate: [AuthGuard] },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'settings-page', component: SettingsPageComponent, canActivate: [AuthGuard]},
   { path: 'setting-button', component: SettingsButtonComponent, canActivate: [AuthGuard]},
   { path: 'groups', component: GroupsComponent, canActivate: [AuthGuard] },
-  { path: 'groups/:id', component: GroupProfileComponent, canActivate: [AuthGuard] }
+  { path: 'groups/:id', component: GroupProfileComponent, canActivate: [AuthGuard] },
+  { path: 'view-groups', component: GroupViewAllComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
