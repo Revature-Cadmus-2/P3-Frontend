@@ -104,16 +104,20 @@ export class CommentComponent implements OnInit {
       if (user?.preferred_username) {
         this.comment.userName = user.preferred_username;
         this.currentRoute.params.subscribe(params => {
-          this.id = params['id'];
+        this.id = params['id'];
         this.rootService.getRootById(this.id).then((result: Root) => {
           this.root = result;
           this.profileService.getUserByName(this.root.userName).then((resulting: User) => {
-            console.log(resulting);
-            this.postNotification.userId = resulting.id;
-            this.postNotification.postId = this.id;
-            this.postNotification.message = `A comment has been made on on your post`;
-            console.log(this.postNotification.message)
-            this.profileService.addNotification(this.postNotification);
+            this.profileService.getUserByName(this.comment.userName).then((thisUser: User) => {
+              console.log(resulting);
+              this.postNotification.userId = resulting.id;
+              this.postNotification.FollowersId= thisUser.id;
+              this.postNotification.postId = this.id;
+              this.postNotification.commentId = this.comment.id;
+              this.postNotification.message = ` ${this.comment.userName} has commented on your "${this.root.title}" post`;
+              console.log(this.postNotification.message)
+              this.profileService.addNotification(this.postNotification);
+            })
           })
         })
       })
@@ -133,7 +137,7 @@ export class CommentComponent implements OnInit {
       // } ); //Notification for displaying Successfully Commented. GM
         //alert("Comment successfully created")
         this.toast.success({detail:'Success Message',summary:'Comment successfully created!',duration:10000});
-        location.reload()
+        //location.reload()
       })
     })
   }

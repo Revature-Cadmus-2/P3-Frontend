@@ -6,7 +6,7 @@
     </mat-card-title>
     <mat-card-content>
         <ul *ngFor="let follower of followedList">
-            <li routerLink="/comment/{{follower.followingUserId}}" class="follow-name">{{follower.followingUserName}}</li>
+            <li routerLink="/profile/{{follower.followingUserId}}" class="follow-name">{{follower.followingUserName}}</li>
         </ul>
         <ul *ngIf="(followedList == undefined || followedList.length == 0)">
             <li>No Followers!</li>

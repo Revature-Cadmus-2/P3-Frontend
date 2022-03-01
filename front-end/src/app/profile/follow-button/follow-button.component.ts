@@ -6,6 +6,7 @@ import { FollowedBy } from 'src/app/models/FollowedBy';
 import { User } from 'src/app/models/user';
 import { LogicalProjectPath } from '@angular/compiler-cli/src/ngtsc/file_system';
 import { ToastrService } from 'ngx-toastr';
+import { Notification } from 'src/app/models/Notifications';
 
 
 @Component({
@@ -66,6 +67,13 @@ export class FollowButtonComponent implements OnInit {
     followersUserName: ""
   }
 
+  followingNotification: Notification = {
+    id:0,
+    userId: 0,
+    FollowersId: 0,
+    message: ''
+  }
+
   constructor(private profileService: ProfileService, public auth: AuthService, private toastr: ToastrService ) { }
 
   ngOnInit(): void {
@@ -92,9 +100,10 @@ export class FollowButtonComponent implements OnInit {
                 //does the same thing as before but for the followers list for who you are following
                 this.profileService.getFollowersByUserId(this.followId).then((resulting: FollowedBy[]) => {
                   let listofFollowers = resulting;
+                  //console.log('this is the list of followers', listofFollowers);
                   //let listofFollowers = this.userFollowed.followers;
                   for(let i = 0; i < listofFollowers.length; i++){
-                    if(listofFollowers[i].followersId == this.currentUser.id){
+                    if(listofFollowers[i].userId == this.followId && listofFollowers[i].followersId == this.currentUser.id){
                       this.isFollower = true;
                       this.followingUser=listofFollowers[i];
                       console.log(this.followingUser)
@@ -120,6 +129,7 @@ export class FollowButtonComponent implements OnInit {
 
   ngOnChanges(){
     this.isFollow= false;
+    this.isFollower= false;
     this.ngOnInit();
     }
 
@@ -177,6 +187,12 @@ export class FollowButtonComponent implements OnInit {
     this.toastr.success( 'You Followed Someone','Follow Notification', {
       timeOut: 2000, //timeout:2000 = 2 seconds
     } ); //Notification for displaying when you follow someone. Garrett
+    
+    this.followingNotification.FollowersId = this.currentUser.id;
+    this.followingNotification.userId = this.followId;
+    this.followingNotification.message = ` ${this.currentUser.username} has followed you! `;
+    this.profileService.addNotification(this.followingNotification);
+
     } else if (!this.isFollow) {
       this.profileService.unfollowUser(this.followedUser.id).subscribe(
         data => {
@@ -210,8 +226,9 @@ export class FollowButtonComponent implements OnInit {
         let listofFollowers = result;
         console.log(result);
         for(let i = 0; i < listofFollowers.length; i++){
-          if(listofFollowers[i].userId == this.followId){
+          if(listofFollowers[i].userId == this.followId && listofFollowers[i].followersId == this.currentUser.id){
             this.profileService.userUnFollower(listofFollowers[i].id);
+            console.log(listofFollowers[i].userId)
             console.log(listofFollowers[i].id)
             console.log('this is the followedby id')
             break;
