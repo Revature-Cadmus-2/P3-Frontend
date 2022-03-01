@@ -13,18 +13,22 @@ import { MatCard } from "@angular/material/card";
   styleUrls: ['./book-mark.component.css']
 })
 export class BookMarkComponent implements OnInit {
-
-  constructor(private route: ActivatedRoute, public profileService: ProfileService) { }
-  BookedList: FollowingPost[];
-  id = 0;
+ //notes to future devs the bookmark is the same thing as the notification and piggy backs off the 
+ //same code we originally intended to have bookmark and follow seperate but then merged them into one 
+  
+ constructor(private route: ActivatedRoute, public profileService: ProfileService) { }
+  @Input() id = 0;
   message: string;
+  user!: User;
+  roots!: Root[];
+  comments!: Comment[];
+  activity: any[] = [];
+  BookedList: FollowingPost[];
 
   ngOnInit(): void {
     this.BookedList = [];
     this.profileService.getFollowedPostByUserId(this.id).then((result: [FollowingPost]) => {
       this.BookedList= result;
-      
-      
     });
 
   }
@@ -36,5 +40,4 @@ export class BookMarkComponent implements OnInit {
       this.BookedList= result;
     });
   }
-
 }

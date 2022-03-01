@@ -1,0 +1,22 @@
+.btn{
+    background-color: #03DAC6;
+    color: #000;
+    border: none;
+    padding: 0.6em 2em;
+    text-align: center;
+    margin: 1em;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: float;
+    float: right;
+    cursor:pointer;
+    border-radius: 8px;
+    width: 120px;
+    min-width: 140px;
+}
+
+.btn:hover {
+    color: #fdf4f7;
+    background-color: #3700B3;
+    border-color: #3700B3;
+}
