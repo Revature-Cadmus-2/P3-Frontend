@@ -67,7 +67,7 @@
                     <div class="row">
                         <p style="font-size: 18px;"><span style="font-size: 18px;"
                                 (click)="goToUserProfile(comment.userName)">{{ comment.userName }}</span> • {{
-                            comment.dateTime | date:'short' }}
+                            comment.dateTime | date:'short':'EST':'en-US' }}
                         </p>
                     </div>
                     <div class="row" style="margin-bottom: 5px;">

@@ -14,7 +14,7 @@
         <a class="btn btn-outline-primary" routerLink="/comment/{{popular[0]?.id}}" role="button" style="margin-right: 5px;">{{(popular[0]?.comments).length }} Comments</a>
         <a class="btn btn-primary" routerLink="/read-root/{{popular[0]?.id}}" role="button"> Read Story</a>
         <mat-icon style="margin-left: 200px;">add_a_photo</mat-icon>                       
-        <span (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{popular[0]?.dateTime | date:'short'}}
+        <span (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{popular[0]?.dateTime | date:'short':'EST':'en-US'}}
     </div>
 </div>
 <div id="filter-bar">
