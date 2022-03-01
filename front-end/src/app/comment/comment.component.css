@@ -104,9 +104,10 @@ textarea{
 
 .allComments {
     /*background-color: white;*/
-    border: 1px solid rgb(100, 100, 100);
+    border: 1px solid #E1D309;/*rgb(100, 100, 100);*/
     border-radius: 5px;
     margin-bottom: 3vh;
+    padding: 0;
 }
 
 #comments {
@@ -124,7 +125,7 @@ textarea{
 
 #root {
     padding: 10px;
-    border: 1px solid rgb(100, 100, 100);
+    border: 1px solid #E1D309;
     border-radius: 5px;
     margin-bottom: 1vh;
 }
