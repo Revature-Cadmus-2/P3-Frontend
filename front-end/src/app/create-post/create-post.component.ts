@@ -36,8 +36,9 @@ export class CreatePostComponent implements OnInit {
       if (user?.preferred_username) {
         this.root.userName = user.preferred_username
       }
-
-      this.root.dateTime = new Date()
+      let nDate = new Date()
+      let dateZone = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York"})
+      this.root.dateTime = new Date(dateZone.format(nDate))
       this.rService.addRoot(this.root).then(res => {
        // alert("Post successfully created")
        this.toastr.success( 'You Successfully Created a Post','Post Notification', {

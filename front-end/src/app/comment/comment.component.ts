@@ -123,7 +123,9 @@ export class CommentComponent implements OnInit {
         this.comment.rootId = params['id'];
       })
 
-      this.comment.dateTime = new Date();
+      let nDate = new Date();
+      let dateZone = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York"});
+      this.comment.dateTime = new Date(dateZone.format(nDate));
       this.comment.parentId = -1;
       
       this.rootService.addComment(this.comment).then(res => {
