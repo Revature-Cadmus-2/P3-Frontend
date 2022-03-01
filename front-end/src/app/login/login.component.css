@@ -18,16 +18,10 @@ max-height: 900px;
     padding-bottom: 3em;
 }
 
-.btn1 {
+.btn {
     margin-bottom: 1em;
     background-color: blue;
-}
-
-.btn2 {
-    background-color: blue;
-}
-.btn-success{
-    background-color: blue;
+    border: none;
 }
 
 .wrapper {
