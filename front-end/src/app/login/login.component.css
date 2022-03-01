@@ -11,6 +11,13 @@ max-height: 900px;
     width: 50%;
 }
 
+.logout{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
 .img {
     width: 100%;
     height: auto;
@@ -20,14 +27,7 @@ max-height: 900px;
 
 .btn1 {
     margin-bottom: 1em;
-    background-color: blue;
-}
-
-.btn2 {
-    background-color: blue;
-}
-.btn-success{
-    background-color: blue;
+    
 }
 
 .wrapper {

@@ -1,7 +1,5 @@
 .container-fluid {
     padding: 0;
-    /*background-color: #f7f2ff;*/
-    background-size: cover;
 }
 
 #center {
@@ -13,18 +11,14 @@
     color: #000;
     background-color: #BB86FC;
     border-color: #BB86FC;
+    max-height: 38px;
+    text-align: center;
 }
 
 .btn-primary:hover {
     color: #fdf4f7;
     background-color: #3700B3;
     border-color: #3700B3;
-}
-
-.btn-outline-primary {
-    color: #000;
-    background-color: #BB86FC;
-    border-color: #BB86FC;
 }
 
 .btn-outline-primary:hover {
@@ -64,10 +58,6 @@ hr {
     border-bottom: solid 1px rgb(100, 100, 100);
 }
 
-textarea{
-    /*background-color: rgb(228, 228, 228);*/
-}
-
 #up{
     cursor: pointer;
 }
@@ -103,16 +93,15 @@ textarea{
 }
 
 .allComments {
-    /*background-color: white;*/
-    border: 1px solid #E1D309;/*rgb(100, 100, 100);*/
-    border-radius: 5px;
     margin-bottom: 3vh;
     padding: 0;
 }
 
 #comments {
-    border-bottom: 1px solid rgb(100, 100, 100);
+    border: .75px solid #E1D309;
+    border-radius: 5px;
     padding: 20px 10px;
+    margin: 20px auto;
 }
 
 #comments:last-child {
@@ -130,11 +119,12 @@ textarea{
     margin-bottom: 1vh;
 }
 
-.container {
-    /*background-color: white;*/
+h5{
+    font-size: 25px;
+    margin: 10px 0 20px 0;
 }
 
-/* #buttons {
-    display: flex;
-    flex-wrap: wrap;
-} */
+h6{
+    font-size: 20px;
+    margin: 10px 0 20px 0;
+}
