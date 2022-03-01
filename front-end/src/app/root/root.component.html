@@ -40,7 +40,7 @@
     <a class="btn btn-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
     <span style="float: right; margin-bottom: 0px;">{{ root.totalVote }} Votes</span>
     <mat-icon style="margin-left: 100px;">add_a_photo</mat-icon> 
-    <span (click)="goToUserProfile(root[0].userName)">{{ root.userName }}</span> • {{root.dateTime | date:'short'}}
+    <span (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{root.dateTime | date:'short'}}
 </div>
 
 </ng-template>
