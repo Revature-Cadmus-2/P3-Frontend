@@ -32,12 +32,13 @@ export class ProfilePageComponent implements OnInit {
 
   profileUser: User = {
     id: 0,
-    username:"",
+    username: "",
     email: "",
     name: "",
     followings: [],
     followers: [],
     notifications: []
+    
   };
   sessionUserName = sessionStorage.getItem('username');
   ngOnInit(): void {

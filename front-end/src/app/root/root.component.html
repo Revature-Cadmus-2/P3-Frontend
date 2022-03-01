@@ -3,6 +3,7 @@
     <div class="searchComponent">
         <app-search></app-search>
     </div>
+    <a class="btn btn-primary" id="create-btn" role="button" routerLink="/groups/"> My Groups</a>
     <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
 </div>
 <h1>Today's Featured Post</h1>
@@ -23,17 +24,26 @@
     <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
     (click)="sortOldest()"><em class="fa fa-hourglass-end"></em>Oldest</button>
 </div>
+<div *ngIf="isLoaded == false; else Loaded" class="container text-center">
+    <div class="center">
+    <img class="spinner-border text-light buffer" src="../../assets/loadingmoon.png" alt="Buffer image"/>
+    <p>Loading, please wait...</p>
+</div>
+</div>
+<ng-template #Loaded>
 <div class="feed" id="post" *ngFor="let root of roots">
     <app-follow-button-root class="follow" [id]="root.id"></app-follow-button-root>
+    <app-book-mark-button id="nostyle"></app-book-mark-button>
     <h5>{{ root.title }}</h5>
     <h6>{{ root.message }}</h6>
     <a class="btn btn-outline-primary" routerLink="/comment/{{root.id}}" role="button" style="margin-right: 5px;">{{(root.comments).length }} Comments</a>
     <a class="btn btn-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
     <span style="float: right; margin-bottom: 0px;">{{ root.totalVote }} Votes</span>
     <mat-icon style="margin-left: 100px;">add_a_photo</mat-icon> 
-    <span (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{root.dateTime | date:'short'}}
-    
+    <span (click)="goToUserProfile(root[0].userName)">{{ root.userName }}</span> • {{root.dateTime | date:'short'}}
 </div>
+
+</ng-template>
 
 
 <!-- <div class="container-fluid" id="rc">
@@ -54,6 +64,29 @@
                     </div>
                     <div class="col" id="follow-post-btn"></div>
                 </div>
+
+                <div class="container-fluid" id="filter-bar">
+                    <div class="row">
+                        <div class="col" id="filter-col">
+                            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                                (click)="sortPopular()"><em
+                                    class="fa fa-star"></em> Popular</button>
+                            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                                (click)="sortNewest()"><em
+                                    class="fa fa-hourglass-start"></em>
+                                Newest</button>
+                            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                                (click)="sortOldest()"><em
+                                    class="fa fa-hourglass-end"></em>
+                                Oldest</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isLoaded == false; else Loaded" class="container text-center">
+                    <div class="center">
+                    <img class="spinner-border text-light buffer" src="../../assets/loadingmoon.png" alt="Buffer image"/>
+                    <p>Loading, please wait...</p>
+                
                 <div class="row" style="margin-top: -10px;">
                     <h5 style="font-size: 15px;">{{ popular[0]?.title }}</h5>
                     <h6 style="font-size:14px;">{{ popular[0]?.message }}</h6>
@@ -83,9 +116,39 @@
                             (click)="sortOldest()"><em
                                 class="fa fa-hourglass-end"></em>
                             Oldest</button>
+                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn" (click)="sortGroupPosts()"><em
+                                class="fa fa-hourglass-end"></em>
+                            Groups</button>
                     </div>
                 </div>
-            </div> -->
+            </div>
+                <! feed -->
+                <!-- <ng-template #Loaded>
+                <div class="container" id="feed" *ngFor="let root of roots">
+                    <div class="row">
+                        <div class="col">
+                            <p style="font-size: 13px;"><span style="font-size: 13px;"
+                                    (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{ root.dateTime |
+                                date:'short' }}</p>
+                        </div>
+                        <div class="col" id="follow-post-btn">
+                            <app-follow-button-root class="follow" [id]="root.id"></app-follow-button-root>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: -10px;">
+                        <h5>{{ root.title }}</h5>
+                        <h6>{{ root.message }}</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-outline-primary" routerLink="/comment/{{root.id}}" role="button"
+                                style="margin-right: 5px;">{{
+                                (root.comments).length }} Comments</a>
+                            <a class="btn btn-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
+                            <p style="float: right;">{{ root.totalVote }} Votes</p>
+                        </div>
+                    </div>
+                </div> -->
 
             <!-- feed -->
             <!-- <div class="container" id="feed" *ngFor="let root of roots">
@@ -97,6 +160,7 @@
                     </div>
                     <div class="col" id="follow-post-btn">
                         <app-follow-button-root class="follow" [id]="root.id"></app-follow-button-root>
+                        <app-book-mark-button class="bookmark" [id]="root.id"></app-book-mark-button>
                     </div>
                 </div>
                 <div class="row" style="margin-top: -10px;">

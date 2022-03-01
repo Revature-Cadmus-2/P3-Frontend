@@ -19,15 +19,7 @@ export class SettingsPageComponent implements OnInit {
   selectedFile = null;
   
   ngOnInit(): void {
-    this.auth.user$.subscribe((userInfo)=> { 
-      if (userInfo?.preferred_username==null) {
-        console.log("nothing to show")
-      } else {
-        console.log(userInfo?.preferred_username);
-        console.log(userInfo);
-
-      }
-    })
+    
   }
   onFileSelected(event){
     
@@ -35,23 +27,23 @@ export class SettingsPageComponent implements OnInit {
     console.log(this.selectedFile);
   }
 
-  onUpload(){
-    console.log("on upload called in setting page")
-    let imgurl =this.amazons3.uploadFileToS3Bucket(this.selectedFile);
-    console.log(imgurl);
-    this.auth.user$.subscribe((userInfo)=> { 
-      if (userInfo?.preferred_username==null) {
-        console.log("nothing to show")
-      } else {
-        console.log(userInfo?.preferred_username);
-        console.log(userInfo);
-        if(typeof(imgurl)=='string'|| imgurl instanceof String) {
-        this.amazons3.AddUserProfilePicture(userInfo?.preferred_username, imgurl)
-        
-        } else {
-          console.log("not a string");
-        }
-      }
-    })
+  BioUpload(){
+    document.getElementById('biotext')
+    
   }
+    
+  onUpload(){
+    const sessionUserName = sessionStorage.getItem('username');
+    console.log(sessionUserName+'this is my sessions storage preferred username in *****');
+    console.log("on upload called in setting page")
+    this.amazons3.uploadFileToS3Bucket(this.selectedFile).then((response: any) => {
+      var imglink = JSON.stringify(response.Location).slice(1,-1)
+      this.profileService.AddUserProfilePicture(sessionUserName, imglink)
+      console.log(imglink);
+
+  }
+  )}
+
 }
+
+

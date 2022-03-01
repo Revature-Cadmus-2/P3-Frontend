@@ -44,9 +44,13 @@ import { BookMarkComponent } from './profile/book-mark/book-mark.component';
 import { BookMarkButtonComponent } from './profile/book-mark-button/book-mark-button.component';
 import { ProfilePicComponent } from './profile/profile-pic/profile-pic.component';
 import { CommonModule } from '@angular/common';
-import {NgToastModule} from 'ng-angular-popup';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { NgToastModule } from 'ng-angular-popup';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { GroupsComponent } from './groups/groups.component';
+import { CreateGroupComponent } from './create-group/create-group.component';
+// angular material
+import { GroupProfileComponent } from './group-profile/group-profile.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +81,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BookMarkComponent,
     BookMarkButtonComponent,
     ProfilePicComponent,
+    GroupsComponent,
+    CreateGroupComponent,
+    GroupProfileComponent,
   ],
   imports: [
     BrowserModule,

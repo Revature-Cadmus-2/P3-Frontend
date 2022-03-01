@@ -1,0 +1,18 @@
+
+.imgsizer{
+    width: 220px;
+    height: 220px;
+    width:100%;
+    margin:auto;
+    object-fit: cover;
+    border: solid;
+    border-color: #3700B3;
+    border-radius: 50%;
+
+}
+.profilePic{
+    width: 220px;
+    height: 220px;
+    text-align: center; 
+}
+

@@ -12,9 +12,12 @@
     <ng-template #elseWelcome>
         <h1 class="greeting">Hello, {{sessionUserName}}</h1>
     </ng-template>
-    <div class="col-2">
+    <div class="noti" class="col-2">
         <app-notification-list [id]="id"></app-notification-list>
     </div>
+</div>
+<div class="center"> 
+    <app-profile-pic></app-profile-pic>
 </div>
 <br>
 <div class="container">

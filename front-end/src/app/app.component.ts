@@ -9,8 +9,10 @@ import { NgToastModule } from 'ng-angular-popup';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+
 })
 export class AppComponent {
+
   title = 'front-end';
   isDarkMode: boolean;
 
@@ -52,7 +54,6 @@ export class AppComponent {
         console.log(userInfo?.username);
         console.log(userInfo);
         sessionStorage.setItem('username', userInfo?.username);
-        
       }
     })
   }
@@ -63,3 +64,4 @@ export class AppComponent {
     console.log(username);
   }
 }
+

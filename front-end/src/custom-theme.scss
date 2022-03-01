@@ -42,8 +42,6 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   >input.container, #root{
     background-color: white;
   }
-
-  
 }
 
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
