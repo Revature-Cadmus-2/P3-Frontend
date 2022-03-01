@@ -6,15 +6,15 @@
     <a class="btn btn-primary" id="create-btn" role="button" routerLink="/groups/"> My Groups</a>
     <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
 </div>
-<h1>Today's Featured Post</h1>
+<h1>Featured Post</h1>
 <div class="feature-container">
     <div class="featured-post" id="post">
-        <h5>{{ popular[0]?.title }}</h5>
-        <h6>{{ popular[0]?.message }}</h6>
-        <a class="btn btn-outline-primary" routerLink="/comment/{{popular[0]?.id}}" role="button" style="margin-right: 5px;">{{(popular[0]?.comments).length }} Comments</a>
-        <a class="btn btn-primary" routerLink="/read-root/{{popular[0]?.id}}" role="button"> Read Story</a>
+        <h5>{{ featured.title }}</h5>
+        <h6>{{ featured.message }}</h6>
+        <a class="btn btn-outline-primary" routerLink="/comment/{{featured.id}}" role="button" style="margin-right: 5px;">{{(featured.comments).length }} Comments</a>
+        <a class="btn btn-primary" routerLink="/read-root/{{featured.id}}" role="button"> Read Story</a>
         <mat-icon style="margin-left: 200px;">add_a_photo</mat-icon>                       
-        <span (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{popular[0]?.dateTime | date:'short'}}
+        <span (click)="goToUserProfile(featured.userName)">{{ featured.userName }}</span> • {{featured.dateTime | date:'short'}}
     </div>
 </div>
 <div id="filter-bar">
@@ -26,8 +26,8 @@
 </div>
 <div *ngIf="isLoaded == false; else Loaded" class="container text-center">
     <div class="center">
-      <img class="spinner-border text-light buffer" src="../../assets/loadingmoon.png" alt="Buffer image"/>
-      <p>Loading, please wait...</p>
+    <img class="spinner-border text-light buffer" src="../../assets/loadingmoon.png" alt="Buffer image"/>
+    <p>Loading, please wait...</p>
 </div>
 </div>
  <ng-template #Loaded>
