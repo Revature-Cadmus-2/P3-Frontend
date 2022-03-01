@@ -100,8 +100,8 @@ export class NestedComponent implements OnInit {
         // })
       })
       let nDate = new Date()
-      let dateZone = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York"})
-      this.comment.dateTime = new Date(dateZone.format(nDate));
+      // let dateZone = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York"})
+      this.comment.dateTime = new Date(nDate.toLocaleString("en-US", {timeZone: 'America/New_York'}));
       this.comment.rootId = this.root.rootId;
 
       this.rootService.addComment(this.comment).then(res => {
