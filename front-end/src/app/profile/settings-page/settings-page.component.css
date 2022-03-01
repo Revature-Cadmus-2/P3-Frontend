@@ -1,5 +1,5 @@
 .btn{
-    background-color: #4d4382;
+    background-color: #BB86FC;
     color: white;
     border: none;
     padding: 0.6em 2em;
@@ -16,8 +16,8 @@
 
 .btn:hover {
     color: #fdf4f7;
-    background-color: #291a4a;
-    border-color: #291a4a;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 .greeting {
     text-align: center;

@@ -10,25 +10,25 @@
 
 .btn-primary {
     color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    background-color: #BB86FC;
+    border-color: #BB86FC;
 }
 
 .btn-primary:hover {
     color: #fdf4f7;
-    background-color: #291a4a;
-    border-color: #291a4a;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
 .btn-outline-primary {
-    color: #4d4382;
-    border-color: #4d4382;
+    color: #BB86FC;
+    border-color: #BB86FC;
 }
 
 .btn-outline-primary:hover {
     color: #fdf4f7;
-    background-color: #4d4382;
-    border-color: #4d4382;
+    background-color: #3700B3;
+    border-color: #3700B3;
 }
 
 span {
