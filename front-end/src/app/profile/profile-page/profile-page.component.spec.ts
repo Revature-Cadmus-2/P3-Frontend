@@ -14,13 +14,13 @@ describe('ProfilePageComponent', () => {
   let service: ProfileService;
   let activatedRoute: ActivatedRouteStub = new ActivatedRouteStub;
 
-  let fakeUser: User = {
-    id: 55,
-    username: "Tenzin",
-    email: "",
-    name: "",
-    followings: []
-  };
+  // let fakeUser: User = {
+  //   id: 55,
+  //   username: "Tenzin",
+  //   email: "",
+  //   name: "",
+  //   followings: []
+  // };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

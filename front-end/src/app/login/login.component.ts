@@ -21,18 +21,7 @@ export class LoginComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    // this.auth.user$.subscribe((userInfo)=> { 
-    //   this.user.username = userInfo.preferred_username;
-    //   if (userInfo?.preferred_username==null) {
-    //     console.log("nothing to show")
-    //   } else {
-    //     console.log(userInfo?.preferred_username);
-    //     console.log(userInfo);
-    //     sessionStorage.setItem('username', userInfo?.preferred_username);
-    //     const uN = sessionStorage.getItem('username');
-    //     console.log(uN+' this is my sessions storage var');
-    //   }
-    // })
+
   }
 
 

@@ -14,11 +14,11 @@
                 <div class="row" style="padding: 10px;">
                     <h1>{{ root.title }}</h1>
                     <div class="split"></div>
-                    <div class="part" style="padding-top: 0px;">
+                    <div class="part" id="rooting" style="padding-top: 0px;">
                         <p>{{ root.userName }}</p>
                         <h5>{{ root.message }}</h5>
                     </div>
-                    <div class="part" *ngFor="let part of topStory">
+                    <div class="part" id="rooting" *ngFor="let part of topStory">
                         <p>{{ part.userName }}</p>
                         <h5>{{ part.message }}</h5>
                     </div>

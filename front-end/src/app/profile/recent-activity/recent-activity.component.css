@@ -8,10 +8,12 @@ ul {
     list-style-type: none;
     margin: 20px auto;
     padding: 0;
+    font-size: 20px;
+    font-family: Rubik, sans-serif;
 }
 
 .activity-name{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Rubik, Geneva, Tahoma, sans-serif;
 }
 .activity-name:hover{
     background-color: #bb86FC;

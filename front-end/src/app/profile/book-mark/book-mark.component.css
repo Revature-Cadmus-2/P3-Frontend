@@ -1,3 +1,8 @@
+.card-title{
+    background-color: #3700B3;
+    color: white;
+    padding: 0%;
+}
 ::ng-deep .mat-card{
     border: 2px solid #BB86FC;
     border-bottom: 2px solid #BB86FC;
@@ -24,7 +29,6 @@ ul {
     font-weight: bold;
     cursor: pointer;
 }
-
 h3{
     font-family: Rubik, sans-serif;
     font-size: 25px;

@@ -8,9 +8,7 @@ import * as S3 from 'aws-sdk/clients/s3';
   providedIn: 'root'
 })
 export class S3Service {
-  AddUserProfilePicture(preferred_username: string, imgurl: Promise<S3.ManagedUpload.SendData> & String) {
-    console.log("Uploading imgurl "+ imgurl + " to user "+ preferred_username+"'s profile" );
-  }
+  
 
   constructor(private http: HttpClient) { }
   accessKeyID = "AKIATC6YQL2BHJSIC3OM"

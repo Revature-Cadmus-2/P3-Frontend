@@ -16,12 +16,12 @@ import { Notification } from "../models/Notifications";
 })
 export class ProfileService {
 
-  apiUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/User';
-  rootUrl = 'http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post';
-  followUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Following';
-  followingPostUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowingPost';
-  followedByUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/FollowedBy';
-  notificationUrl = 'http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/notifications';
+  apiUrl = 'https://54.87.122.77/user/api/User';
+  rootUrl = 'https://54.87.122.77/post/api/Post';
+  followUrl = 'https://54.87.122.77/user/api/Following';
+  followingPostUrl = 'https://54.87.122.77/user/api/FollowingPost'
+  followedByUrl = 'https://54.87.122.77/user/api/FollowedBy';
+  notificationUrl = 'https://54.87.122.77/user/api/notifications';
 
   constructor(private http: HttpClient) { }
 
@@ -68,23 +68,23 @@ export class ProfileService {
   {
     var activityList= new Array();
 
-    this.http.get<[]>(this.rootUrl).toPromise().then((result: Comment[]) => {
-      for(let i = 0; i<result.length; i++){
-        if (result[i].userName==username){
-          let activityToAdd: RecentActivity= {
-            id: 0,
-            date: null,
-            type: "",
-            title:""
-          }
-          activityToAdd.date=result[i].dateTime;
-          activityToAdd.id=result[i].id;
-          activityToAdd.type="nest";
-          activityToAdd.title=result[i].message; 
-          activityList.push(activityToAdd);
-          }
-        };
-    });
+    // this.http.get<[]>(this.rootUrl).toPromise().then((result: Comment[]) => {
+    //   for(let i = 0; i<result.length; i++){
+    //     if (result[i].userName==username){
+    //       let activityToAdd: RecentActivity= {
+    //         id: 0,
+    //         date: null,
+    //         type: "",
+    //         title:""
+    //       }
+    //       activityToAdd.date=result[i].dateTime;
+    //       activityToAdd.id=result[i].id;
+    //       activityToAdd.type="nest";
+    //       activityToAdd.title=result[i].message; 
+    //       activityList.push(activityToAdd);
+    //       }
+    //     };
+    // });
     this.http.get<[]>(this.rootUrl).toPromise().then((result: Root[]) => {
       for(let i = 0; i<result.length; i++){
         if (result[i].userName==username){
@@ -152,6 +152,11 @@ export class ProfileService {
 
   userUnFollower(id: number): Promise<FollowedBy> {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
+  }
+
+  AddUserProfilePicture(sessionUserName: string, imgurl: string) {
+    console.log("Uploading imgurl "+ imgurl + " to user "+ sessionUserName+"'s profile" );
+    
   }
 
   addNotification(notifications: Notification): Promise<Notification> {
