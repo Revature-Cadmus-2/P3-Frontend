@@ -39,9 +39,10 @@ export class ProfilePicComponent implements OnInit {
     pictureLink: ""
   };
   sessionUserName= sessionStorage.getItem('username');
-  userimglink ="https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg";
+  userimglink ="../../../../src/assets/Profilepic.jpg";
   
   ngOnInit(): void {
+console.log(sessionUserName+'this is my sessions storage preferred username in profilepage component');
     var sessionUserName = sessionStorage.getItem('username');
     this.profileService.getUserByName(sessionUserName).then((cUser) =>{
       //this.currentUser.pictureLink = cUser
@@ -51,13 +52,40 @@ export class ProfilePicComponent implements OnInit {
     
     console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
     
-  }
+    console.log(this.profileUser.username + "this is profileuser")
+if(this.auth.isAuthenticated$){
+this.auth.user$.subscribe(
+    (profile) => (this.currentUser.username = sessionUserName)
+    )
+    console.log();
 
-  GetProfilePic(){
-
-  }
-
+    this.currentRoute.params.subscribe(params => {
+    this.id = params['id'];
+    this.profileService.getUserById(this.id).then((result: User) => {
+        this.profileUser= result;
+      });
+    });
+    this.auth.user$.subscribe((user) => {
+      if (user?.username) {
+      // if (user?.sessionUserName) {
+        this.currentUser.username = sessionUserName;
+      }
+  })
 }
-  
+}
+}
 
+//just in case
+//     var sessionUserName = sessionStorage.getItem('username');
+//     this.profileService.getUserByName(sessionUserName).then((cUser) =>{
+//       //this.currentUser.pictureLink = cUser
+//       console.log(cUser);
+//       this.currentUser.pictureLink = cUser.pictureLink;
+//     });
+    
+//     console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
+    
+//     console.log(this.profileUser.username + "this is profileuser")
+// }
 
+//new code 
