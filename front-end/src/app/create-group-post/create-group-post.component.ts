@@ -60,7 +60,6 @@ export class CreateGroupPostComponent implements OnInit {
       
       this.gService.getGroupById(this.currentPostGroupId).then((result: Group) => {
         this.group = result;
-        console.log(this.group);
       })
     })
   }
@@ -71,16 +70,9 @@ export class CreateGroupPostComponent implements OnInit {
       if (user?.preferred_username) {
         this.root.userName = user.preferred_username;
       }
-
-      //this.root.GroupPostId = this.currentPostGroupId; //Number()
-
       this.root.dateTime = new Date();
-      console.log("this.root.GroupPostId: "+this.root.groupPostId);
-
-      console.log(this.root);
       
       this.rService.addRoot(this.root).then(res => {
-            console.log("Post successfully created");
             this.toastr.success( 'You Successfully Created a Post','Post Notification', {
               timeOut: 2000,
             } );

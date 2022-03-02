@@ -7,8 +7,6 @@ import { GroupMembers } from '../models/GroupMembers';
 import { User } from '@auth0/auth0-angular';
 import { ProfileService } from '../service/profile.service';
 import { UserCreationService } from '../service/user-creation.service';
-import { userInfo } from 'os';
-
 
 @Component({
   selector: 'app-groups',
@@ -16,8 +14,6 @@ import { userInfo } from 'os';
   styleUrls: ['./groups.component.css']
 })
 export class GroupsComponent implements OnInit {
-
-  // gName = 'Television';
 
   constructor(private router: Router, public auth: AuthService, private rService: GroupServiceService,private currentRoute: ActivatedRoute, public profileService: ProfileService, public userService: UserCreationService) { }
   
@@ -33,6 +29,8 @@ export class GroupsComponent implements OnInit {
     followers: [],
     notifications: []
   };
+
+  isLoaded = false;
   
   currentUser: User = {
     id: 0,
@@ -53,7 +51,6 @@ export class GroupsComponent implements OnInit {
 
   ngOnInit(): void { //this get all the list of groups for the user
     const sessionUserName = sessionStorage.getItem('username');
-        console.log(sessionUserName+' this is my sessions storage preferred username in *');
         if(this.auth.isAuthenticated$){
           this.auth.user$.subscribe(
               (profile) => (this.currentUser.username = sessionUserName)
@@ -70,38 +67,26 @@ export class GroupsComponent implements OnInit {
                 }
               })      
     }
-
     /*Note: We had an issue with this arrow function where for no reason it didn't 
     pass and so this.currentUser.id remained default 0, we tested for a while but made
     no changes to function and it started to work on its own, cannot reproduce.*/
-    console.log("Before our id code fires");
-    console.log("Name is " + sessionUserName);
+    
     //Our glorious feat to get user id, many battles were fought here for a single point of data
     this.userService.getUserByName(sessionUserName).then((user) => 
     {
       this.currentUser.id = user.id;
-      // console.log("id get code fired");
-      // console.log(this.currentUser.id);
 
     this.rService.getAllGroupsByUserId(this.currentUser.id).then((userGroup) =>
     {
       this.userGroups = userGroup;
-      console.log(this.userGroups);
-
     })
+    this.isLoaded = true;
     })
-    
 
     this.rService.getAllGroups().then((groupArray) =>
     {
       this.allGroups = groupArray;
-      console.log(this.allGroups);
-    })
-
-    
-    
-    
-    
+    })    
   }//End ngOnInit()
   
   
@@ -109,12 +94,6 @@ goToGroup(id?: any): void {
   console.log(id);
   this.router.navigate([`groups/${id}`],);
 }
-
-//   // value which can be set dynamically
-// public user: {id: string, role: string} = { id:1 , role:'super_admin' };
-
-// // on click action
-// this.router.navigateByUrl('/dashboard', { state: this.user });
   
   //Group Member, Not Group
   //The purpose of this to to assign user to group
@@ -131,19 +110,5 @@ goToGroup(id?: any): void {
 
     this.router.navigateByUrl('create-group');
   }
-
-  viewAllGroups(): void {
-    
-    this.router.navigateByUrl('view-groups');
-  }
-
-
-
-  // getUserId(username: any): any {
-  //   console.log("Requesting to get id by username.")
-  //   this.profileService.getUserByName(username).then((user) => {
-  //     this.currentUser.id = user.id
-  //   })
-  // }
   
 }//End Class

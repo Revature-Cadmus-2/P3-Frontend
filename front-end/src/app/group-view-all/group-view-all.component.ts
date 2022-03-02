@@ -43,7 +43,7 @@ export class GroupViewAllComponent implements OnInit {
   ngOnInit(): void {
   
     const sessionUserName = sessionStorage.getItem('username');
-        console.log(sessionUserName+' this is my sessions storage preferred username in *');
+        // console.log(sessionUserName+' this is my sessions storage preferred username in *');
         if(this.auth.isAuthenticated$){
           this.auth.user$.subscribe(
               (profile) => (this.currentUser.username = sessionUserName)
