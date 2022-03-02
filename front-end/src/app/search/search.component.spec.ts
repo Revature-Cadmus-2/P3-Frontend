@@ -22,7 +22,8 @@ describe('SearchComponent', () => {
       totalVote: 4,
       dateTime: new Date('November 4, 2021 03:24:00'),
       userName: 'ToTheMoon1234',
-      comments: []
+      comments: [],
+      groupPostId: 0
     },
     {
       id: 2,
@@ -31,7 +32,8 @@ describe('SearchComponent', () => {
       totalVote: 6,
       dateTime: new Date('January 20, 2021 05:45:00'),
       userName: 'WoWoWubzy456',
-      comments: []
+      comments: [],
+      groupPostId: 0
     }
   ];
 
