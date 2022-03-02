@@ -41,7 +41,7 @@ export class SettingsPageComponent implements OnInit {
       var imglink = JSON.stringify(response.Location).slice(1,-1)
       this.profileService.AddUserProfilePicture(sessionUserName, imglink)
       console.log(imglink);
-      this.toastr.success( 'You Successfully added a picture','Settings Notification', {
+      this.toastr.success( 'You Successfully added a Picture','Settings Notification', {
         timeOut: 2000,
       } ); //Notification for displaying when you add a profile pic
   }
