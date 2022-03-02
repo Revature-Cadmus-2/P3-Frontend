@@ -30,17 +30,22 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   @include angular-material-theme($app-light-theme);
   // @include mat-form-theme($app-light-theme);
   background-color: #eef2f7;
-  // > :host ::ng-deep .mat-form-field {
-  //     background-color: #eef2f7;
-  // }
+  >input.toolbar, #tools{
+    background-color: #FBFDFE;
+    border-bottom: solid 1px #FFD700;
+  }
   > input.form-control[type="text"],#root, #comments, #post-title, #exampleFormControlTextarea1, textarea {
     background-color: white;
   }
   > input.featured-post, #post{
     background-color: white;
   }
-  >input.container, #root{
+  >input.container, #root, #comments{
     background-color: white;
+    border: .75px solid #FFD700;
+  }
+  >input.button-13, #custom{
+    color: black;
   }
 }
 
@@ -51,10 +56,6 @@ $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
   // @include mat-form-theme($app-dark-theme);
   background-color: #333;
   color: whitesmoke;
-  // > :host ::ng-deep .mat-form-field {
-  //     background-color: rgb(95, 93, 93);
-  //     color: whitesmoke;
-  // }
   //dark mode for input in comments and create post
   > input.form-control[type="text"], #post-title, #exampleFormControlTextarea1, textarea{
     background-color: #424242;
@@ -69,16 +70,28 @@ $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
     background-color: #424242;
   }
   //dark mode for root
-  >input.container, #root{
+  >input.container, #root, #comments{
     background-color: #424242;
+    border: .50px solid #BB86FC;
+  }
+
+  >input.toolbar, #tools{
+    border-bottom: solid 1px #03DAC5;
+  }
+  >input.button-13, #custom{
+    color: whitesmoke;
+  }
+  >input.btn, #comment-int{
+    color: #fdf4f7;
+    background-color: #3700B3;
+    border-color: #3700B3;
   }
 }
-// #424242
 html,
 body {
   height: 100%;
 }
 body {
   margin: 0;
-  font-family: Rubik, "Helvetica Neue", sans-serif;
+  font-family: "Rubik", sans-serif;
 }

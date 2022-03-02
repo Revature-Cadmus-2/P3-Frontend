@@ -5,7 +5,6 @@ import { UserCreationService } from '../service/user-creation.service';
 import { userInfo } from 'os';
 import { User } from "../models/user";
 import { NgToastService } from 'ng-angular-popup';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-login',

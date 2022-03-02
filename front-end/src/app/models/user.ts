@@ -9,4 +9,5 @@ export interface User {
     followings?: Followings[];
     followers?: FollowedBy[];
     notifications?: Notification[];
+    pictureLink?: string;
 }

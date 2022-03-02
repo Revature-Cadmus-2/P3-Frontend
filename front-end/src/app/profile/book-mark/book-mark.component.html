@@ -9,7 +9,7 @@
 <mat-card-content>
 <ul>
     <ul *ngFor="let post of BookedList">
-        <li  class="book-name">{{post.postname}}</li>
+        <li  routerLink="/comment/{{post.rootId}}" class="book-name">{{post.postname}}</li>
     </ul>
     <ul *ngIf="(BookedList == undefined || BookedList.length == 0)">
         <li>No Booked Posts</li>
