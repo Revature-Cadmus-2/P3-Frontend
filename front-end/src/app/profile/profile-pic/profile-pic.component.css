@@ -1,8 +1,7 @@
 
 .imgsizer{
-    width: 220px;
     height: 220px;
-    width:100%;
+    width: 220px;
     margin:auto;
     object-fit: cover;
     border: solid;

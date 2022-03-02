@@ -40,7 +40,7 @@ export class SettingsPageComponent implements OnInit {
       var imglink = JSON.stringify(response.Location).slice(1,-1)
       this.profileService.AddUserProfilePicture(sessionUserName, imglink)
       console.log(imglink);
-
+      
   }
   )}
   
