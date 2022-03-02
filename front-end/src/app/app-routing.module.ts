@@ -12,7 +12,6 @@ import { NestedComponent } from './nested/nested.component';
 import { ReadRootComponent } from './read-root/read-root.component';
 import { SettingsPageComponent } from './profile/settings-page/settings-page.component';
 import { SettingsButtonComponent } from './profile/settings-button/settings-button.component';
-
 import { GroupsComponent } from './groups/groups.component';
 import { CreateGroupComponent } from "./create-group/create-group.component";
 import { GroupProfileComponent } from './group-profile/group-profile.component';

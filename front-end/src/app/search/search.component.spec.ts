@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Root } from '../models/root';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
 import { SearchComponent } from './search.component';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { By } from '@angular/platform-browser';

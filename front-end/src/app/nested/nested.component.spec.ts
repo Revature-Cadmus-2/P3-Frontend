@@ -7,7 +7,8 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { Comment } from '../models/Comment';
-
+import { ToastrModule } from 'ngx-toastr';
+import { NgToastModule } from 'ng-angular-popup';
 
 describe('NestedComponent', () => {
   let component: NestedComponent;
@@ -16,7 +17,12 @@ describe('NestedComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NestedComponent],
-      imports: [RouterModule, FormsModule, RouterTestingModule, HttpClientTestingModule, AuthModule.forRoot(
+      imports: [ToastrModule.forRoot({ //For the Notifications
+        timeOut: 1000, //time is in milliseconds
+        progressBar: true,
+        progressAnimation: 'increasing',
+        preventDuplicates: true,
+      }), NgToastModule, ToastrModule, RouterModule, FormsModule, RouterTestingModule, HttpClientTestingModule, AuthModule.forRoot(
         {
           domain: 'dev-0w--5cqa.us.auth0.com',
           clientId: '4LqYhiuu6amu7r3BOQH38phFDBycgDQB'
