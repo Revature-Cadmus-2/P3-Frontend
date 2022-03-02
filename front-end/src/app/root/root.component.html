@@ -12,7 +12,7 @@
 <div class="feature-container">
     <div class="featured-post" id="root">
         <div class="row">
-            <p><span (click)="goToUserProfile(featured.userName)">{{ featured.userName }}</span> • {{featured.dateTime | date:'short'}}</p>
+            <p><span (click)="goToUserProfile(featured.userName)">{{ featured.userName }}</span> • {{ featured.dateTime | date:'short':'-1200' }}</p>
         </div>
         <h5>{{ featured.title }}</h5>
         <h6>{{ featured.message }}</h6>
@@ -51,7 +51,7 @@
     <div class="all-feed">
         <div class="container feed" id="root" *ngFor="let root of roots">
             <div class="row">
-                <p><span (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{ root.dateTime | date:'short' }}</p>
+                <p><span (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{ root.dateTime | date:'short':'-1200' }}</p>
             </div>
             <div class="row" style="margin-bottom: 5px;">
                 <h5>{{ root.title }}</h5>

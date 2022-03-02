@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col">
                         <p><span (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{
-                            root.dateTime | date:'short' }}
+                            root.dateTime | date:'short':'-1200' }}
                         </p>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
             <div class="allComments">
                 <div class="container" id="comments" *ngFor='let comment of root.comments'>
                     <div class="row">
-                        <p><span (click)="goToUserProfile(comment.userName)">{{ comment.userName }}</span> • {{ comment.dateTime | date:'short' }} </p>
+                        <p><span (click)="goToUserProfile(comment.userName)">{{ comment.userName }}</span> • {{ comment.dateTime | date:'short':'-1200' }} </p>
                     </div>
                     <div class="row" style="margin-bottom: 5px;">
                         <h6>{{ comment.message }}</h6>
