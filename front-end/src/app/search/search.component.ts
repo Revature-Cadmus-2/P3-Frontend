@@ -19,9 +19,10 @@ export class SearchComponent implements OnInit {
 
   onEnter(value: string) {
     this.value = value;
+    console.log(this.value);
     if (value) {
-      this.result = this.roots.filter(res => res.title.toLocaleLowerCase().includes(this.value.toLocaleLowerCase()) ||
-        res.userName.toLocaleLowerCase().includes(this.value.toLocaleLowerCase()))
+      this.result = this.roots.filter(res => res.title?.toLowerCase().includes(this.value.toLowerCase()) ||
+        res.userName?.toLowerCase().includes(this.value.toLowerCase()))
     }
     else if(!value){
       this.result = [];
@@ -50,13 +51,9 @@ export class SearchComponent implements OnInit {
     }
   }
 
-
   ngOnInit(): void {
     this.service.getAllRoots().then(result => {
       this.roots = result;
     })
   }
-
-
-
 }

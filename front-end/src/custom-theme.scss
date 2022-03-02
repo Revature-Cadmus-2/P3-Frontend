@@ -30,11 +30,11 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   @include angular-material-theme($app-light-theme);
   // @include mat-form-theme($app-light-theme);
   background-color: #eef2f7;
-  >input.toolbar, #tools{
+  > mat-toolbar.toolbar, #tools{
     background-color: #FBFDFE;
     border-bottom: solid 1px #FFD700;
   }
-  > input.form-control[type="text"],#root, #comments, #post-title, #exampleFormControlTextarea1, textarea {
+  > input.form-control[type="text"],input.form-control[type="search"],#root, #comments, #post-title, #exampleFormControlTextarea1, textarea {
     background-color: white;
   }
   > input.featured-post, #post{
@@ -53,18 +53,15 @@ $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
 
 .dark-mode {
   @include angular-material-theme($app-dark-theme);
-  // @include mat-form-theme($app-dark-theme);
   background-color: #333;
   color: whitesmoke;
+
   //dark mode for input in comments and create post
   > input.form-control[type="text"], #post-title, #exampleFormControlTextarea1, textarea{
     background-color: #424242;
     color: whitesmoke;
   }
-  //dark mode for the search function
-  input.form-control[type="search"]{
-    background-color: #424242;
-  }
+
   //dark mode for the display of comments and featured post
   > input.featured-post, #root, #comments,#post{
     background-color: #424242;
@@ -75,7 +72,7 @@ $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
     border: .50px solid #BB86FC;
   }
 
-  >input.toolbar, #tools{
+  >mat-toolbar.toolbar, #tools{
     border-bottom: solid 1px #03DAC5;
   }
   >input.button-13, #custom{
