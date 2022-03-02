@@ -4,3 +4,41 @@ h1 {
     font-weight: bold;
     font-family: "Rubik", sans-serif;
 }
+
+#create-btn {
+    float: right;
+    max-height: 35px;
+    margin: 20px;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #BB86FC;
+    border-color: #BB86FC;
+}
+
+.btn-primary:hover {
+    color: #fdf4f7;
+    background-color: #3700B3;
+    border-color: #3700B3;
+}
+
+.btn-outline-primary {
+    color: #000;
+    background-color:#E1D309;
+    border-color: #E1D309;
+}
+
+.btn-outline-primary:hover {
+    color: #fdf4f7;
+    background-color: #3700B3;
+    border-color: #3700B3;
+}
+
+#center {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Rubik", sans-serif;
+    margin-top: 40px;
+}
