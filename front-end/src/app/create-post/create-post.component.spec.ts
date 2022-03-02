@@ -18,14 +18,14 @@ describe('CreatePostComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CreatePostComponent],
-      imports: [FormsModule, RouterTestingModule, HttpClientTestingModule, ToastrModule.forRoot({ //For the Notifications
+      imports: [ AuthModule.forRoot({
+        domain: 'dev-b0fxq42a.us.auth0.com',
+        clientId: 'SxcDeoMfg6Lrkr0WpGzqVIuw02zOxNQCOvrkDKQxAOhom97sBSbuCIdjzds9Jgyt'
+      }),FormsModule, RouterTestingModule, HttpClientTestingModule, ToastrModule.forRoot({ //For the Notifications
         timeOut: 1000, //time is in milliseconds
         progressBar: true,
         progressAnimation: 'increasing',
         preventDuplicates: true,
-      }), AuthModule.forRoot({
-        domain: 'dev-b0fxq42a.us.auth0.com',
-        clientId: 'SxcDeoMfg6Lrkr0WpGzqVIuw02zOxNQCOvrkDKQxAOhom97sBSbuCIdjzds9Jgyt'
       })]
     })
       .compileComponents();

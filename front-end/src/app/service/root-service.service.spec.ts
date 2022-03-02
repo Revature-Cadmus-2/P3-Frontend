@@ -35,7 +35,8 @@ describe('RootServiceService', () => {
       dateTime: null,
       userName: 'ToTheMoon1234',
       totalVote: 5,
-      comments: []
+      comments: [],
+      groupPostId: 0
     }
 
     spyOn(service, 'addRoot').and.callThrough();
@@ -55,7 +56,8 @@ describe('RootServiceService', () => {
         dateTime: null,
         userName: 'ToTheMoon1234',
         totalVote: 5,
-        comments: []
+        comments: [],
+        groupPostId: 0
       },
       {
         id: 2,
@@ -64,7 +66,8 @@ describe('RootServiceService', () => {
         dateTime: null,
         userName: 'WoWoWubzy456',
         totalVote: 5,
-        comments: []
+        comments: [],
+        groupPostId: 0
       }
     ];
 
@@ -83,7 +86,8 @@ describe('RootServiceService', () => {
       dateTime: null,
       userName: 'ToTheMoon1234',
       totalVote: 5,
-      comments: []
+      comments: [],
+      groupPostId: 0
     }
     spyOn(service, 'getRootById').and.callThrough();
     service.getRootById(1).then((res) => {
@@ -100,7 +104,8 @@ describe('RootServiceService', () => {
       dateTime: null,
       userName: 'ToTheMoon1234',
       totalVote: 5,
-      comments: []
+      comments: [],
+      groupPostId: 0
     }
 
     spyOn(service, 'updateRoot').and.callThrough();

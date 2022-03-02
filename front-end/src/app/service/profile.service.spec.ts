@@ -95,7 +95,8 @@ describe('ProfileService', () => {
       totalVote: 55,
       dateTime: null,
       userName: "Zoe",
-      comments: []
+      comments: [],
+      groupPostId: 0
     },
     {
       id: 2,
@@ -104,7 +105,8 @@ describe('ProfileService', () => {
       dateTime: null,
       userName: 'WoWoWubzy456',
       totalVote: 5,
-      comments:[]
+      comments:[],
+      groupPostId: 0
     } ];
 
     service.getAllPosts().then((posts) => {
