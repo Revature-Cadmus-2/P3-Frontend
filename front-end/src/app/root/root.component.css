@@ -1,24 +1,8 @@
-/* .container-fluid {
-    padding: 0;
-    background-color: #f7f2ff;
-} */
-
-/* .container {
-    background-color: white;
-} */
-
-/* #left {
-    background-color: #f7f2ff;
-} */
 
 #center {
     padding-top: 20px;
     margin: 0 auto;
 }
-
-/* #right {
-    background-color: #f7f2ff;
-} */
 
 mat-icon{
     margin: 0 5px;
@@ -62,8 +46,8 @@ h1 {
 
 .btn-outline-primary {
     color: #000;
-    background-color:#E1D309;
-    border-color: #E1D309;
+    background-color:#BB86FC;
+    border-color: #BB86FC;
 }
 
 .btn-outline-primary:hover {
@@ -159,7 +143,7 @@ h3{
 }
 .header-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
 }
 
 .searchComponent{
@@ -173,6 +157,7 @@ h3{
 
 h5, h6{
     margin: 20px;
+    line-height: normal;
 }
 
 h5{

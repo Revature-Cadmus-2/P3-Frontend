@@ -32,7 +32,16 @@ export class RootComponent implements OnInit {
     commentId: 0
   }
   counter: number = 0;
-  popular: Root[] = [];
+  random: Root[] = [];
+  featured: Root = {
+    id:0,
+    title: '',
+    message: '',
+    totalVote: 0,
+    dateTime: new Date(0),
+    userName: '',
+    comments: []
+  }
   currentUser: User = {
     id: 0,
     username:"",
@@ -56,32 +65,27 @@ export class RootComponent implements OnInit {
           for (let vote of comment.votes) {
             this.voteCounter = this.voteCounter + vote.value;
           }
-          comment.totalVote = this.voteCounter;
-          this.rootVoteCounter = this.rootVoteCounter + comment.totalVote
+        comment.totalVote = this.voteCounter;
+        this.rootVoteCounter = this.rootVoteCounter + comment.totalVote
         }
-        root.totalVote = this.rootVoteCounter
-        
+        root.totalVote = this.rootVoteCounter;
       }
-            this.isLoaded = true;
-
+      this.isLoaded = true;
     })
-
-    this.rootService.getAllVotes().then(result => {
-      this.votes = result;
+// popular featured post
+    
     this.rootService.getAllRoots().then(result => {
-      result.sort((a, b) => (a.totalVote < b.totalVote) ? 1 : -1);
-      this.popular = result;
+      var randomNumber = Math.floor(Math.random() * result.length);
+      this.random = result;
+      this.featured = this.random[randomNumber];
+      this.auth.user$.subscribe((user) => {
+        if (user?.preferred_username) {
+          this.profileService.getUserByName(user.preferred_username).then((result: User) => {
+            this.currentUser= result;
+          });
+        }
+      })
     })
-
-    this.auth.user$.subscribe((user) => {
-      if (user?.preferred_username) {
-        this.profileService.getUserByName(user.preferred_username).then((result: User) => {
-          this.currentUser= result;
-          
-        });
-      }
-    })
-  })
 }
 
   goToCreatePost(): void {
