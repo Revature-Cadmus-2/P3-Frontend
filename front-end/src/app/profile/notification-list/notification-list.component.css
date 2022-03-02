@@ -3,23 +3,19 @@
     padding: 10%;
     border-bottom: solid 1px #e1d309;
 }
-ul {
-    /* color: white; */
-    padding: 10%;
-    /* border: 5px solid #3700B3; */
-    /* border-bottom: 1px solid #E1D309; */
-}
-ul{
-    text-align: center;
+
+.ul{
+    text-align: left;
     list-style-type: none;
     margin: 20px auto;
-    padding: 10;
+    padding: 10px;
 }
 
 .follow-name{
     font-family: Rubik, sans-serif;
     padding: 10px;
-    font-size: 20px;
+    font-size: 15px;
+    text-align: left;
 }
 .follow-name:hover{
     background-color: #bb86FC;
@@ -39,10 +35,11 @@ ul{
 }
 h3{
     font-family: Rubik, sans-serif;
-    font-size: 25px;
+    font-size: 15px;
     padding: 10px;
-    letter-spacing: 1px;
-    margin-top: 15px;
+    max-width: 200px; 
+    height: 1em; 
+    
     
 }
 
@@ -54,4 +51,6 @@ mat-expansion-panel-header{
     position: absolute;
     left:50px;
     top:50px;
+    z-index: 1;
+    
 }

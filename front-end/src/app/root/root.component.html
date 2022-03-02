@@ -3,183 +3,74 @@
     <div class="searchComponent">
         <app-search></app-search>
     </div>
-    <a class="btn btn-primary" id="create-btn" role="button" routerLink="/groups/"> My Groups</a>
-    <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
+    <span>
+        <a class="btn btn-primary" id="create-btn" role="button" routerLink="/groups/"> My Groups</a>
+        <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
+    </span>
 </div>
-<h1>Today's Featured Post</h1>
+<h1>Featured Post</h1>
 <div class="feature-container">
-    <div class="featured-post" id="post">
-        <h5>{{ popular[0]?.title }}</h5>
-        <h6>{{ popular[0]?.message }}</h6>
-        <a class="btn btn-outline-primary" routerLink="/comment/{{popular[0]?.id}}" role="button" style="margin-right: 5px;">{{(popular[0]?.comments).length }} Comments</a>
-        <a class="btn btn-primary" routerLink="/read-root/{{popular[0]?.id}}" role="button"> Read Story</a>
-        <mat-icon style="margin-left: 200px;">add_a_photo</mat-icon>                       
-        <span (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{popular[0]?.dateTime | date:'short':'EST':'en-US'}}
+    <div class="featured-post" id="root">
+        <div class="row">
+            <p><span (click)="goToUserProfile(featured.userName)">{{ featured.userName }}</span> • {{featured.dateTime | date:'short'}}</p>
+        </div>
+        <h5>{{ featured.title }}</h5>
+        <h6>{{ featured.message }}</h6>
+        <a class="btn btn-outline-primary" routerLink="/comment/{{featured.id}}" role="button" style="margin-right: 5px;">{{(featured.comments).length }} Comments</a>
+        <a class="btn btn-outline-primary" routerLink="/read-root/{{featured.id}}" role="button"> Read Story</a>
+
     </div>
 </div>
-<div id="filter-bar">
-    <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"(click)="sortPopular()"><em class="fa fa-star"></em> Popular</button>
-    <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-    (click)="sortNewest()"><em class="fa fa-hourglass-start"></em>Newest</button>
-    <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-    (click)="sortOldest()"><em class="fa fa-hourglass-end"></em>Oldest</button>
+<div class="container-fluid" id="filter-bar">
+    <div class="row">
+        <div class="col" id="filter-col">
+            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                (click)="sortPopular()"><em class="fa fa-star"></em> Popular</button>
+            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                (click)="sortNewest()"><em
+                    class="fa fa-hourglass-start"></em>
+                Newest</button>
+            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
+                (click)="sortOldest()"><em
+                    class="fa fa-hourglass-end"></em>
+                Oldest</button>
+            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn" (click)="sortGroupPosts()"><em
+                    class="fa fa-hourglass-end"></em>
+                Groups</button>
+        </div>
+    </div>
 </div>
 <div *ngIf="isLoaded == false; else Loaded" class="container text-center">
     <div class="center">
-      <img class="spinner-border text-light buffer" src="../../assets/loadingmoon.png" alt="Buffer image"/>
-      <p>Loading, please wait...</p>
+    <img class="spinner-border text-light buffer" src="../../assets/loadingmoon.png" alt="Buffer image"/>
+    <p>Loading, please wait...</p>
 </div>
 </div>
- <ng-template #Loaded>
-<div class="feed" id="post" *ngFor="let root of roots">
-    <app-follow-button-root class="follow" [id]="root.id"></app-follow-button-root>
-    <app-book-mark-button id="nostyle"></app-book-mark-button>
-    <h5>{{ root.title }}</h5>
-    <h6>{{ root.message }}</h6>
-    <a class="btn btn-outline-primary" routerLink="/comment/{{root.id}}" role="button" style="margin-right: 5px;">{{(root.comments).length }} Comments</a>
-    <a class="btn btn-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
-    <span style="float: right; margin-bottom: 0px;">{{ root.totalVote }} Votes</span>
-    <mat-icon style="margin-left: 100px;">add_a_photo</mat-icon> 
-    <span (click)="goToUserProfile(root[0].userName)">{{ root.userName }}</span> • {{root.dateTime | date:'short'}}
-</div>
+<ng-template #Loaded>
 
- </ng-template>
-
-
-<!-- <div class="container-fluid" id="rc">
-    <div class="row">
-        <div class="row col-6" id="center">
-            <div class="col-12">
-                <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost()" role="button"><em class="fa fa-plus"></em> New Post</a>
+    <div class="all-feed">
+        <div class="container feed" id="root" *ngFor="let root of roots">
+            <div class="row">
+                <p><span (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{ root.dateTime | date:'short' }}</p>
             </div>
-            <h1 style="padding-top: 20px;">Today's Featured Post</h1> -->
-            <!-- search bar and create post button -->
-
-            <!-- featured post-->
-            <!-- <div class="container" id="featured-post">
-                <div class="row">
-                    <div class="col">
-                        <mat-icon>add_a_photo</mat-icon>                       
-                        <span style="font-size: 25px;" (click)="goToUserProfile(popular[0].userName)">{{ popular[0]?.userName }}</span> • {{popular[0]?.dateTime | date:'short'}}
-                    </div>
-                    <div class="col" id="follow-post-btn"></div>
-                </div>
-
-                <div class="container-fluid" id="filter-bar">
-                    <div class="row">
-                        <div class="col" id="filter-col">
-                            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-                                (click)="sortPopular()"><em
-                                    class="fa fa-star"></em> Popular</button>
-                            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-                                (click)="sortNewest()"><em
-                                    class="fa fa-hourglass-start"></em>
-                                Newest</button>
-                            <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-                                (click)="sortOldest()"><em
-                                    class="fa fa-hourglass-end"></em>
-                                Oldest</button>
-                        </div>
-                    </div>
-                </div>
-                <div *ngIf="isLoaded == false; else Loaded" class="container text-center">
-                    <div class="center">
-                      <img class="spinner-border text-light buffer" src="../../assets/loadingmoon.png" alt="Buffer image"/>
-                      <p>Loading, please wait...</p>
-                
-                <div class="row" style="margin-top: -10px;">
-                    <h5 style="font-size: 15px;">{{ popular[0]?.title }}</h5>
-                    <h6 style="font-size:14px;">{{ popular[0]?.message }}</h6>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-outline-primary" routerLink="/comment/{{popular[0]?.id}}" role="button"
-                            style="margin-right: 5px;">{{
-                            (popular[0]?.comments).length }} Comments</a>
-                        <a class="btn btn-primary" routerLink="/read-root/{{popular[0]?.id}}" role="button"> Read
-                            Story</a>
-                    </div>
-                </div>
-<<<<<<< HEAD
-=======
+            <div class="row" style="margin-bottom: 5px;">
+                <h5>{{ root.title }}</h5>
+                <h6>{{ root.message }}</h6>
             </div>
-
-            <div class="container-fluid" id="filter-bar">
-                <div class="row">
-                    <div class="col" id="filter-col">
-                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-                            (click)="sortPopular()"><em
-                                class="fa fa-star"></em> Popular</button>
-                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-                            (click)="sortNewest()"><em
-                                class="fa fa-hourglass-start"></em>
-                            Newest</button>
-                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn"
-                            (click)="sortOldest()"><em
-                                class="fa fa-hourglass-end"></em>
-                            Oldest</button>
-                        <button type="button" class="btn btn-outline-light btn-lg" id="filter-btn" (click)="sortGroupPosts()"><em
-                                class="fa fa-hourglass-end"></em>
-                            Groups</button>
-                    </div>
->>>>>>> 872b31ed4457d4550a35cd7b23811f8e3eba6b94
-                </div>
-            </div>
-                <!-- feed -->
-                <!-- <ng-template #Loaded>
-                <div class="container" id="feed" *ngFor="let root of roots">
-                    <div class="row">
-                        <div class="col">
-                            <p style="font-size: 13px;"><span style="font-size: 13px;"
-                                    (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{ root.dateTime |
-                                date:'short' }}</p>
-                        </div>
-                        <div class="col" id="follow-post-btn">
-                            <app-follow-button-root class="follow" [id]="root.id"></app-follow-button-root>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: -10px;">
-                        <h5>{{ root.title }}</h5>
-                        <h6>{{ root.message }}</h6>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a class="btn btn-outline-primary" routerLink="/comment/{{root.id}}" role="button"
-                                style="margin-right: 5px;">{{
-                                (root.comments).length }} Comments</a>
-                            <a class="btn btn-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
-                            <p style="float: right;">{{ root.totalVote }} Votes</p>
-                        </div>
-                    </div>
-                </div> -->
-
-            <!-- feed -->
-            <!-- <div class="container" id="feed" *ngFor="let root of roots">
-                <div class="row">
-                    <div class="col">
-                        <p style="font-size: 16px;"><span style="font-size: 18px;"
-                                (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{ root.dateTime |
-                            date:'short' }}</p>
-                    </div>
+            <div class="row">
+                <div class="col">
                     <div class="col" id="follow-post-btn">
                         <app-follow-button-root class="follow" [id]="root.id"></app-follow-button-root>
                         <app-book-mark-button class="bookmark" [id]="root.id"></app-book-mark-button>
                     </div>
-                </div>
-                <div class="row" style="margin-top: -10px;">
-                    <h5 style="font-size: 15px;">{{ root.title }}</h5>
-                    <h6 style="font-size: 14px;">{{ root.message }}</h6>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a class="btn btn-outline-primary" routerLink="/comment/{{root.id}}" role="button"
-                            style="margin-right: 5px;">{{
-                            (root.comments).length }} Comments</a>
-                        <a class="btn btn-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
-                        <p style="float: right;">{{ root.totalVote }} Votes</p>
-                    </div>
+                    <a class="btn btn-outline-primary" routerLink="/comment/{{root.id}}" role="button"
+                        style="margin-right: 5px;">{{
+                        (root.comments).length }} Comments</a>
+                    <a class="btn btn-outline-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
+                    <p style="float: right;">{{ root.totalVote }} Votes</p>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</ng-template>
+

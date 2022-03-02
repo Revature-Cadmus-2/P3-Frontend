@@ -1,8 +1,3 @@
-.container-fluid {
-    padding: 0;
-    /* background-color: #f7f2ff; */
-    background-size: cover;
-}
 #center {
     padding-top: 20px;
     margin: 0 auto;
@@ -12,6 +7,8 @@
     color: #fdf4f7;
     background-color: #BB86FC;
     border-color: #BB86FC;
+    max-height: 38px;
+    text-align: center;
 }
 
 .btn-primary:hover {
@@ -31,9 +28,12 @@
     border-color: #3700B3;
 }
 
+.btn-outline-primary, .btn-outline-danger{
+    font-size: 12px;
+}
+
 span {
-    font-size: 16px;
-    /* color: black; */
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -43,12 +43,16 @@ span:hover {
 }
 
 p {
-    font-size: 14px;
-    /* color: rgba(20, 20, 20, 0.8); */
+    font-size: 12px;
 }
 
 hr {
     margin: 20px 0;
+}
+
+h6{
+    font-size: 20px;
+    margin: 10px 0 20px 0;
 }
 
 .container-comment {
@@ -58,24 +62,14 @@ hr {
     border-bottom: solid 1px rgb(100, 100, 100);
 }
 
-textarea{
-    /* background-color: rgb(228, 228, 228); */
-}
-
 .allComments {
-    /* background-color: white; */
-    border: 1px solid rgb(100, 100, 100);
-    border-radius: 5px;
     margin-bottom: 3vh;
 }
 
 #comments {
-    border-bottom: 1px solid rgb(100, 100, 100);
+    border-radius: 5px;
     padding: 20px 10px;
-}
-
-#comments:last-child {
-    border: none;
+    margin: 20px auto;
 }
 
 .allComments:empty {
@@ -84,28 +78,17 @@ textarea{
 
 #root {
     padding: 10px;
-    border: 1px solid rgb(100, 100, 100);
     border-radius: 5px;
     margin-bottom: 1vh;
-}
-
-.container {
-    /* background-color: white; */
 }
 
 h5, h4{
     font-size: 20px;
 }
 
-/* #buttons {
-    display: flex;
-    flex-wrap: wrap;
-} */
-
 #vote{
     margin-left: 5px;
     margin-right: 5px;
-    background-color: white;
 }
 
 #up{

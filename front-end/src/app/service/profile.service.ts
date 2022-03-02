@@ -154,10 +154,17 @@ export class ProfileService {
     return this.http.delete<FollowedBy>(this.followedByUrl+ "/" + id).toPromise();
   }
 
-  AddUserProfilePicture(sessionUserName: string, imgurl: string) {
+  AddUserProfilePicture(sessionUserName: string, imgurl: string) :Promise <any>{
     console.log("Uploading imgurl "+ imgurl + " to user "+ sessionUserName+"'s profile" );
-    
+    let username = sessionUserName;
+    var payload = { params: {
+              "username":username,
+              "imgurl":imgurl
+              }
+            }
+    return this.http.put<any>(`${this.apiUrl}/UpdatePicture`, {}, payload).toPromise();
   }
+
 
   addNotification(notifications: Notification): Promise<Notification> {
     return this.http.post<Notification>(this.notificationUrl, notifications).toPromise();

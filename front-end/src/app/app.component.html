@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div *ngIf="(auth.isAuthenticated$ | async) === true">
-<mat-toolbar>
+<mat-toolbar class="toolbar" id="tools">
   <span><a class="logo" routerLink="/root"><img src="../../assets/rocket.png" alt="" width="65px"></a></span>
   <img class="apollo" src="../assets/logoteal.png.png" alt="">
   <span class="example-spacer" style="flex: 1 1 auto;"></span>

@@ -33,7 +33,6 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
-import { DialogComponent } from './dialog/dialog.component';
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
@@ -73,7 +72,6 @@ import { GroupProfileComponent } from './group-profile/group-profile.component';
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
-    DialogComponent,
     UsersFollowerListComponent,
     NotificationListComponent,
     SettingsButtonComponent,
