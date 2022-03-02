@@ -24,7 +24,8 @@ export class ProfilePicComponent implements OnInit {
     followings: [],
     followers: [],
     notifications: [],
-    pictureLink: ""
+    pictureLink: "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+    
   };
   test = 0;
 
@@ -36,56 +37,84 @@ export class ProfilePicComponent implements OnInit {
     followings: [],
     followers: [],
     notifications: [],
-    pictureLink: ""
+    pictureLink: "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+    
   };
   sessionUserName= sessionStorage.getItem('username');
   userimglink ="../../../../src/assets/Profilepic.jpg";
   
   ngOnInit(): void {
-console.log(sessionUserName+'this is my sessions storage preferred username in profilepage component');
+    console.log(sessionUserName+'this is my sessions storage preferred username in profilepage component');
     var sessionUserName = sessionStorage.getItem('username');
     this.profileService.getUserByName(sessionUserName).then((cUser) =>{
-      //this.currentUser.pictureLink = cUser
       console.log(cUser);
       this.currentUser.pictureLink = cUser.pictureLink;
+      if(this.currentUser.pictureLink ==null){
+        this.currentUser.pictureLink = "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+        console.log(cUser)
+      }
     });
     
     console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
-    
     console.log(this.profileUser.username + "this is profileuser")
-if(this.auth.isAuthenticated$){
-this.auth.user$.subscribe(
-    (profile) => (this.currentUser.username = sessionUserName)
-    )
-    console.log();
+    //this is someone elses page
+    if(this.auth.isAuthenticated$){
+        this.auth.user$.subscribe(
+        (profile) => (this.currentUser.username = sessionUserName)
+        )
+        console.log();
 
-    this.currentRoute.params.subscribe(params => {
-    this.id = params['id'];
-    this.profileService.getUserById(this.id).then((result: User) => {
-        this.profileUser= result;
-      });
-    });
-    this.auth.user$.subscribe((user) => {
-      if (user?.username) {
-      // if (user?.sessionUserName) {
-        this.currentUser.username = sessionUserName;
-      }
-  })
+        this.currentRoute.params.subscribe(params => {
+        this.id = params['id'];
+        this.profileService.getUserById(this.id).then((result: User) => {
+            this.profileUser= result;
+            if(this.profileUser.pictureLink ==null){
+              this.profileUser.pictureLink = "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+              console.log(this.profileUser)
+            }
+          });
+        });
+        this.auth.user$.subscribe((user) => {
+          if (user?.username) {
+            this.currentUser.username = sessionUserName;
+          }
+    })
 }
 }
 }
 
-//just in case
-//     var sessionUserName = sessionStorage.getItem('username');
-//     this.profileService.getUserByName(sessionUserName).then((cUser) =>{
-//       //this.currentUser.pictureLink = cUser
-//       console.log(cUser);
-//       this.currentUser.pictureLink = cUser.pictureLink;
-//     });
-    
-//     console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
-    
-//     console.log(this.profileUser.username + "this is profileuser")
+
+
+
+// console.log(sessionUserName+'this is my sessions storage preferred username in profilepage component');
+// var sessionUserName = sessionStorage.getItem('username');
+// this.profileService.getUserByName(sessionUserName).then((cUser) =>{
+//   //this.currentUser.pictureLink = cUser
+//   console.log(cUser);
+//   this.currentUser.pictureLink = cUser.pictureLink;
+// });
+
+// console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
+
+// console.log(this.profileUser.username + "this is profileuser")
+// if(this.auth.isAuthenticated$){
+// this.auth.user$.subscribe(
+// (profile) => (this.currentUser.username = sessionUserName)
+// )
+// console.log();
+
+// this.currentRoute.params.subscribe(params => {
+// this.id = params['id'];
+// this.profileService.getUserById(this.id).then((result: User) => {
+//     this.profileUser= result;
+//   });
+// });
+// this.auth.user$.subscribe((user) => {
+//   if (user?.username) {
+//   // if (user?.sessionUserName) {
+//     this.currentUser.username = sessionUserName;
+//   }
+// })
 // }
-
-//new code 
+// }
+// }

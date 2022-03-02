@@ -40,6 +40,7 @@ export class ProfilePageComponent implements OnInit {
     followers: [],
     notifications: []
     
+    
   };
   sessionUserName = sessionStorage.getItem('username');
   ngOnInit(): void {
