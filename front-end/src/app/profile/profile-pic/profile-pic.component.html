@@ -1,4 +1,14 @@
 
-<div class="profilePic"> 
+
+<div class="profilePic" *ngIf="sessionUserName != profileUser.username; else elseWelcome"> 
 <img class="imgsizer" src="{{this.currentUser.pictureLink}}">
+</div>
+
+<div>
+    <div>
+        <ng-template #elseWelcome>
+            <h1 class="greeting">Hello, {{sessionUserName}}</h1>
+        </ng-template>
+        
+    </div>
 </div>
