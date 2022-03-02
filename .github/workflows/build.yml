@@ -92,7 +92,7 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-1
 
-        - name: Deploy to Kubernetes
+        - name: Deploying to Kubernetes
           uses: angela-mylo/eks-kubectl@main
           env:
             KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
