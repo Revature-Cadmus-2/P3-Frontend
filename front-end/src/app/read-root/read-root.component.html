@@ -5,7 +5,7 @@
             <div class="container" id="root">
                 <div class="row">
                     <div class="col">
-                        <p><span>{{ root.userName }}</span> • {{ root.dateTime | date:'short' }}</p>
+                        <p><span>{{ root.userName }}</span> • {{ root.dateTime | date:'short':'-1200' }}</p>
                     </div>
                     <div class="col" id="follow-post-btn">
                         <app-follow-button-root class="btn" style="margin-right: 5px;" [id]="root.id">Follow Post</app-follow-button-root>
