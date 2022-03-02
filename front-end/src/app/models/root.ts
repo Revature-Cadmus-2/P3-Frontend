@@ -9,5 +9,5 @@ export interface Root {
     userName: string;
     //comments: string;
     comments: Comment[];
-    GroupPostId: number;
+    groupPostId: number;
 }

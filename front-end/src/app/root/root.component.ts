@@ -44,31 +44,39 @@ export class RootComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.initTheme();
     this.isDarkMode = this.themeService.isDarkMode();
-    this.rootService.getAllRoots().then(result => {
+    //this.rootService.getAllRoots().then(result => {
+      
+    this.rootService.getRootByGroupId(0).then(result => {
       result.sort((a, b) => (a.dateTime < b.dateTime) ? 1 : -1);
       this.roots = result;
       for(let root of this.roots){
-        root.totalVote = 0
-        this.rootVoteCounter = 0
-        for (let comment of root.comments) {
-          comment.totalVote = 0;
-          this.voteCounter = 0;
-          for (let vote of comment.votes) {
-            this.voteCounter = this.voteCounter + vote.value;
-          }
-          comment.totalVote = this.voteCounter;
-          this.rootVoteCounter = this.rootVoteCounter + comment.totalVote
-        }
-        root.totalVote = this.rootVoteCounter
+        console.log(root.groupPostId + ", " + root.title);
         
+          root.totalVote = 0
+          this.rootVoteCounter = 0
+          for (let comment of root.comments) {
+            comment.totalVote = 0;
+            this.voteCounter = 0;
+            for (let vote of comment.votes) {
+              this.voteCounter = this.voteCounter + vote.value;
+            }
+            comment.totalVote = this.voteCounter;
+            this.rootVoteCounter = this.rootVoteCounter + comment.totalVote
+          }
+          root.totalVote = this.rootVoteCounter
+
       }
             this.isLoaded = true;
 
     })
 
+    // if(root.groupPostId == 0) {  //begin of if
+    // }//End if groupPostId == 0
+
     this.rootService.getAllVotes().then(result => {
       this.votes = result;
-    this.rootService.getAllRoots().then(result => {
+
+      this.rootService.getAllRoots().then(result => {
       result.sort((a, b) => (a.totalVote < b.totalVote) ? 1 : -1);
       this.popular = result;
     })
@@ -125,7 +133,7 @@ export class RootComponent implements OnInit {
   }
   
   sortGroupPosts(): void {
-    console.log("You clicked me")
+    console.log("You clicked me");
     }
   }
 

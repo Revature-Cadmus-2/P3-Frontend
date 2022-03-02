@@ -8,16 +8,18 @@ import { Router } from '@angular/router';
 import { group } from 'console';
 import { Group } from '../models/Group';
 import { ActivatedRoute} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-create-group-post',
   templateUrl: './create-group-post.component.html',
   styleUrls: ['./create-group-post.component.css']
+  
 })
 export class CreateGroupPostComponent implements OnInit {
 
-  constructor(private router: Router, public auth: AuthService, private rService: RootServiceService, private gService: GroupServiceService, private currentRoute: ActivatedRoute,) { }
+  constructor(private router: Router, public auth: AuthService, private rService: RootServiceService, private gService: GroupServiceService, private currentRoute: ActivatedRoute, private toastr: ToastrService) { }
 
   root: Root = {
     id: 0,
@@ -26,7 +28,7 @@ export class CreateGroupPostComponent implements OnInit {
     totalVote: 0,
     dateTime: new Date(0), //may have to remove '0' from new Date
     userName: '',
-    GroupPostId: 1,
+    groupPostId: 1,
     comments: [],
 
   }
@@ -54,7 +56,7 @@ export class CreateGroupPostComponent implements OnInit {
     this.currentRoute.params.subscribe(params => {
       this.currentPostGroupId = +params['id'];
       console.log(this.currentPostGroupId);
-      this.root.GroupPostId = this.currentPostGroupId;
+      this.root.groupPostId = this.currentPostGroupId;
       
       this.gService.getGroupById(this.currentPostGroupId).then((result: Group) => {
         this.group = result;
@@ -70,44 +72,21 @@ export class CreateGroupPostComponent implements OnInit {
         this.root.userName = user.preferred_username;
       }
 
-      
       //this.root.GroupPostId = this.currentPostGroupId; //Number()
 
       this.root.dateTime = new Date();
-      console.log("this.root.GroupPostId: "+this.root.GroupPostId);
+      console.log("this.root.GroupPostId: "+this.root.groupPostId);
 
       console.log(this.root);
       
-      
       this.rService.addRoot(this.root).then(res => {
             console.log("Post successfully created");
-      //   //     this.toastr.success( 'You Successfully Created a Post','Post Notification', {
-      //   //       timeOut: 2000,
+            this.toastr.success( 'You Successfully Created a Post','Post Notification', {
+              timeOut: 2000,
             } );
 
-      // this.router.navigateByUrl('groups');
+      this.router.navigateByUrl(`groups/${this.root.groupPostId}`);
+      })
     })
   }
-
-
-  // onSubmit(postForm: NgForm) {
-  //   this.auth.user$.subscribe((user) => {
-  //     if (user?.preferred_username) {
-  //       this.root.userName = user.preferred_username
-  //     }
-
-  //     this.root.dateTime = new Date()
-  //     this.rService.addRoot(this.root).then(res => {
-  //      // alert("Post successfully created")
-  //     this.toastr.success( 'You Successfully Created a Post','Post Notification', {
-  //       timeOut: 2000,
-  //     } ); //Notification for displaying Successfully Posted. GM
-  //       //alert("Post successfully created")
-  //       //this.toast.success({detail:'Success Message',summary:'Post successfully created',duration:10000});
-  //       this.router.navigateByUrl('root');
-  //     })
-
-  //   })
-
-  // }
 }

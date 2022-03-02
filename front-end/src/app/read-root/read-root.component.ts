@@ -51,7 +51,7 @@ export class ReadRootComponent implements OnInit {
     dateTime: new Date(0),
     userName: '',
     comments: [],
-    GroupPostId: 0
+    groupPostId: 0
   }
 
   ngOnInit(): void {

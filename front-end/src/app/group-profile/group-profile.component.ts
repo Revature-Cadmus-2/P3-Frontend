@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GroupServiceService } from '../service/group-service.service';
+import { RootServiceService } from '../service/root-service.service';
 import { Group } from '../models/Group';
+import { Root } from '../models/root';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ActivatedRoute} from '@angular/router';
@@ -13,12 +15,16 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class GroupProfileComponent implements OnInit {
 
-  constructor(private router: Router, private currentRoute: ActivatedRoute, private rService: GroupServiceService, ) { }
+  constructor(private router: Router, private currentRoute: ActivatedRoute, private gService: GroupServiceService, private rService: RootServiceService ) { }
 
-  theName: Group;
+  // theName: Group;
+
   profileName: any;
+
   id = 0;
-  //root: Root[] =[];
+
+  root: Root[] =[];
+
   group: Group = {
     createdByUserId: 0,
     groupName: "",
@@ -30,17 +36,23 @@ ngOnInit(): void {
   // this.location.getState() = this.theName
   console.log("Here is the part where we added the get root data");
   
-  this.currentRoute.params.subscribe(params => {
-    this.id = params['id'];
-    console.log(this.id);
+this.currentRoute.params.subscribe(params => {
+  this.id = params['id'];
+  console.log(this.id);
     
-    this.rService.getGroupById(this.id).then((result: Group) => {
-      this.group = result;
-      console.log(this.group);
+  this.gService.getGroupById(this.id).then((result: Group) => {
+    this.group = result;
+    console.log(this.group);
   })
-})
-}
 
+  this.rService.getRootByGroupId(this.id).then((groupPosts) => { //groupPosts contain all the post for that id
+    console.log(groupPosts);
+    this.root = groupPosts;
+  })
+  
+})
+  
+}//End OnInit
   
 
 goToCreatePost(id: number): void {

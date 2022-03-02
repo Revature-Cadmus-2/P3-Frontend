@@ -50,7 +50,7 @@ export class CommentComponent implements OnInit {
     dateTime: new Date(0),
     userName: '',
     comments: [],
-    GroupPostId: 0
+    groupPostId: 0
   }
 
   vote: Vote = {
