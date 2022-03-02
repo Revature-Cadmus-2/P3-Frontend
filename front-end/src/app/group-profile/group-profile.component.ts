@@ -4,8 +4,8 @@ import { RootServiceService } from '../service/root-service.service';
 import { Group } from '../models/Group';
 import { Root } from '../models/root';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { ActivatedRoute} from '@angular/router';
+import { Vote } from '../models/vote';
 
 
 @Component({
@@ -16,8 +16,6 @@ import { ActivatedRoute} from '@angular/router';
 export class GroupProfileComponent implements OnInit {
 
   constructor(private router: Router, private currentRoute: ActivatedRoute, private gService: GroupServiceService, private rService: RootServiceService ) { }
-
-  // theName: Group;
 
   profileName: any;
 
@@ -32,21 +30,29 @@ export class GroupProfileComponent implements OnInit {
     dateTime: new Date()
   };
 
-ngOnInit(): void {
-  // this.location.getState() = this.theName
-  console.log("Here is the part where we added the get root data");
-  
+  voteCounter: number = 0;
+  rootVoteCounter: number = 0;
+  isLoaded = false;
+  roots: Root[] = [];
+  votes: Vote[] = [];
+
+  vote: Vote = {
+    id: 0,
+    userName: '',
+    value: 0,
+    commentId: 0
+  }
+
+ngOnInit(): void {  
 this.currentRoute.params.subscribe(params => {
   this.id = params['id'];
-  console.log(this.id);
     
   this.gService.getGroupById(this.id).then((result: Group) => {
     this.group = result;
-    console.log(this.group);
   })
 
   this.rService.getRootByGroupId(this.id).then((groupPosts) => { //groupPosts contain all the post for that id
-    console.log(groupPosts);
+    groupPosts.sort((a, b) => (a.dateTime < b.dateTime) ? 1 : -1);
     this.root = groupPosts;
   })
   
@@ -54,19 +60,12 @@ this.currentRoute.params.subscribe(params => {
   
 }//End OnInit
   
-
 goToCreatePost(id: number): void {
-  console.log(id);
   this.router.navigateByUrl(`${id}/create-group-post`);
-}
-// goToCreatePost(): void {
-//   this.router.navigateByUrl('create-group-post');
-// }
+} 
 
-// goToGroup(id?: any): void {
-//   console.log(id);
-//   this.router.navigate([`groups/${id}`],);
-// }
-  
+goBack(id: number): void {
+  this.router.navigateByUrl('/groups');
+} 
 
 }

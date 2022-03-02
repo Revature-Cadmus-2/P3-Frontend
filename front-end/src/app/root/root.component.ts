@@ -59,9 +59,7 @@ export class RootComponent implements OnInit {
     this.rootService.getRootByGroupId(0).then(result => {
       result.sort((a, b) => (a.dateTime < b.dateTime) ? 1 : -1);
       this.roots = result;
-      for(let root of this.roots){
-        console.log(root.groupPostId + ", " + root.title);
-        
+      for(let root of this.roots){        
           root.totalVote = 0
           this.rootVoteCounter = 0
           for (let comment of root.comments) {

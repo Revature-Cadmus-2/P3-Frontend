@@ -1,5 +1,7 @@
 <div class="container-fluid">
+
     <div class="row">
+        
         <div class="col-3" id="left">
         </div>
         <div class="row col-6" id="center">
@@ -7,52 +9,30 @@
             
             <p class = "Group">
                 <button class="btn btn-primary" id="create-btn" role="button" (click)="createNewGroups()" style="max-width: 120px; padding: 10px; align-items: right;"><em class="fa fa-plus"></em> Create Group</button>
-                <button class="btn btn-primary" id="create-btn" role="button" (click)="viewAllGroups()" style="max-width: 120px; padding: 10px; align-items: right;">View All Groups</button>
             </p>
             
             <h1>My Groups</h1>
-            <div class="container" id="my-groups">
-                <div class="row">
-                    <!-- <div class="col"> -->
-                        
-                        <mat-card class="example-card" *ngFor="let userGroup of userGroups">
-                            <mat-card-header>
-                                <div mat-card-avatar class="example-header-image"></div>
-                                <mat-card-title>{{userGroup.groupName}}</mat-card-title> <!-- This is wrongfully taking from GroupMembers -->
-                            </mat-card-header>
-                            <mat-card-content>
-                                <!-- <p>
-                                    {{group.message}}
-                                </p> -->
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button mat-button class="btn btn-primary"  (click)="goToGroup(userGroup.groupId)" >Blast off!</button>
-                            </mat-card-actions>
-                        </mat-card>
-                        
-                    <!-- </div> -->
+                <div class="all-feed">
+                        <div class="container feed" id="root" *ngFor="let userGroup of userGroups">
+                            <div class="row">
+                                <h2>{{ userGroup.groupName }}</h2>
+                            <!-- This is wrongfully taking from GroupMembers -->
+                            </div>
+                                <button class="btn btn-primary"  (click)="goToGroup(userGroup.groupId)" >Blast off!</button>
+                            </div>
                 </div>
-            </div>
 
-            <!-- <h1>Featured Groups</h1>
-            <div class="container" id="my-groups">
-                <div class="row">                        
-                        <mat-card class="example-card" *ngFor="let group of allGroups">
-                            <mat-card-header>
-                                <div mat-card-avatar class="example-header-image"></div>
-                                <mat-card-title>{{group.groupName}}</mat-card-title>
-                            </mat-card-header>
-                            <mat-card-content>
-                                <p>
-                                    {{group.id}}
-                                </p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button mat-button (click)="joinGroup(group.id, group.groupName)" >Join!</button>
-                            </mat-card-actions>
-                        </mat-card>      
+            <h1>Featured Groups</h1>
+            <div class="container feed" id="root" *ngFor="let group of allGroups">
+                <div class="row">
+                    <h2>{{ group.groupName }}</h2>
                 </div>
-            </div> -->
+                    <h4>{{group.message}}</h4>
+                            <div>
+                                <button class="btn btn-primary" (click)="joinGroup(group.id, group.groupName)" >Join!</button>
+                            </div>
+            </div>      
+
             <div class="col-3" id="right">
             </div>
         </div>
