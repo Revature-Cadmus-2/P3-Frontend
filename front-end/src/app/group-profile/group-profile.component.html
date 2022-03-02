@@ -1,15 +1,24 @@
-<div class="container">
+<div class="container-fluid">
+
+    <div class="row">
+        
+        <div class="col-3" id="left"></div>
+        <div class="row col-6" id="center">
+        <h2> {{ group.groupName }} </h2>
+        <a class="btn btn-primary" id="create-btn" (click)="goToCreatePost(group.id)" role="button"><em class="fa fa-plus"></em> New Post</a>
+        <p class="Group">
+            <!-- <div>
+                <mat-card>
+                
+                </mat-card>
     
-    <p>group-profile works!</p>
-    <h1>Your Group Post</h1>
-    <p class="Group">
-        <!-- <div>
-            <mat-card>
-            
-            </mat-card>
-
-        </div> -->
-
-    </p>
+            </div> -->
+    
+        </p>
+        </div>
+        
+    <div class="col-3" id="right"></div>
+    
+    </div>
 
 </div>

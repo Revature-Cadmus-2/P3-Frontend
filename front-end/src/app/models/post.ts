@@ -7,5 +7,8 @@ export interface Post {
     totalVote: number;
     dateTime: Date;
     userName: string;
+    GroupPostId: number;
     comments: Comment[];
+    //comments: string;
+    
 }

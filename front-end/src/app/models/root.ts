@@ -7,5 +7,7 @@ export interface Root {
     totalVote: number;
     dateTime: Date;
     userName: string;
+    //comments: string;
     comments: Comment[];
+    GroupPostId: number;
 }

@@ -25,7 +25,8 @@ export class CreatePostComponent implements OnInit {
     totalVote: 0,
     dateTime: new Date(0), //may have to remove '0' from new Date
     userName: '',
-    comments: []
+    comments: [],
+    GroupPostId: 0
   }
 
   ngOnInit(): void { //Intentionally blank

@@ -19,18 +19,23 @@ export class GroupServiceService {
     return this.http.get<Group[]>(this.groupUrl).toPromise();
   }
 
-  createGroup(group : Group): Promise<Group>{
+  createGroup(group : Group): Promise<Group> {
     return this.http.post<Group>(this.groupUrl, group).toPromise();
   }
 
-  goToGroup(id: number): Promise<Group>{
+  goToGroup(id: number): Promise<Group> {
     return this.http.get<Group>(this.groupUrl + '/' + id).toPromise();
   }
 
-  addNewMemberToGroup(newMemeber : GroupMembers) {
-    return this.http.post<any>(this.groupMembersUrl,newMemeber)
+  addNewMemberToGroup(newMember : GroupMembers) {
+    return this.http.post<any>(this.groupMembersUrl,newMember).toPromise();
   }
-  // getAllGroupsByUserId(userId : any): Promise<Group[]>{
-  //   return this.http.get<Group[]>(this.)
-  // }
+
+  getAllGroupsByUserId(userId : any): Promise<GroupMembers[]> {
+    return this.http.get<GroupMembers[]>(this.groupMembersUrl + '/id/' + userId).toPromise();
+  }
+  
+  getGroupById(groupId : number): Promise<Group> {
+    return this.http.get<Group>(this.groupUrl + '/id/' + groupId).toPromise();
+  }
 }
