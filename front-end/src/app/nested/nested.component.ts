@@ -99,13 +99,14 @@ export class NestedComponent implements OnInit {
         //   })
         // })
       })
-
-      this.comment.dateTime = new Date();
+      let nDate = new Date()
+      // let dateZone = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York"})
+      this.comment.dateTime = new Date(nDate.toLocaleString("en-US", {timeZone: 'America/New_York'}));
       this.comment.rootId = this.root.rootId;
 
       this.rootService.addComment(this.comment).then(res => {
        // alert("Comment successfully created")
-      this.toastr.success( 'You Successfully Commented','Comment Notification', {
+       this.toastr.success( 'You Successfully Commented','Comment Notification', {
         timeOut: 2000,
       } ); //Notification for displaying Successfully Commented. GM
         location.reload()

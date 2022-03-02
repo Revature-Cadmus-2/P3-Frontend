@@ -32,7 +32,17 @@ export class RootComponent implements OnInit {
     commentId: 0
   }
   counter: number = 0;
-  popular: Root[] = [];
+  random: Root[] = [];
+  featured: Root = {
+    id:0,
+    title: '',
+    message: '',
+    totalVote: 0,
+    dateTime: new Date(0),
+    userName: '',
+    comments: [],
+    groupPostId: 0
+  }
   currentUser: User = {
     id: 0,
     username:"",
@@ -44,44 +54,44 @@ export class RootComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.initTheme();
     this.isDarkMode = this.themeService.isDarkMode();
-    this.rootService.getAllRoots().then(result => {
+    //this.rootService.getAllRoots().then(result => {
+      
+    this.rootService.getRootByGroupId(0).then(result => {
       result.sort((a, b) => (a.dateTime < b.dateTime) ? 1 : -1);
       this.roots = result;
       for(let root of this.roots){
-        root.totalVote = 0
-        this.rootVoteCounter = 0
-        for (let comment of root.comments) {
-          comment.totalVote = 0;
-          this.voteCounter = 0;
-          for (let vote of comment.votes) {
-            this.voteCounter = this.voteCounter + vote.value;
-          }
-          comment.totalVote = this.voteCounter;
-          this.rootVoteCounter = this.rootVoteCounter + comment.totalVote
-        }
-        root.totalVote = this.rootVoteCounter
+        console.log(root.groupPostId + ", " + root.title);
         
+          root.totalVote = 0
+          this.rootVoteCounter = 0
+          for (let comment of root.comments) {
+            comment.totalVote = 0;
+            this.voteCounter = 0;
+            for (let vote of comment.votes) {
+              this.voteCounter = this.voteCounter + vote.value;
+            }
+            comment.totalVote = this.voteCounter;
+            this.rootVoteCounter = this.rootVoteCounter + comment.totalVote
+          }
+          root.totalVote = this.rootVoteCounter
+
       }
-            this.isLoaded = true;
-
+      this.isLoaded = true;
     })
-
-    this.rootService.getAllVotes().then(result => {
-      this.votes = result;
+// popular featured post
+    
     this.rootService.getAllRoots().then(result => {
-      result.sort((a, b) => (a.totalVote < b.totalVote) ? 1 : -1);
-      this.popular = result;
+      var randomNumber = Math.floor(Math.random() * result.length);
+      this.random = result;
+      this.featured = this.random[randomNumber];
+      this.auth.user$.subscribe((user) => {
+        if (user?.preferred_username) {
+          this.profileService.getUserByName(user.preferred_username).then((result: User) => {
+            this.currentUser= result;
+          });
+        }
+      })
     })
-
-    this.auth.user$.subscribe((user) => {
-      if (user?.preferred_username) {
-        this.profileService.getUserByName(user.preferred_username).then((result: User) => {
-          this.currentUser= result;
-          
-        });
-      }
-    })
-  })
 }
 
   goToCreatePost(): void {
@@ -125,7 +135,7 @@ export class RootComponent implements OnInit {
   }
   
   sortGroupPosts(): void {
-    console.log("You clicked me")
+    console.log("You clicked me");
     }
   }
 

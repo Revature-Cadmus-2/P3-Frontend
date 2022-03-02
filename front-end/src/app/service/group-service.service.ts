@@ -9,8 +9,9 @@ import { Root } from '../models/root';
 })
 export class GroupServiceService {
 
-  private groupUrl: string = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Group";
-  private groupMembersUrl: string = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/GroupMembers";
+  private groupUrl: string = "https://54.87.122.77/user/api/Group";
+  private groupMembersUrl: string = "https://54.87.122.77/user/api/GroupMembers";
+  
 
   constructor(private http: HttpClient) { }
 
@@ -18,16 +19,23 @@ export class GroupServiceService {
     return this.http.get<Group[]>(this.groupUrl).toPromise();
   }
 
-  createGroup(group : Group): Promise<Group>{
+  createGroup(group : Group): Promise<Group> {
     return this.http.post<Group>(this.groupUrl, group).toPromise();
   }
 
-  goToGroup(id: number): Promise<Group>{
+  goToGroup(id: number): Promise<Group> {
     return this.http.get<Group>(this.groupUrl + '/' + id).toPromise();
   }
 
+  addNewMemberToGroup(newMember : GroupMembers) {
+    return this.http.post<any>(this.groupMembersUrl,newMember).toPromise();
+  }
+
+  getAllGroupsByUserId(userId : any): Promise<GroupMembers[]> {
+    return this.http.get<GroupMembers[]>(this.groupMembersUrl + '/id/' + userId).toPromise();
+  }
   
-  // getAllGroupsByUserId(userId : any): Promise<Group[]>{
-  //   return this.http.get<Group[]>(this.)
-  // }
+  getGroupById(groupId : number): Promise<Group> {
+    return this.http.get<Group>(this.groupUrl + '/id/' + groupId).toPromise();
+  }
 }

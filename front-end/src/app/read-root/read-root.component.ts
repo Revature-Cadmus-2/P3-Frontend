@@ -50,7 +50,8 @@ export class ReadRootComponent implements OnInit {
     totalVote: 0,
     dateTime: new Date(0),
     userName: '',
-    comments: []
+    comments: [],
+    groupPostId: 0
   }
 
   ngOnInit(): void {

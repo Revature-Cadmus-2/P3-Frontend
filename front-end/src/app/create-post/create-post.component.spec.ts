@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RootServiceService } from '../service/root-service.service';
-
+import { ToastrModule } from 'ngx-toastr';
 import { CreatePostComponent } from './create-post.component';
 import { Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
@@ -18,7 +18,12 @@ describe('CreatePostComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CreatePostComponent],
-      imports: [FormsModule, RouterTestingModule, HttpClientTestingModule, AuthModule.forRoot({
+      imports: [FormsModule, RouterTestingModule, HttpClientTestingModule, ToastrModule.forRoot({ //For the Notifications
+        timeOut: 1000, //time is in milliseconds
+        progressBar: true,
+        progressAnimation: 'increasing',
+        preventDuplicates: true,
+      }), AuthModule.forRoot({
         domain: 'dev-b0fxq42a.us.auth0.com',
         clientId: 'SxcDeoMfg6Lrkr0WpGzqVIuw02zOxNQCOvrkDKQxAOhom97sBSbuCIdjzds9Jgyt'
       })]

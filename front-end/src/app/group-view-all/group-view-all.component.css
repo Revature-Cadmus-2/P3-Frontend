@@ -6,17 +6,11 @@
     margin-top: 40px;
 }
 
-#create-btn {
-    float: right;
-    max-height: 45px;
-    margin: 20px;
-    font-size: small;
-}
-
 .btn-primary {
     color: #000;
     background-color: #BB86FC;
     border-color: #BB86FC;
+    font-size: small;
 }
 
 .btn-primary:hover {

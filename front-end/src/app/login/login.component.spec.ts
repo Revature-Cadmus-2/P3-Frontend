@@ -52,7 +52,7 @@ describe('LoginComponent', () => {
   it('should have one button with "Login" on the page', () => {
     const linkDes = fixture.debugElement.queryAll(By.css('button'));
     const nativeButton: HTMLButtonElement = linkDes[0].nativeElement;
-    expect(nativeButton.textContent).toBe('Log into Cadmus');
+    expect(nativeButton.textContent).toBe('Log into Apollo');
   });
 
   it('should have one button with "Register" on the page', () => {

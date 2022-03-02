@@ -7,6 +7,7 @@ import { User } from 'src/app/models/user';
 import { ProfileService } from 'src/app/service/profile.service';
 import { userInfo } from 'os';
 import { UserCreationService } from 'src/app/service/user-creation.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-settings-page',
@@ -15,7 +16,7 @@ import { UserCreationService } from 'src/app/service/user-creation.service';
 })
 export class SettingsPageComponent implements OnInit {
 
-  constructor(private userService: UserCreationService, private profileService: ProfileService, public auth: AuthService, private router: Router, private http: HttpClient,public amazons3: S3Service) { }
+  constructor(private userService: UserCreationService, private profileService: ProfileService, public auth: AuthService, private router: Router, private http: HttpClient,public amazons3: S3Service, private toastr: ToastrService) { }
   selectedFile = null;
   
   ngOnInit(): void {
@@ -40,10 +41,12 @@ export class SettingsPageComponent implements OnInit {
       var imglink = JSON.stringify(response.Location).slice(1,-1)
       this.profileService.AddUserProfilePicture(sessionUserName, imglink)
       console.log(imglink);
-
+      this.toastr.success( 'You Successfully added a Picture','Settings Notification', {
+        timeOut: 2000,
+      } ); //Notification for displaying when you add a profile pic
   }
   )}
-
+  
 }
 
 

@@ -8,6 +8,8 @@ import { RootServiceService } from '../service/root-service.service';
 import { AuthModule } from '@auth0/auth0-angular';
 import { DateAgoPipe } from '../pipes/date-ago.pipe';
 import { CommentComponent } from './comment.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 describe('CommentComponent', () => {
@@ -19,7 +21,12 @@ describe('CommentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CommentComponent, DateAgoPipe],
-      imports: [FormsModule, RouterTestingModule, HttpClientTestingModule, AuthModule.forRoot({
+      imports: [NgToastModule, ToastrModule.forRoot({ //For the Notifications
+        timeOut: 1000, //time is in milliseconds
+        progressBar: true,
+        progressAnimation: 'increasing',
+        preventDuplicates: true,
+      }), FormsModule, RouterTestingModule, HttpClientTestingModule, AuthModule.forRoot({
         domain: 'dev-b0fxq42a.us.auth0.com',
         clientId: 'RjcefAYAV8RI8rMHIN1xs6Ni2Y0FxhFy'
       })]

@@ -1,22 +1,28 @@
-.btn{
-    background-color: #4d4382;
-    color: white;
-    border: none;
-    padding: 0.6em 2em;
+.card-title{
+    padding: 0%;
+    border-bottom: solid 1px #e1d309;
+}
+ul {
     text-align: center;
-    margin: 1em;
-    text-decoration: none;
-    font-size: 1.1em;
-    display: float;
-    float: right;
-    cursor:pointer;
-    border-radius: 8px;
-    width: 120px;
-    min-width: 140px;
+    list-style-type: none;
+    margin: 20px auto;
+    padding: 0;
+    font-size: 20px;
+    font-family: Rubik, sans-serif;
 }
 
-.btn:hover {
-    color: #fdf4f7;
-    background-color: #291a4a;
-    border-color: #291a4a;
+.activity-name{
+    font-family: Rubik, Geneva, Tahoma, sans-serif;
+}
+.activity-name:hover{
+    background-color: #bb86FC;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+h3{
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    letter-spacing: 1px;
 }

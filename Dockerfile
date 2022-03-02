@@ -8,6 +8,8 @@ COPY /front-end/package.json /app
 
 RUN npm install --legacy-peer-deps
 
+RUN echo ${{ secrets.S3_BUCKET_KEY }} > /front-end/src/assets/Key.txt
+
 COPY /front-end/. /app
 
 RUN npm run build

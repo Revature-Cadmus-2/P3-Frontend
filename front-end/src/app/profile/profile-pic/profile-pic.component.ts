@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/service/profile.service';
 import { User } from '@auth0/auth0-angular';
 import { AuthService } from '@auth0/auth0-angular';
+
+
 @Component({
   selector: 'app-profile-pic',
   templateUrl: './profile-pic.component.html',
@@ -21,7 +23,9 @@ export class ProfilePicComponent implements OnInit {
     name: "",
     followings: [],
     followers: [],
-    notifications: []
+    notifications: [],
+    pictureLink: "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+    
   };
   test = 0;
 
@@ -32,24 +36,85 @@ export class ProfilePicComponent implements OnInit {
     name: "",
     followings: [],
     followers: [],
-    notifications: []
+    notifications: [],
+    pictureLink: "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+    
   };
   sessionUserName= sessionStorage.getItem('username');
-  userimglink ="https://s.hdnux.com/photos/51/50/21/10912852/3/rawImage.jpg";
+  userimglink ="../../../../src/assets/Profilepic.jpg";
   
   ngOnInit(): void {
-        const sessionUserName = sessionStorage.getItem('username');
-        console.log(sessionUserName+'this is my sessions storage preferred username in *****');
-        this.auth.user$.subscribe(
-          (profile) => (this.currentUser.username = sessionUserName)
-          )
-  }
-
-  GetProfilePic(userimglink){
-    var Userprofilepic = userimglink
-    return Userprofilepic;
+    console.log(sessionUserName+'this is my sessions storage preferred username in profilepage component');
+    var sessionUserName = sessionStorage.getItem('username');
+    this.profileService.getUserByName(sessionUserName).then((cUser) =>{
+      console.log(cUser);
+      this.currentUser.pictureLink = cUser.pictureLink;
+      if(this.currentUser.pictureLink ==null){
+        this.currentUser.pictureLink = "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+        console.log(cUser)
+      }
+    });
     
-  }
-  
+    console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
+    console.log(this.profileUser.username + "this is profileuser")
+    //this is someone elses page
+    if(this.auth.isAuthenticated$){
+        this.auth.user$.subscribe(
+        (profile) => (this.currentUser.username = sessionUserName)
+        )
+        console.log();
 
+        this.currentRoute.params.subscribe(params => {
+        this.id = params['id'];
+        this.profileService.getUserById(this.id).then((result: User) => {
+            this.profileUser= result;
+            if(this.profileUser.pictureLink ==null){
+              this.profileUser.pictureLink = "https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg"
+              console.log(this.profileUser)
+            }
+          });
+        });
+        this.auth.user$.subscribe((user) => {
+          if (user?.username) {
+            this.currentUser.username = sessionUserName;
+          }
+    })
 }
+}
+}
+
+
+
+
+// console.log(sessionUserName+'this is my sessions storage preferred username in profilepage component');
+// var sessionUserName = sessionStorage.getItem('username');
+// this.profileService.getUserByName(sessionUserName).then((cUser) =>{
+//   //this.currentUser.pictureLink = cUser
+//   console.log(cUser);
+//   this.currentUser.pictureLink = cUser.pictureLink;
+// });
+
+// console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
+
+// console.log(this.profileUser.username + "this is profileuser")
+// if(this.auth.isAuthenticated$){
+// this.auth.user$.subscribe(
+// (profile) => (this.currentUser.username = sessionUserName)
+// )
+// console.log();
+
+// this.currentRoute.params.subscribe(params => {
+// this.id = params['id'];
+// this.profileService.getUserById(this.id).then((result: User) => {
+//     this.profileUser= result;
+//   });
+// });
+// this.auth.user$.subscribe((user) => {
+//   if (user?.username) {
+//   // if (user?.sessionUserName) {
+//     this.currentUser.username = sessionUserName;
+//   }
+// })
+// }
+// }
+// }

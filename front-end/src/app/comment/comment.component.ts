@@ -49,7 +49,8 @@ export class CommentComponent implements OnInit {
     totalVote: 0,
     dateTime: new Date(0),
     userName: '',
-    comments: []
+    comments: [],
+    groupPostId: 0
   }
 
   vote: Vote = {
@@ -104,17 +105,9 @@ export class CommentComponent implements OnInit {
       if (user?.preferred_username) {
         this.comment.userName = user.preferred_username;
         this.currentRoute.params.subscribe(params => {
-          this.id = params['id'];
+        this.id = params['id'];
         this.rootService.getRootById(this.id).then((result: Root) => {
           this.root = result;
-          this.profileService.getUserByName(this.root.userName).then((resulting: User) => {
-            console.log(resulting);
-            this.postNotification.userId = resulting.id;
-            this.postNotification.postId = this.id;
-            this.postNotification.message = `A comment has been made on on your post`;
-            console.log(this.postNotification.message)
-            this.profileService.addNotification(this.postNotification);
-          })
         })
       })
       }
@@ -123,18 +116,35 @@ export class CommentComponent implements OnInit {
         this.comment.rootId = params['id'];
       })
 
-      this.comment.dateTime = new Date();
+      let nDate = new Date();
+      // let dateZone = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York"});
+      this.comment.dateTime = new Date(nDate.toLocaleString("en-US", {timeZone: 'America/New_York'}));
       this.comment.parentId = -1;
       
       this.rootService.addComment(this.comment).then(res => {
       //  alert("Comment successfully created")
-      this.toastr.success( 'You Successfully Commented','Comment Notification', {
-        timeOut: 2000,
-      } ); //Notification for displaying Successfully Commented. GM
+      // this.toastr.success( 'You Successfully Commented','Comment Notification', {
+      //   timeOut: 2000,
+      // } ); //Notification for displaying Successfully Commented. GM
         //alert("Comment successfully created")
         this.toast.success({detail:'Success Message',summary:'Comment successfully created!',duration:10000});
-        location.reload()
+        
+        //This gets notifications for when someone comments on your post and then it refreshes the page so the comment is shown
+        this.profileService.getUserByName(this.root.userName).then((resulting: User) => {
+          this.profileService.getUserByName(this.comment.userName).then((thisUser: User) => {
+            console.log(resulting);
+            this.postNotification.userId = resulting.id;
+            this.postNotification.FollowersId= thisUser.id;
+            this.postNotification.postId = this.id;
+            this.postNotification.commentId = this.comment.id;
+            this.postNotification.message = ` ${this.comment.userName} has commented on your "${this.root.title}" post`;
+            console.log(this.postNotification.message)
+            this.profileService.addNotification(this.postNotification);
+            location.reload()
+          })
+        })
       })
+      
     })
   }
 

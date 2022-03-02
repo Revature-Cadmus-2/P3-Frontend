@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3" id="left">
+        </div>
+        <div class="row col-6" id="center">
+            
+            <!-- <h3>Featured Groups</h3> -->
+            <div class="container" id="my-groups">
+                <div class="row">
+                    <!-- <div class="col"> -->
+                        
+                        <mat-card class="example-card" *ngFor="let group of allGroups">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>{{group.groupName}}</mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>
+                                    {{group.message}}
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button class="btn btn-primary"(click)="goToGroup(group.id)" style="max-width: 120px; padding: 10px; align-items: right;" >Join group</button>
+                            </mat-card-actions>
+                        </mat-card>      
+                        
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div class="col-3" id="right">
+            </div>
+        </div>
+    </div>
+</div>

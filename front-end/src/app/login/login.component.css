@@ -11,6 +11,13 @@ max-height: 900px;
     width: 50%;
 }
 
+.logout{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
 .img {
     width: 100%;
     height: auto;
@@ -18,10 +25,10 @@ max-height: 900px;
     padding-bottom: 3em;
 }
 
-.btn1 {
+.btn {
     margin-bottom: 1em;
+    
 }
-
 
 .wrapper {
     width: 100%;

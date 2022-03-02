@@ -25,7 +25,8 @@ export class CreatePostComponent implements OnInit {
     totalVote: 0,
     dateTime: new Date(0), //may have to remove '0' from new Date
     userName: '',
-    comments: []
+    comments: [],
+    groupPostId: 0
   }
 
   ngOnInit(): void { //Intentionally blank
@@ -36,8 +37,11 @@ export class CreatePostComponent implements OnInit {
       if (user?.preferred_username) {
         this.root.userName = user.preferred_username
       }
-
-      this.root.dateTime = new Date()
+      // const{utcToTimeZone,} = require("date-fns-tz")
+      let nDate = new Date()
+      // let dateZone = new Intl.DateTimeFormat("en-US", {timeZone: "America/New_York"})
+      // let timeZone = 'America/New_York'
+      this.root.dateTime = new Date(nDate.toLocaleString("en-US", {timeZone: 'America/New_York'}))
       this.rService.addRoot(this.root).then(res => {
        // alert("Post successfully created")
       this.toastr.success( 'You Successfully Created a Post','Post Notification', {

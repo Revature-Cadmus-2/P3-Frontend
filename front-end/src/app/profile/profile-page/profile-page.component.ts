@@ -6,6 +6,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { AppComponent } from 'src/app/app.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -39,12 +40,13 @@ export class ProfilePageComponent implements OnInit {
     followers: [],
     notifications: []
     
+    
   };
   sessionUserName = sessionStorage.getItem('username');
   ngOnInit(): void {
 
-        const sessionUserName = sessionStorage.getItem('username');
-        console.log(sessionUserName+'this is my sessions storage preferred username in *****');
+    const sessionUserName = sessionStorage.getItem('username');
+    console.log(sessionUserName+'this is my sessions storage preferred username in profilepage component');
     
   if(this.auth.isAuthenticated$){
     this.auth.user$.subscribe(
@@ -67,3 +69,5 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 }
+
+

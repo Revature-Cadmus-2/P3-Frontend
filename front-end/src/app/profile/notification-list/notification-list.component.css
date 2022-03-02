@@ -1,25 +1,25 @@
 .card-title{
     /* background-color: #3700B3; */
-    padding: 0%;
+    padding: 10%;
     border-bottom: solid 1px #e1d309;
 }
-ul {
-    /* color: white; */
-    padding: 0%;
-    /* border: 5px solid #3700B3; */
-    /* border-bottom: 1px solid #E1D309; */
-}
-ul{
-    text-align: center;
+
+.ul{
+    text-align: left;
     list-style-type: none;
     margin: 20px auto;
-    padding: 0;
+    padding: 10px;
+}
+
+li{
+    list-style-type: none;
 }
 
 .follow-name{
     font-family: Rubik, sans-serif;
     padding: 10px;
-    font-size: 20px;
+    font-size: 15px;
+    text-align: left;
 }
 .follow-name:hover{
     background-color: #bb86FC;
@@ -34,15 +34,27 @@ ul{
     background-color: #bb86FC;
     color: white;
     font-weight: bold;
+    padding: 10px;
+
 }
 h3{
     font-family: Rubik, sans-serif;
     font-size: 25px;
     padding: 10px;
-    letter-spacing: 1px;
-    margin-top: 15px;
+    max-width: 200px; 
+    height: 1em; 
+    
+    
 }
 
 mat-expansion-panel-header{
     border-bottom: 1px solid #E1D309;
+    
+}
+.container{
+    position: absolute;
+    left:50px;
+    top:50px;
+    z-index: 1;
+    
 }

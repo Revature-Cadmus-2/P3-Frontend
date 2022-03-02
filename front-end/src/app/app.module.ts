@@ -33,7 +33,6 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
-import { DialogComponent } from './dialog/dialog.component';
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
@@ -51,6 +50,8 @@ import { GroupsComponent } from './groups/groups.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 // angular material
 import { GroupProfileComponent } from './group-profile/group-profile.component';
+import { GroupViewAllComponent } from './group-view-all/group-view-all.component';
+import { CreateGroupPostComponent } from './create-group-post/create-group-post.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,6 @@ import { GroupProfileComponent } from './group-profile/group-profile.component';
     DateAgoPipe,
     NestedComponent,
     ReadRootComponent,
-    DialogComponent,
     UsersFollowerListComponent,
     NotificationListComponent,
     SettingsButtonComponent,
@@ -84,6 +84,8 @@ import { GroupProfileComponent } from './group-profile/group-profile.component';
     GroupsComponent,
     CreateGroupComponent,
     GroupProfileComponent,
+    GroupViewAllComponent,
+    CreateGroupPostComponent,
   ],
   imports: [
     BrowserModule,
