@@ -49,7 +49,8 @@ export class CommentComponent implements OnInit {
     totalVote: 0,
     dateTime: new Date(0),
     userName: '',
-    comments: []
+    comments: [],
+    groupPostId: 0
   }
 
   vote: Vote = {
