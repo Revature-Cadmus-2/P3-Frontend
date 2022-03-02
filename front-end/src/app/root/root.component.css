@@ -66,6 +66,7 @@ h5, h6{
 h5{
     font-size: 30px;
     font-family: "Rubik";
+    font-weight: bold;
 }
 h6{
     font-size:25px;
