@@ -6,7 +6,7 @@ RUN npm cache clean --force
 
 COPY /front-end/package.json /app
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY /front-end/. /app
 
