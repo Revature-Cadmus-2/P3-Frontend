@@ -9,8 +9,8 @@ import { Vote } from '../models/vote';
 })
 export class RootServiceService {
 
-  // private rootUrl: string = "https://54.87.122.77/post/api/Post";
-  private rootUrl: string = "http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post";
+  private rootUrl: string = "https://54.87.122.77/post/api/Post";
+  // private rootUrl: string = "http://apollopost-prod.us-east-2.elasticbeanstalk.com/api/Post";
   private rootUrl_1: string = "https://54.87.122.77/post/api/Comment";
   private rootUrl_2: string = "https://54.87.122.77/post/api/Vote";
   private userUrl: string = "https://54.87.122.77/user/api/User";

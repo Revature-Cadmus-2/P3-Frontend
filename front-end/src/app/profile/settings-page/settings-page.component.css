@@ -1,7 +1,8 @@
-.btn{
-    background-color: #BB86FC;
-    color: white;
-    border: none;
+.btn-outline-primary{
+    color: #BB86FC;
+    border-color: #BB86FC;
+    font-size: 12px;
+    font-family: "Rubik";
     padding: 0.6em 2em;
     text-align: center;
     margin: 1em;
@@ -13,28 +14,61 @@
     width: 120px;
     min-width: 140px
 }
-
-.btn:hover {
+.btn-outline-primary:hover {
     color: #fdf4f7;
     background-color: #3700B3;
     border-color: #3700B3;
 }
+
 .greeting {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
     font-family: "Rubik", sans-serif;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
-.center{
+.container{
     text-align: center;
     margin: 0 auto;
-    align: center;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #E1D309;
-    padding: 10px;
+    padding: 30px;
     max-width: 500px;
-    margin-top: 15px;
+    font-family: "Rubik", sans-serif;
+}
+
+h2{
+    font-family: "Rubik", sans-serif;
+    font-size: 25px;
+}
+
+.button-13 {
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember",sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 100px;
+}
+
+.button-13:hover {
+    background-color: #f7fafa;
+}
+
+.button-13:focus {
+    border-color: #008296;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    outline: 0;
 }

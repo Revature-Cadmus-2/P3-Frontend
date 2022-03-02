@@ -40,7 +40,8 @@ export class RootComponent implements OnInit {
     totalVote: 0,
     dateTime: new Date(0),
     userName: '',
-    comments: []
+    comments: [],
+    groupPostId: 0
   }
   currentUser: User = {
     id: 0,

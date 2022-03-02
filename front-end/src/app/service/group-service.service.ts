@@ -9,8 +9,8 @@ import { Root } from '../models/root';
 })
 export class GroupServiceService {
 
-  private groupUrl: string = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/Group";
-  private groupMembersUrl: string = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api/GroupMembers";
+  private groupUrl: string = "https://54.87.122.77/user/api/Group";
+  private groupMembersUrl: string = "https://54.87.122.77/user/api/GroupMembers";
   
 
   constructor(private http: HttpClient) { }

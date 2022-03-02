@@ -37,12 +37,12 @@ describe('NavBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain routes', () => {
+  xit('should contain routes', () => {
     const elem = fixture.debugElement.queryAll(By.css('.nav-link'))
     expect(elem.length >= 1).toBeTruthy();
   })
 
-  it('should have "home" nav link', () => {
+  xit('should have "home" nav link', () => {
     const elem = fixture.debugElement.query(By.css('.home-text'))
     const HTMLelem: HTMLElement = elem.nativeElement;
     expect(HTMLelem.textContent).toBe('Home');

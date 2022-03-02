@@ -1,5 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterModule } from '@angular/router';
 import { NotificationListComponent } from './notification-list.component';
 
 describe('NotificationListComponent', () => {
@@ -8,7 +9,8 @@ describe('NotificationListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotificationListComponent ]
+      declarations: [ NotificationListComponent ],
+      imports: [ RouterModule.forRoot([]), HttpClientTestingModule ]
     })
     .compileComponents();
   });

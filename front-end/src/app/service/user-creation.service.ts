@@ -11,7 +11,7 @@ export class UserCreationService {
 
   constructor(private http: HttpClient) { }
 
-  apiUrl = "https://54.87.122.77/user/api";
+  apiUrl = "http://apollouser-prod.us-east-2.elasticbeanstalk.com/api";
 
 
   getAllUsers(): Promise<User[]>
