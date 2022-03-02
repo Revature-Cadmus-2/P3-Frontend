@@ -43,7 +43,7 @@ export class CreatePostComponent implements OnInit {
       this.root.dateTime = new Date(nDate.toLocaleString("en-US", {timeZone: 'America/New_York'}))
       this.rService.addRoot(this.root).then(res => {
        // alert("Post successfully created")
-       this.toastr.success( 'You Successfully Created a Post','Post Notification', {
+      this.toastr.success( 'You Successfully Created a Post','Post Notification', {
         timeOut: 2000,
       } ); //Notification for displaying Successfully Posted. GM
         //alert("Post successfully created")
