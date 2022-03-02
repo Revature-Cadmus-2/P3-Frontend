@@ -64,9 +64,9 @@ hr {
     border-bottom: solid 1px rgb(100, 100, 100);
 }
 
-textarea{
-    /*background-color: rgb(228, 228, 228);*/
-}
+/*textarea{
+    /*background-color: rgb(228, 228, 228);
+}*/
 
 #up{
     cursor: pointer;
@@ -130,9 +130,9 @@ textarea{
     margin-bottom: 1vh;
 }
 
-.container {
-    /*background-color: white;*/
-}
+/*.container {
+    /*background-color: white;
+}*/
 
 /* #buttons {
     display: flex;

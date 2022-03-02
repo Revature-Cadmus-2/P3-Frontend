@@ -36,7 +36,7 @@ export class CreatePostComponent implements OnInit {
       if (user?.preferred_username) {
         this.root.userName = user.preferred_username
       }
-
+      
       this.root.dateTime = new Date()
       this.rService.addRoot(this.root).then(res => {
        // alert("Post successfully created")
