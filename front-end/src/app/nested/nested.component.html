@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top: -10px;">
-                    <h4>{{ root.message }}</h4>
+                    <h6>{{ root.message }}</h6>
                 </div>
             </div>
 
@@ -35,12 +35,12 @@
             <div class="allComments">
                 <div class="container" id="comments" *ngFor='let comment of root.comments'>
                     <div class="row">
-                        <p style="font-size: 18px;"><span style="font-size: 15px;">{{ comment.userName }}</span> • {{
+                        <p><span>{{ comment.userName }}</span> • {{
                             comment.dateTime | date:'short' }}
                         </p>
                     </div>
                     <div class="row">
-                        <h5>{{ comment.message }}</h5>
+                        <h6>{{ comment.message }}</h6>
                     </div>
                     <div class="row">
                         <div class="col" id="buttons">
@@ -76,10 +76,10 @@
                                 <img src="../../assets/arrow-downward.png" alt="" width="20px" id="down"
                                     (click)="unLikeComment(comment.id)">
                             </ng-template>
-                            <a class="btn btn-outline-primary" routerLink="/nest/{{ comment.id }}"
+                            <a class="btn btn-outline-primary" id="comment-int" routerLink="/nest/{{ comment.id }}"
                                 role="button" style="margin-right: 5px;">{{(comment.comments).length}} Comments</a>
                             <ng-container *ngIf="user == comment.userName">
-                                <button type="button" class="btn btn-outline-danger"
+                                <button type="button" class="btn btn-outline-danger" id="comment-int"
                                     (click)="deleteComment(comment.id)">Delete</button>
                             </ng-container>
                         </div>

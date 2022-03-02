@@ -1,48 +1,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+
 <div class="container-fluid" id="rr">
     <div class="row">
         <div class="row col-6" id="center">
             <div class="container" id="root">
                 <div class="row">
                     <div class="col">
-                        <p style="font-size: 18px;"><span style="font-size: 20px;"
-                                (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{
-                            root.dateTime | date:'short' }}</p>
-                    </div>
-                    <div class="col" id="follow-post-btn">
-                        <app-follow-button-root style="min-width: 110px;" [id]="root.id"></app-follow-button-root>
+                        <p><span (click)="goToUserProfile(root.userName)">{{ root.userName }}</span> • {{
+                            root.dateTime | date:'short' }}
+                        </p>
                     </div>
                 </div>
                 <div class="row" style="margin-top: -10px;">
-                    <h5 style="font-size: 20px;">{{ root.title }}</h5>
-                    <h6 style="font-size: 18px;">{{ root.message }}</h6>
+                    <h5 style=>{{ root.title }}</h5>
+                    <h6 style=>{{ root.message }}</h6>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-primary" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
+                        <a class="button-13" id="custom" routerLink="/read-root/{{root.id}}" role="button">Read Story</a>
+                    </div>
+                    <div class="col" id="follow-post-btn">
+                        <app-follow-button-root class="button-13" [id]="root.id"></app-follow-button-root>
                     </div>
                 </div>
             </div>
-            
-            <!-- <div class="new-response">
-                <span><small>Add to the story as <span style="color: brown;"><small (click)="goToUserProfile(user)">{{user}}</small></span></small></span>
-                <form (ngSubmit)="onSubmit(postForm)" #postForm="ngForm">
-                <mat-form-field>
-                    <textarea class="form-control" style="width: 700px" id="exampleFormControlTextarea1" placeholder="What are you thinking?" rows="5" cols="50" maxlength="140" 
-                    [(ngModel)]="comment.message" name="message" #message="ngModel" required></textarea>
-                </mat-form-field>
-                        <div *ngIf="postForm.controls['message']?.valid; else invalid">
-                            <input class="btn btn-primary btn-sm rounded-pill" type="submit" value="Comment">
-                        </div>
-                        <ng-template #invalid>
-                            <input class="btn btn-primary btn-sm rounded-pill disabled" type="submit" value="Comment">
-                        </ng-template>
-            </form>
-            </div> -->
             <div class="container-comment">
-                <span><small>Add to the story as <span
-                            style="color: brown;"><small
-                                (click)="goToUserProfile(user)">{{user}}</small></span></small></span>
+                <span><small>Add to the story as <span style="color: brown;"><small (click)="goToUserProfile(user)">{{user}}</small></span>
+                </small></span>
                 <form (ngSubmit)="onSubmit(postForm)" #postForm="ngForm">
                     <div class="form-group mb-3">
                         <textarea class="form-control" id="exampleFormControlTextarea1"
@@ -65,13 +49,10 @@
             <div class="allComments">
                 <div class="container" id="comments" *ngFor='let comment of root.comments'>
                     <div class="row">
-                        <p style="font-size: 18px;"><span style="font-size: 18px;"
-                                (click)="goToUserProfile(comment.userName)">{{ comment.userName }}</span> • {{
-                            comment.dateTime | date:'short' }}
-                        </p>
+                        <p><span (click)="goToUserProfile(comment.userName)">{{ comment.userName }}</span> • {{ comment.dateTime | date:'short' }} </p>
                     </div>
                     <div class="row" style="margin-bottom: 5px;">
-                        <h6 style="font-size: 20px;">{{ comment.message }}</h6>
+                        <h6>{{ comment.message }}</h6>
                     </div>
                     <div class="row">
                         <div class="col" id="buttons">
@@ -107,11 +88,10 @@
                                 <img src="../../assets/arrow-downward.png" alt="" width="20px" id="down"
                                     (click)="unLikeComment(comment.id)">
                             </ng-template>
-                            <a class="btn btn-outline-primary" routerLink="/nest/{{ comment.id }}"
-                                role="button" style="margin-right: 5px;">{{(comment.comments).length}} Comments</a>
+                            <button class="btn btn-outline-primary" id="comment-int" routerLink="/nest/{{ comment.id }}"
+                                role="button" style="margin-right: 5px;">{{(comment.comments).length}} Comments</button>
                             <ng-container *ngIf="user == comment.userName">
-                                <button type="button" class="btn btn-outline-danger"
-                                    (click)="deleteComment(comment.id)">Delete</button>
+                                <button type="button" class="btn btn-outline-danger" id="comment-int" (click)="deleteComment(comment.id)">Delete</button>
                             </ng-container>
                         </div>
                     </div>

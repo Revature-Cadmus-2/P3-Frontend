@@ -1,5 +1,5 @@
-<ng-button class="btn" style="margin-right: 5px;" [ngClass]="{'Follow':isFollow == false,
+<ng-button [ngClass]="{'Follow':isFollow == false,
 'Unfollow':isFollow == true }" (click)="onClick()">
-{{isFollow == true ? 'Unfollow' : (isFollow == false ? 
-'Follow' : '' )}}
+{{isFollow == true ? 'Unbookmark' : (isFollow == false ? 
+'Bookmark' : '' )}}
 </ng-button>

@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/service/profile.service';
 import { User } from '@auth0/auth0-angular';
 import { AuthService } from '@auth0/auth0-angular';
+
+
 @Component({
   selector: 'app-profile-pic',
   templateUrl: './profile-pic.component.html',
@@ -21,7 +23,8 @@ export class ProfilePicComponent implements OnInit {
     name: "",
     followings: [],
     followers: [],
-    notifications: []
+    notifications: [],
+    pictureLink: ""
   };
   test = 0;
 
@@ -32,24 +35,29 @@ export class ProfilePicComponent implements OnInit {
     name: "",
     followings: [],
     followers: [],
-    notifications: []
+    notifications: [],
+    pictureLink: ""
   };
   sessionUserName= sessionStorage.getItem('username');
-  userimglink ="https://s.hdnux.com/photos/51/50/21/10912852/3/rawImage.jpg";
+  userimglink ="https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg";
   
   ngOnInit(): void {
-        const sessionUserName = sessionStorage.getItem('username');
-        console.log(sessionUserName+'this is my sessions storage preferred username in *****');
-        this.auth.user$.subscribe(
-          (profile) => (this.currentUser.username = sessionUserName)
-          )
-  }
-
-  GetProfilePic(userimglink){
-    var Userprofilepic = userimglink
-    return Userprofilepic;
+    var sessionUserName = sessionStorage.getItem('username');
+    this.profileService.getUserByName(sessionUserName).then((cUser) =>{
+      //this.currentUser.pictureLink = cUser
+      console.log(cUser);
+      this.currentUser.pictureLink = cUser.pictureLink;
+    });
+    
+    console.log(this.sessionUserName+'this is my sessions storage preferred username in profilepic');
     
   }
-  
+
+  GetProfilePic(){
+
+  }
 
 }
+  
+
+
