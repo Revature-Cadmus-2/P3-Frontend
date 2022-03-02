@@ -29,6 +29,11 @@
     padding: 20px;
     
 }
+#followbutton{
+    position: absolute;
+    right: 100px; 
+    top: 100px;
+}
 /* 
 .box {
     margin-left: 5px;

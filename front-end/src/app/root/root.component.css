@@ -1,6 +1,3 @@
-*{
-    font-family: "Rubik";
-}
 .container-fluid {
     padding: 0;
 }
@@ -22,6 +19,8 @@
     text-align: center;
     font-size: 12px;
     margin: 20px;
+    font-family: "Rubik";
+
 }
 .btn-primary:hover {
     color: #fdf4f7;
@@ -32,6 +31,8 @@
     color: #BB86FC;
     border-color: #BB86FC;
     font-size: 12px;
+    font-family: "Rubik";
+
 }
 .btn-outline-primary:hover {
     color: #fdf4f7;
@@ -41,6 +42,8 @@
 span {
     font-size: 12px;
     font-weight: bold;
+    font-family: "Rubik";
+
 }
 span:hover {
     cursor: pointer;
@@ -57,6 +60,8 @@ h1 {
 }
 p {
     font-size: 12px;
+    font-family: "Rubik";
+
 }
 h5, h6{
     margin: 10px 0 20px 0;
@@ -70,6 +75,8 @@ h5{
 }
 h6{
     font-size:25px;
+    font-family: "Rubik";
+
 }
 
 .featured-post {

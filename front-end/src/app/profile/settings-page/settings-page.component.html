@@ -1,10 +1,10 @@
 <div>
-    <a class="btn" routerLink="/profile/:id">Back</a>
+    <a class="btn btn-outline-primary" routerLink="/profile/:id">Back</a>
 </div>
 <h1 class="greeting" > Settings Page </h1>
-<div class="center">
+<div class="container" id="box">
     <h2> Add profile pic </h2>
     <input type="file" (change)="onFileSelected($event)">
-    <button type="submit" class="btn" (click)="onUpload()"> Upload </button>
+    <button type="submit" class="button-13" id="custom" (click)="onUpload()"> Upload </button>
 </div>
 
