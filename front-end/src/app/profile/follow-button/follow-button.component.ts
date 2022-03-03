@@ -171,7 +171,7 @@ export class FollowButtonComponent implements OnInit {
         }
       );
     })
-    // FOLLOWED BY: adds who you are followed by. Garrett
+    // FOLLOWED BY: adds who you are followed by.
     // this.profileService.getUserById(this.followId).then((result: User) => {
     // this.followedby.followersUserName=this.currentUser.username;
     // this.followedby.followersId= this.currentUser.id;
@@ -186,7 +186,7 @@ export class FollowButtonComponent implements OnInit {
 
     this.toastr.success( 'You Followed Someone','Follow Notification', {
       timeOut: 2000, //timeout:2000 = 2 seconds
-    } ); //Notification for displaying when you follow someone. Garrett
+    } ); //Notification for displaying when you follow someone.
     
     this.followingNotification.FollowersId = this.currentUser.id;
     this.followingNotification.userId = this.followId;
@@ -207,7 +207,7 @@ export class FollowButtonComponent implements OnInit {
       );
       this.toastr.success( 'You Unfollowed Someone','Follow Notification', {
         timeOut: 2000,
-      } ); //Notification for displaying when you unfollow someone. Garrett
+      } ); //Notification for displaying when you unfollow someone.
     }
     
     //When you follow someone this is how their Follower list gets updated
