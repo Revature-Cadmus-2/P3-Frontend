@@ -1,4 +1,4 @@
-
+<!-- here we check if its your page or another users and display the right pic  -->
 <div>
     <div class="profilePic" *ngIf="sessionUserName != profileUser.username; else elsepic"> 
         <img class="imgsizer" src={{profileUser.pictureLink}}>
@@ -12,21 +12,5 @@
     
 </div>
 
-<!-- 
-<ng-container *ngIf="sessionUserName != profileUser.username; else elsepic">
-    <img class="imgsizer" src={{profileUser.pictureLink}}>
-</ng-container>
 
-<ng-template #elsepic>
-    <ng-container *ngIf="sessionUserName = rofileUser.username; else elseif2">
-        <img class="imgsizer" src="{{this.currentUser.pictureLink}}">
-    </ng-container>
-</ng-template>
-
-<ng-template #elseif2>
-    <img class="imgsizer" src="../../../assets/Profilepic.jpg">
-</ng-template> -->
-
-
-<!-- src="{{this.currentUser.pictureLink}}" -->
 

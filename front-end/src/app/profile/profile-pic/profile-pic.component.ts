@@ -63,7 +63,7 @@ export class ProfilePicComponent implements OnInit {
         (profile) => (this.currentUser.username = sessionUserName)
         )
         console.log();
-
+        // This is the logic to check if the user has a pic or not (to display the default image)
         this.currentRoute.params.subscribe(params => {
         this.id = params['id'];
         this.profileService.getUserById(this.id).then((result: User) => {

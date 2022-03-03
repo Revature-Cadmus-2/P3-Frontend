@@ -37,6 +37,7 @@ export class SettingsPageComponent implements OnInit {
     const sessionUserName = sessionStorage.getItem('username');
     console.log(sessionUserName+'this is my sessions storage preferred username in *****');
     console.log("on upload called in setting page")
+    //adds the image to the bucket
     this.amazons3.uploadFileToS3Bucket(this.selectedFile).then((response: any) => {
       var imglink = JSON.stringify(response.Location).slice(1,-1)
       this.profileService.AddUserProfilePicture(sessionUserName, imglink)

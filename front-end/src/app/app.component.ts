@@ -45,7 +45,8 @@ export class AppComponent {
       this.themeService.update('dark-mode');
     }
   }
-
+  // this is the session storage data to get username Its global so you can call it in each component 
+  // for an example to see it in action check out profile page 
   saveData(){
     this.auth.user$.subscribe((userInfo)=> { 
       if (userInfo?.username==null) {

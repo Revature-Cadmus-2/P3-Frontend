@@ -42,6 +42,8 @@ export class ProfilePageComponent implements OnInit {
     
     
   };
+  // this is where we call the session storage to get a local variable to use 
+  // to see where its coming from check out app component ts 
   sessionUserName = sessionStorage.getItem('username');
   ngOnInit(): void {
 
@@ -62,7 +64,6 @@ export class ProfilePageComponent implements OnInit {
         });
         this.auth.user$.subscribe((user) => {
           if (user?.username) {
-          // if (user?.sessionUserName) {
             this.currentUser.username = sessionUserName;
           }
       })
