@@ -153,7 +153,7 @@ export class BookMarkButtonComponent implements OnInit {
       );
     })
 
-     //Notification for displaying when you follow someone. Garrett
+     //Notification for displaying when you follow someone.
     } else if (!this.isFollow) {
       this.profileService.unfollowUser(this.followedUser.id).subscribe(
         data => {
