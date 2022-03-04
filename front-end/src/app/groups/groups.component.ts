@@ -89,14 +89,13 @@ export class GroupsComponent implements OnInit {
     })    
   }//End ngOnInit()
   
-  
+//The purpose of this is to navigate groups based on id
 goToGroup(id?: any): void {
-  console.log(id);
   this.router.navigate([`groups/${id}`],);
 }
   
   //Group Member, Not Group
-  //The purpose of this to to assign user to group
+  //The purpose of this is to assign user to group
   joinGroup(groupId: any, groupName: any): void {
     this.member.memberUserId = this.currentUser.id;
     this.member.groupId = groupId;

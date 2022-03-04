@@ -50,12 +50,9 @@ export class CreateGroupPostComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    console.log("Here is the part where we added the get root data");
   
-
     this.currentRoute.params.subscribe(params => {
       this.currentPostGroupId = +params['id'];
-      console.log(this.currentPostGroupId);
       this.root.groupPostId = this.currentPostGroupId;
       
       this.gService.getGroupById(this.currentPostGroupId).then((result: Group) => {

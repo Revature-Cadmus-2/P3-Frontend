@@ -51,7 +51,6 @@ export class CreateGroupComponent implements OnInit {
 
   ngOnInit(): void {
     const sessionUserName = sessionStorage.getItem('username');
-        console.log(sessionUserName+' this is my sessions storage preferred username in *');
         if(this.auth.isAuthenticated$)
         {
 
@@ -83,14 +82,10 @@ export class CreateGroupComponent implements OnInit {
 
   onSubmit(groupForm: NgForm) {
     
-      this.group.createdByUserId = this.currentUser.id
-      console.log(this.group);
-      console.log(this.currentUser.id)
-      
+      this.group.createdByUserId = this.currentUser.id      
       // this.group.dateTime = new Date()
       
       this.rService.createGroup(this.group).then(res => {
-        console.log("Your group has been created")
         this.router.navigateByUrl('groups');
       })
     

@@ -60,10 +60,12 @@ this.currentRoute.params.subscribe(params => {
   
 }//End OnInit
   
+//The purpose of this is to create new posts
 goToCreatePost(id: number): void {
   this.router.navigateByUrl(`${id}/create-group-post`);
 } 
 
+//The purpose of this is to return to all groups
 goBack(id: number): void {
   this.router.navigateByUrl('/groups');
 } 
